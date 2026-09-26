@@ -1,0 +1,10 @@
+node_modules
+dist
+*.local
+
+# Configuração local do assistente
+.claude/
+
+# Planilha de importação com o custo do fornecedor (repositório é público)
+yampi/importacao-yampi.xlsx
+yampi/importacao-yampi.csv

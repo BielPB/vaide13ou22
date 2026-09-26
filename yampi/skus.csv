@@ -1,0 +1,27 @@
+slug,sku,nome,preco_venda,variacoes
+bone-nome-lula-estrela,13-LULAE-VERMELHO,Boné Nome Lula (estrela),45.90,Cor:Vermelho
+bone-nome-lula-estrela,13-LULAE-PRETO,Boné Nome Lula (estrela),45.90,Cor:Preto
+bone-nome-lula-estrela,13-LULAE-BRANCO,Boné Nome Lula (estrela),45.90,Cor:Branco
+bone-nome-lula-estrela,13-LULAE-BRANCOPRETO,Boné Nome Lula (estrela),45.90,Cor:Branco e preto
+bone-numero-13,13-NUM-VERMELHO,Boné Número 13,45.90,Cor:Vermelho
+bone-numero-13,13-NUM-PRETO,Boné Número 13,45.90,Cor:Preto
+bone-nome-lula-letras,13-LULAL-VERMELHO,Boné Nome Lula (letras grandes),45.90,Cor:Vermelho
+bone-nome-lula-letras,13-LULAL-BRANCO,Boné Nome Lula (letras grandes),45.90,Cor:Branco
+bone-nome-lula-letras,13-LULAL-BRANCOVERMELHO,Boné Nome Lula (letras grandes),45.90,Cor:Branco e vermelho
+bone-nome-lula-letras,13-LULAL-PRETO,Boné Nome Lula (letras grandes),45.90,Cor:Preto
+bone-simples-vermelho,13-SIMP-VERMELHO,Boné Simples vermelho,39.90,Cor:Vermelho
+bone-trucker-liso,13-TRUCK-PRETO,Boné Trucker liso,39.90,Cor:Preto
+bone-nome-e-bandeira,22-BAND-AZUL,Boné Nome e bandeira,47.90,Cor:Azul
+bone-nome-e-bandeira,22-BAND-PRETO,Boné Nome e bandeira,47.90,Cor:Preto
+bone-nome-e-bandeira,22-BAND-VERDE,Boné Nome e bandeira,47.90,Cor:Verde
+bone-nome-e-bandeira,22-BAND-AMARELO,Boné Nome e bandeira,47.90,Cor:Amarelo
+bone-nome-e-bandeira,22-BAND-BRANCO,Boné Nome e bandeira,47.90,Cor:Branco
+bone-simples,22-SIMP-AZUL,Boné Simples,35.90,Cor:Azul
+bone-simples,22-SIMP-VERDE,Boné Simples,35.90,Cor:Verde
+bone-camuflado,22-CAMU-PRETO,Boné Camuflado,59.90,Cor:Preto
+bone-camuflado,22-CAMU-OLIVA,Boné Camuflado,59.90,Cor:Verde-oliva
+bone-camuflado,22-CAMU-CAMUFLADO,Boné Camuflado,59.90,Cor:Camuflado
+bone-flavio-bolsonaro,22-FLAV-PRETO,Boné Flávio Bolsonaro,37.90,Cor:Preto
+bone-flavio-bolsonaro,22-FLAV-AMARELO,Boné Flávio Bolsonaro,37.90,Cor:Amarelo
+bone-flavio-bolsonaro,22-FLAV-AZUL,Boné Flávio Bolsonaro,37.90,Cor:Azul
+bone-flavio-bolsonaro,22-FLAV-VERDE,Boné Flávio Bolsonaro,37.90,Cor:Verde
