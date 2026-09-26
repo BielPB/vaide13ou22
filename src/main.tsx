@@ -4,6 +4,8 @@ import '@fontsource-variable/archivo/wdth.css'
 import '@fontsource-variable/inter/wght.css'
 import './styles/index.css'
 import './styles/pdp.css'
+import './styles/store.css'
+import './styles/vitrine.css'
 import { App } from './App'
 import { loadConfig } from './config'
 

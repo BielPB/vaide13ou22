@@ -1,0 +1,329 @@
+{
+  "13/nome-lula-estrela": {
+    "slug": "bone-nome-lula-estrela",
+    "abertura": [
+      "Tem boné que só completa o visual. E tem boné que fala por você.",
+      "O Nome Lula traz o **LULA com a estrela** em destaque na frente, num modelo trucker que fica leve na cabeça e combina com o jeito de vestir do dia a dia."
+    ],
+    "destaques": [
+      "**Estampa frontal em DTF**, com cores vivas e bem definidas",
+      "**Tela atrás** que deixa o ar circular, para usar por horas sem abafar",
+      "**Fecho ajustável** atrás, para encaixar do jeito certo",
+      "**Aba curva**, no estilo clássico do trucker"
+    ],
+    "quandoUsar": "Para o dia a dia, encontros com os amigos, eventos e para quem gosta de mostrar o que pensa com estilo.",
+    "cores": "vermelho, preto, branco e branco com preto",
+    "ficha": [
+      [
+        "Modelo",
+        "Trucker com tela"
+      ],
+      [
+        "Estampa",
+        "DTF na frente"
+      ],
+      [
+        "Fechamento",
+        "Ajustável atrás"
+      ]
+    ]
+  },
+  "13/numero-13": {
+    "slug": "bone-numero-13",
+    "abertura": [
+      "Direto ao ponto: o **13 grande na frente**, sem rodeio.",
+      "Um trucker de visual forte, feito para ser visto de longe. O vermelho vem com o número em branco e o preto, com o número em vermelho: dois jeitos de usar o mesmo recado."
+    ],
+    "destaques": [
+      "**Número 13 em destaque**, visível de longe",
+      "**Tela atrás** que deixa o ar circular",
+      "**Aba curva**, no estilo clássico do trucker",
+      "Duas combinações de cor com **alto contraste**"
+    ],
+    "quandoUsar": "Para quem prefere um visual marcante e sem excesso de informação, no dia a dia ou em ocasiões especiais.",
+    "cores": "vermelho (número branco) e preto (número vermelho)",
+    "ficha": [
+      [
+        "Modelo",
+        "Trucker com tela"
+      ]
+    ]
+  },
+  "13/nome-lula-letras": {
+    "slug": "bone-nome-lula-letras",
+    "abertura": [
+      "Letras grandes, leitura fácil, recado claro.",
+      "O Nome Lula traz o **LULA em letras grandes** na frente de um trucker de linhas simples. São quatro combinações de cor, do vermelho clássico ao preto discreto."
+    ],
+    "destaques": [
+      "**LULA em letras grandes**, legível de longe",
+      "**Tela atrás** que deixa o ar circular",
+      "**Aba curva**, no estilo clássico do trucker",
+      "**Quatro combinações de cor** para escolher a que mais combina com você"
+    ],
+    "quandoUsar": "Para usar no dia a dia, com os amigos ou em eventos, com um visual que chama atenção.",
+    "cores": "vermelho, branco, branco com vermelho e preto",
+    "ficha": [
+      [
+        "Modelo",
+        "Trucker com tela"
+      ]
+    ]
+  },
+  "13/simples": {
+    "slug": "bone-simples-vermelho",
+    "abertura": [
+      "O básico que nunca sai de moda.",
+      "Boné **liso, em vermelho**, sem aplicação na frente: a cor fala por si. Combina com camiseta, jaqueta, bermuda ou jeans, e vai do rolê ao trabalho sem esforço."
+    ],
+    "destaques": [
+      "**Liso**, sem estampa ou bordado na frente",
+      "**Vermelho** marcante e fácil de combinar",
+      "**Aba curva** no estilo tradicional"
+    ],
+    "quandoUsar": "Para quem quer a cor sem nenhuma mensagem, ou um boné coringa para o dia a dia.",
+    "cores": "vermelho",
+    "ficha": [
+      [
+        "Modelo",
+        "Tradicional, liso"
+      ]
+    ]
+  },
+  "13/trucker-liso": {
+    "slug": "bone-trucker-liso",
+    "abertura": [
+      "Discreto, versátil e com cara de clássico.",
+      "Um **trucker preto, sem estampa**, com tela atrás. É o boné que combina com tudo e nunca fica fora de lugar."
+    ],
+    "destaques": [
+      "**Preto liso**, sem estampa",
+      "**Tela atrás** que deixa o ar circular",
+      "**Aba curva**, no estilo clássico do trucker"
+    ],
+    "quandoUsar": "Para o dia a dia, para o trabalho ou como segunda opção no guarda-roupa.",
+    "cores": "preto",
+    "ficha": [
+      [
+        "Modelo",
+        "Trucker com tela"
+      ],
+      [
+        "Estampa",
+        "Sem estampa"
+      ]
+    ]
+  },
+  "22/nome-bandeira": {
+    "slug": "bone-nome-e-bandeira",
+    "abertura": [
+      "Verde, amarelo e muito Brasil, sem precisar de exagero.",
+      "O Nome e bandeira traz a palavra **BRASIL** com a **bandeira do Brasil** na frente. São cinco cores para você escolher a sua, do azul ao branco."
+    ],
+    "destaques": [
+      "**BRASIL e bandeira** em destaque na frente",
+      "**Regulagem tipo fitão**: ajusta a diferentes tamanhos de cabeça",
+      "**Costura reforçada**, feita para o uso de todo dia",
+      "**Leve e ventilado**, confortável o dia inteiro",
+      "**Boa fixação de cor**, que continua bonita com o uso frequente",
+      "**Aba curva**, que protege o rosto do sol"
+    ],
+    "quandoUsar": "Para o dia a dia, viagens, dias de jogo do Brasil e para quem gosta de vestir as cores do país.",
+    "cores": "azul, preto, verde, amarelo e branco",
+    "ficha": [
+      [
+        "Fechamento",
+        "Regulagem traseira tipo fitão (strapback)"
+      ],
+      [
+        "Tamanho",
+        "Único, regulável"
+      ]
+    ]
+  },
+  "22/simples": {
+    "slug": "bone-simples",
+    "abertura": [
+      "O básico bem feito, em azul ou verde.",
+      "Boné **liso**, sem aplicação na frente, para quem quer cor sem informação demais. Fácil de combinar e perfeito para o dia a dia."
+    ],
+    "destaques": [
+      "**Liso**, sem estampa ou bordado na frente",
+      "**Duas cores**: azul e verde",
+      "**Aba curva** no estilo tradicional"
+    ],
+    "quandoUsar": "Para quem quer um boné coringa, que vai bem com qualquer roupa.",
+    "cores": "azul e verde",
+    "ficha": [
+      [
+        "Modelo",
+        "Tradicional, liso"
+      ]
+    ]
+  },
+  "22/camuflado": {
+    "slug": "bone-camuflado",
+    "abertura": [
+      "Visual militar, atitude de sobra.",
+      "O Camuflado traz o **patch da bandeira do Brasil** na frente e o estilo tático que combina tanto com a trilha quanto com a cidade. Tem em preto, verde-oliva e camuflado."
+    ],
+    "destaques": [
+      "**Patch da bandeira do Brasil** na frente",
+      "**Poliéster resistente**, feito para o uso do dia a dia",
+      "**Fecho com fivela e ilhós**: ajuste firme, tamanho único e unissex",
+      "**Visor rígido e aba curva**, que mantêm o formato e protegem do sol",
+      "**Forro interno macio e faixa que absorve o suor**, confortável até nos dias quentes"
+    ],
+    "quandoUsar": "Para trilhas, pesca, acampamento, airsoft e para quem curte o estilo tático no dia a dia.",
+    "cores": "preto, verde-oliva e camuflado",
+    "ficha": [
+      [
+        "Tecido",
+        "Poliéster"
+      ],
+      [
+        "Fechamento",
+        "Fivela e ilhós atrás"
+      ],
+      [
+        "Tamanho",
+        "Único, regulável"
+      ],
+      [
+        "Uso",
+        "Unissex"
+      ]
+    ]
+  },
+  "22/flavio": {
+    "slug": "bone-flavio-bolsonaro",
+    "abertura": [
+      "Um trucker com nome e sobrenome.",
+      "O boné Flávio Bolsonaro traz o nome em destaque na frente, com faixas coloridas logo abaixo, num trucker com tela atrás que fica leve na cabeça. São quatro cores: preto, amarelo, azul e verde."
+    ],
+    "destaques": [
+      "**“Flávio Bolsonaro” em destaque** na frente",
+      "**Tela atrás** que deixa o ar circular: leve e ventilado",
+      "**Regulagem tipo fitão**: ajusta a diferentes tamanhos de cabeça",
+      "**Costura reforçada**, feita para o uso de todo dia",
+      "**Boa fixação de cor**, que continua bonita com o uso frequente",
+      "**Aba curva**, no estilo clássico do trucker"
+    ],
+    "quandoUsar": "Para o dia a dia, encontros com os amigos, eventos e para quem gosta de mostrar o que pensa com estilo.",
+    "cores": "preto, amarelo, azul e verde",
+    "ficha": [
+      [
+        "Modelo",
+        "Trucker com tela"
+      ],
+      [
+        "Fechamento",
+        "Regulagem traseira tipo fitão (strapback)"
+      ],
+      [
+        "Tamanho",
+        "Único, regulável"
+      ]
+    ]
+  },
+  "13/camisa": {
+    "slug": "camisa-lula-13",
+    "abertura": [
+      "Uma estampa com presença, feita para ser notada.",
+      "A Camisa Lula 13 traz o **rosto do Lula** em arte de alto contraste, com o nome em destaque e a frase **“Brilha uma estrela”**. São sete cores para combinar do jeito que você gosta."
+    ],
+    "destaques": [
+      "**Malha 100% algodão fio 30.1**: toque macio, leve e respirável, confortável o dia inteiro",
+      "**Gola careca em ribana com reforço**, que mantém o formato",
+      "**Costuras reforçadas**, para durar mais",
+      "**Modelagem unissex**, com caimento moderno",
+      "**Estampa frontal grande**, com o rosto e o nome em destaque. Na preta, a arte vem em vermelho"
+    ],
+    "quandoUsar": "Para o dia a dia, encontros com os amigos, eventos e para quem gosta de mostrar o que pensa com estilo.",
+    "cores": "branca, marrom, rosa, cinza, marrom escuro, preta e vermelha",
+    "ficha": [
+      [
+        "Tecido",
+        "100% algodão, fio 30.1"
+      ],
+      [
+        "Modelagem",
+        "Unissex"
+      ],
+      [
+        "Gola",
+        "Redonda (careca), em ribana com reforço"
+      ],
+      [
+        "Mangas",
+        "Curtas"
+      ],
+      [
+        "Tamanhos",
+        "P, M, G, GG"
+      ],
+      [
+        "Medidas (referência)",
+        "P 50 × 70 cm · M 53 × 72 cm · G 56 × 74 cm · GG 59 × 76 cm (largura de axila a axila × comprimento do ombro à barra). Podem variar até 2 cm."
+      ],
+      [
+        "Cuidados",
+        "Lavar com água fria ou morna, sem alvejante com cloro. Secar à sombra. Passar em temperatura média. Evitar secadora em alta temperatura."
+      ],
+      [
+        "Observação",
+        "A cor pode variar um pouco conforme a tela."
+      ]
+    ]
+  },
+  "22/camisa": {
+    "slug": "camisa-bolsonaro-22",
+    "abertura": [
+      "Direta, simples e com recado claro.",
+      "A Camisa Bolsonaro 22 traz **“Tropa do Bolsonaro”** no peito, com a **faixa verde e amarela** logo abaixo. Tecido leve, visual limpo e caimento unissex, mostrado nas fotos em dois tipos de corpo."
+    ],
+    "destaques": [
+      "**“Tropa do Bolsonaro” em destaque** no peito, com a faixa verde e amarela",
+      "**Estampa de alta definição**, resistente a lavagens",
+      "**Tecido leve e de toque suave**, confortável no dia a dia",
+      "**Modelagem unissex**, com bom caimento",
+      "**Costura reforçada**, para durar mais"
+    ],
+    "quandoUsar": "Para o dia a dia, passeios, encontros com os amigos, eventos e para quem gosta de mostrar o que pensa com estilo.",
+    "cores": "branca e preta",
+    "ficha": [
+      [
+        "Tecido",
+        "100% algodão"
+      ],
+      [
+        "Estampa",
+        "Frontal, de alta definição"
+      ],
+      [
+        "Modelagem",
+        "Unissex"
+      ],
+      [
+        "Gola",
+        "Redonda"
+      ],
+      [
+        "Mangas",
+        "Curtas"
+      ],
+      [
+        "Tamanhos",
+        "P, M, G, GG"
+      ],
+      [
+        "Medidas (referência)",
+        "P 50 × 70 cm · M 53 × 72 cm · G 56 × 74 cm · GG 59 × 76 cm (largura de axila a axila × comprimento do ombro à barra). Podem variar até 2 cm."
+      ],
+      [
+        "Cuidados",
+        "Lavar com água fria ou morna, sem alvejante com cloro. Secar à sombra. Passar em temperatura média. Evitar secadora em alta temperatura."
+      ]
+    ]
+  }
+}

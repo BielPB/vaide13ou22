@@ -3,6 +3,7 @@ import { isExampleData } from '../config'
 import { formatBRL } from '../lib/format'
 import { allPending, hasEssential } from '../lib/pending'
 import { useShop } from '../lib/shop'
+import { ServiceBar } from './Home'
 
 export function Wordmark() {
   return (
@@ -46,7 +47,8 @@ function PromoBar() {
 }
 
 const links = [
-  { href: '#modelos', label: 'Modelos' },
+  { href: '#vitrine-13', label: 'Lula 13' },
+  { href: '#vitrine-22', label: 'Bolsonaro 22' },
   { href: '#detalhes', label: 'Detalhes' },
   { href: '#duvidas', label: 'Dúvidas' },
 ]
@@ -74,9 +76,10 @@ export function Header() {
     <>
       <PreviewBanner />
       <PromoBar />
+      <ServiceBar />
       <header className="site-header">
         <div className="container site-header__inner">
-          <a className="brand" href="#topo">
+          <a className="brand" href="#">
             <Wordmark />
             <span className={storeName ? 'brand__name' : 'visually-hidden'}>{storeName ?? 'Bonés e camisas 13 e 22'}</span>
             <span className="visually-hidden"> — voltar ao início</span>

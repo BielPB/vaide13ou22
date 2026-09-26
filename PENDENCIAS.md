@@ -1,7 +1,7 @@
-# Pendências para publicação
+# Pendências
 
-A loja **não está pronta para vender**. Enquanto os itens essenciais não forem preenchidos, a compra fica bloqueada automaticamente.
-A lista atualizada também aparece no rodapé da prévia, calculada a partir de `src/config/store.ts`.
+**A loja está publicada (`status: 'live'`) e a compra está liberada.** Não há pendência essencial.
+Os itens abaixo são recomendações para melhorar a página.
 
 ## Já recebido
 
@@ -16,18 +16,19 @@ A lista atualizada também aparece no rodapé da prévia, calculada a partir de 
 - **Checkout Yampi ligado:** 63 Links de compra conferidos abrindo cada link (27 cores de bonés + 36 cor×tamanho de camisas); domínio `vai-de-13-ou-22.pay.yampi.com.br`.
 - **Camisas:** Camisa Lula 13 (7 cores) e Camisa Bolsonaro 22 (2 cores), R$ 49,90, tamanhos P, M, G, GG (iguais aos da Yampi).
 
-## Essenciais: bloqueiam a venda
+## Resolvido para publicar
 
-| Chave | O que falta | Onde preencher |
-|---|---|---|
-| `MATERIAL` | Tecido do Nome e bandeira, do Flávio Bolsonaro, do Simples e dos 5 modelos do 13 | `models[].specs.material` |
-| `FECHAMENTO` · `MEDIDAS` | Ficha do Simples (13 e 22) e dos modelos do 13 | `models[].specs` |
-| — | Peso e dimensões da embalagem (a Yampi precisa para calcular o frete) | Cadastro na Yampi |
-| `VARIANTES` | Confirmar as cores de cada modelo (lidas das fotos), nos dois lados | `products.*.models` |
-| `IDENTIFICACAO_DO_VENDEDOR` | Confirmar a declaração de loja independente | `store.independence.confirmed` |
-| `CONDICOES_DE_FRETE` | Regras de frete e área de entrega | `commerce.shipping` |
-| `PAGAMENTOS` | Formas aceitas, como aparecem no checkout da Yampi | `commerce.payments` |
-| `POLITICAS` | Trocas e devoluções (resumo e texto), privacidade e termos | `commerce.returns`, `policies` |
+Pagamento (Pix e cartão em até 12x), postagem em até 2 dias úteis, frete, políticas (trocas, privacidade, termos),
+declaração de loja independente, links de compra (63) e tabela de medidas de referência das camisas.
+
+## Recomendado (não bloqueia a venda)
+
+| O que | Onde |
+|---|---|
+| Tecido, fechamento e tamanho dos bonés do lado 13 e do Simples (22); tecido do Nome e bandeira e do Flávio | `models[].specs` em `store.ts` (sem o dado, a linha não aparece no site) |
+| Confirmar as cores de cada modelo (lidas das fotos) | `products.*.models` |
+| Medir uma camisa de cada tamanho para trocar a tabela de referência | `measurements` das camisas |
+| Endereço final do site (domínio) | `store.siteUrl` |
 
 ## Aviso legal: identificação do vendedor
 

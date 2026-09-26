@@ -65,7 +65,7 @@ export function StickyPurchaseBar() {
         </span>
       </div>
       {state.canBuy ? (
-        <BuyButton />
+        <BuyButton label={`Comprar · ${price === null ? "" : formatBRL(price)}`.replace(/ · $/, "")} />
       ) : (
         <button type="button" className="btn btn--accent" onClick={() => scrollToAndFocus('comprar')}>
           Ver pedido

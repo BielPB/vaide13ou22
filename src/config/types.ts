@@ -114,12 +114,24 @@ export interface ProductSpecs {
   highlights: string[]
 }
 
+/** Descrição de venda completa (fonte única: src/config/descricoes.json). **negrito** vira destaque. */
+export interface ModelAbout {
+  slug: string
+  abertura: string[]
+  destaques: string[]
+  quandoUsar: string
+  cores: string
+  ficha: Array<[label: string, value: string]>
+}
+
 /** Um modelo dentro da linha 13 ou 22 (ex.: "Camuflado"), com suas cores. */
 export interface ProductModel {
   id: string
   name: string
   /** Tipo de peça. Padrão: boné. Camisas não têm "fechamento" e usam tabela de medidas. */
   category?: 'bone' | 'camisa'
+  /** Descrição de venda completa, a mesma usada na Yampi. */
+  about?: ModelAbout
   /** Descrição curta, apenas com o que é visível nas fotos ou confirmado. */
   description: string | null
   /** Preço de 1 unidade, em centavos. `null` = pendente. */
@@ -217,7 +229,7 @@ export interface CommerceInfo {
 }
 
 export interface PolicyDoc {
-  id: 'privacidade' | 'trocas' | 'termos'
+  id: 'privacidade' | 'sobre' | 'trocas' | 'termos' | 'cookies'
   title: string
   /** Texto completo ou resumo. `null` = POLITICAS pendente. */
   body: string | null
@@ -263,4 +275,17 @@ export interface StoreConfig {
   defaultSelection: DefaultSelection | null
   /** Imagem de compartilhamento (1200 × 630). */
   shareImage: string
+  /** Banner largo do topo (arte em /public). Ausente ou `null` = a seção não aparece. */
+  banner?: HomeBanner | null
+}
+
+/** Arte do banner do topo. `mobileSrc` (opcional) é uma versão mais alta para celular. */
+export interface HomeBanner {
+  src: string
+  alt: string
+  width: number
+  height: number
+  mobileSrc?: string
+  mobileWidth?: number
+  mobileHeight?: number
 }

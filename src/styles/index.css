@@ -161,9 +161,6 @@ input {
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
-.container--narrow {
-  max-width: 860px;
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -1121,16 +1118,6 @@ input {
    MODELOS, CORES E PREÇO PROGRESSIVO
    ===================================================================== */
 
-.tier {
-  display: block;
-  font-size: 0.8125rem;
-  color: var(--ink-2);
-  font-variant-numeric: tabular-nums;
-}
-.tier strong {
-  color: var(--ink);
-}
-
 .models {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1167,9 +1154,7 @@ input {
 .model .price--pending {
   font-size: 0.8125rem;
 }
-.model .tier {
-  font-size: 0.75rem;
-}
+
 @media (max-width: 379px) {
   .models {
     grid-template-columns: minmax(0, 1fr);

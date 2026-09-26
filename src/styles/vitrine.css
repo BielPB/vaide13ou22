@@ -1,0 +1,414 @@
+/* =====================================================================
+   LAYOUT DE VITRINE (mesma estrutura da loja na Yampi)
+   Faixa de atendimento, cabeçalho centralizado, banner, apresentação,
+   vitrines 13 e 22 e rodapé claro. Carregado depois de store.css.
+   ===================================================================== */
+.btn--outline {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--ink);
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.875rem;
+}
+.btn--outline:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* ---------- Faixa de atendimento ---------- */
+.service-bar {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.8125rem;
+}
+.service-bar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 16px;
+}
+.service-bar__contact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.service-bar__label {
+  color: var(--ink-2);
+}
+.service-bar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.service-bar a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 419px) {
+  .service-bar__label {
+    display: none;
+  }
+}
+
+/* ---------- Cabeçalho centralizado ---------- */
+.site-header__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+.site-header .brand {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  justify-self: center;
+}
+.site-header .site-nav {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+}
+.site-header__inner > .btn {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+}
+.site-nav__list {
+  left: 0;
+  right: auto;
+}
+@media (max-width: 519px) {
+  .site-header .brand__name {
+    display: none;
+  }
+}
+@media (min-width: 900px) {
+  .site-header__inner {
+    padding-top: 6px;
+  }
+  .site-header .site-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+  }
+  .site-nav__toggle {
+    display: none;
+  }
+  .site-nav__list,
+  .site-nav__list[data-open='true'] {
+    display: flex;
+    gap: 8px;
+    position: static;
+    min-width: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+  .site-nav__list a {
+    font-size: 0.9375rem;
+  }
+}
+
+/* ---------- Banner ---------- */
+.banner {
+  background: #0b0b0d;
+}
+.banner__link {
+  display: block;
+}
+.banner__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 640px;
+  object-fit: cover;
+}
+.banner__link:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -6px;
+}
+
+/* ---------- Apresentação ---------- */
+.intro {
+  background: var(--surface);
+  padding-block: 48px;
+}
+.intro__grid {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+}
+.intro__photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.intro__photos .pimg {
+  background: var(--surface);
+}
+.intro__text {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.intro__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 4vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.intro__text p {
+  max-width: 52ch;
+  color: var(--ink-2);
+}
+@media (min-width: 800px) {
+  .intro {
+    padding-block: 72px;
+  }
+  .intro__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+/* ---------- Vitrines 13 e 22 ---------- */
+.showcase {
+  background: var(--surface);
+  padding-block: 40px;
+  border-top: 1px solid var(--line);
+}
+.showcase__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  margin-bottom: 20px;
+}
+.showcase__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.4vw, 2rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+.showcase__num {
+  display: inline-grid;
+  place-items: center;
+  min-width: 2.1em;
+  height: 1.6em;
+  padding-inline: 0.3em;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: 900;
+}
+.showcase__count {
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+}
+.showcase__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 700px) {
+  .showcase__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px 20px;
+  }
+}
+@media (min-width: 1100px) {
+  .showcase__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.pcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  text-align: center;
+}
+.pcard__img {
+  position: relative;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f3f3f3;
+}
+.pcard__img .pimg {
+  background: #f3f3f3;
+}
+.pcard__off {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #0b6b34;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+.pcard__name {
+  margin-top: 4px;
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.pcard__price {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 2px 8px;
+}
+.pcard__price s {
+  color: var(--ink-2);
+  font-size: 0.875rem;
+}
+.pcard__price strong {
+  font-size: 1.0625rem;
+}
+.pcard__btn {
+  width: 100%;
+  max-width: 180px;
+  min-height: 44px;
+  margin-top: auto;
+  padding-inline: 0.8em;
+}
+
+/* ---------- Rodapé claro ---------- */
+.site-footer {
+  background: var(--surface);
+  color: var(--ink-2);
+  border-top: 1px solid var(--line);
+}
+.site-footer a {
+  color: var(--ink);
+}
+.site-footer :focus-visible {
+  outline-color: var(--ink);
+}
+.site-footer .wordmark__13 {
+  color: var(--pt-red-deep);
+}
+.site-footer .wordmark__22 {
+  color: var(--pl-blue);
+}
+.site-footer .wordmark__x {
+  color: var(--ink-2);
+}
+.site-footer__brand {
+  color: var(--ink);
+}
+.site-footer__tagline {
+  margin-top: 12px;
+}
+.site-footer__independence,
+.site-footer__legal {
+  color: var(--ink-2);
+  font-size: 0.875rem;
+}
+@media (min-width: 800px) {
+  .site-footer__grid {
+    grid-template-columns: 1.3fr 1fr;
+    gap: 64px;
+  }
+}
+.site-footer__heading {
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.site-footer__links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.site-footer__links a,
+.site-footer .policy summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: none;
+}
+.site-footer__links a:hover,
+.site-footer .policy summary:hover {
+  text-decoration: underline;
+}
+.site-footer__phone {
+  color: var(--ink-2);
+}
+.site-footer .policy__body {
+  color: var(--ink-2);
+}
+.site-footer__trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px 28px;
+  margin-top: 40px;
+}
+.paychips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.paychip {
+  display: inline-grid;
+  place-items: center;
+  min-width: 52px;
+  height: 30px;
+  padding-inline: 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.safe-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+.safe-badge strong {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.site-footer__copy {
+  border-top-color: var(--line);
+  color: var(--ink-2);
+}

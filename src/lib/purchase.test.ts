@@ -80,12 +80,13 @@ const line = (productId: '13' | '22', modelId: string, variantId: string, quanti
 })
 
 describe('configuração publicada (store.ts)', () => {
-  it('permanece em prévia e bloqueia a compra enquanto houver pendências', () => {
-    expect(storeConfig.status).toBe('preview')
-    expect(hasEssential(allPending(storeConfig))).toBe(true)
+  it('loja publicada, sem pendência essencial: a compra está liberada', () => {
+    expect(storeConfig.status).toBe('live')
+    expect(allPending(storeConfig).filter((i) => i.level === 'essential')).toEqual([])
     const p22 = storeConfig.products['22']
-    const model = p22.models[0]!
-    expect(purchaseState(storeConfig, p22, model, model.variants[0]!).canBuy).toBe(false)
+    const flavio = p22.models.find((m) => m.id === 'flavio')!
+    expect(purchaseState(storeConfig, p22, flavio, flavio.variants[0]!)).toEqual({ canBuy: true, block: null })
+    // ainda pede modelo e cor antes
     expect(purchaseState(storeConfig, storeConfig.products['13'], null, null).block).toBe('model-not-chosen')
   })
 
@@ -151,11 +152,21 @@ describe('configuração publicada (store.ts)', () => {
     expect(url('22', 'camisa', 'preta-gg')).toMatch(/4BDV8LLHFA$/)
   })
 
-  it('em prévia, mesmo com links, a compra continua bloqueada', () => {
-    const p = storeConfig.products['13']
+  it('o botão gera o Link de compra real da Yampi, com a quantidade', () => {
+    expect(buildCheckoutUrl(storeConfig, [line('13', 'numero-13', 'vermelho', 1)])).toBe(
+      'https://vai-de-13-ou-22.pay.yampi.com.br/r/KXCGAPO8S5:1',
+    )
+    expect(buildCheckoutUrl(storeConfig, [line('22', 'camisa', 'preta-m', 2)])).toBe(
+      'https://vai-de-13-ou-22.pay.yampi.com.br/r/6P7W0GJ3OB:2',
+    )
+  })
+
+  it('em prévia, mesmo com links, a compra fica bloqueada', () => {
+    const preview = { ...storeConfig, status: 'preview' as const }
+    const p = preview.products['13']
     const m = p.models.find((x) => x.id === 'numero-13')!
-    expect(purchaseState(storeConfig, p, m, m.variants[0]!).canBuy).toBe(false)
-    expect(() => buildCheckoutUrl(storeConfig, [line('13', 'numero-13', 'vermelho', 1)])).toThrow(CheckoutError)
+    expect(purchaseState(preview, p, m, m.variants[0]!).block).toBe('preview')
+    expect(() => buildCheckoutUrl(preview, [line('13', 'numero-13', 'vermelho', 1)])).toThrow(CheckoutError)
   })
 
   it('preço anterior real só nos modelos informados, com % arredondada para baixo', () => {
@@ -171,11 +182,7 @@ describe('configuração publicada (store.ts)', () => {
       camuflado: [7990, 25],
       flavio: [4990, 24],
     })
-    // todo preço anterior tem a origem registrada
     expect(all.filter((m) => m.compareAtCents).every((m) => !!m.compareAtSource)).toBe(true)
-    // o que se cobra continua sendo o preço atual
-    const n13 = storeConfig.products['13'].models.find((x) => x.id === 'numero-13')!
-    expect(subtotalCents(n13, 1)).toBe(4590)
   })
 
   it('sem faixas: subtotal = preço × quantidade (o que a Yampi cobra: 2 Número 13 = R$ 91,80)', () => {
@@ -306,12 +313,12 @@ describe('estado de compra', () => {
 
   it('pendência de um modelo não bloqueia os outros', () => {
     const c = structuredClone(cfg)
-    const incompleto: ProductModel = { ...structuredClone(m13), id: 'novo', specs: { ...specs, material: null } }
+    const incompleto: ProductModel = { ...structuredClone(m13), id: 'novo', images: [] }
     c.products['13'].models.push(incompleto)
     const p = c.products['13']
     expect(purchaseState(c, p, p.models[0]!, p.models[0]!.variants[0]!).canBuy).toBe(true)
     expect(purchaseState(c, p, incompleto, incompleto.variants[0]!).block).toBe('product-incomplete')
-    expect(productPending(p, c).some((i) => i.key === 'MATERIAL_13')).toBe(true)
+    expect(productPending(p, c).some((i) => i.key === 'FOTOS_REAIS_13' && i.level === 'essential')).toBe(true)
   })
 })
 

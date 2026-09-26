@@ -20,12 +20,14 @@ export function modelPending(p: Product, m: ProductModel, config: StoreConfig): 
   if (m.variants.length === 0) add('VARIANTES', 'Cores/opções')
   if (m.variants.some((v) => v.stock === null)) add('ESTOQUE', 'Estoque por cor', 'recommended')
   if (!m.images.some((img) => img.src !== null && !img.illustrative)) add('FOTOS_REAIS', 'Foto real')
-  if (m.specs.material === null) add('MATERIAL', 'Material')
-  if (m.specs.measurements === null) add('MEDIDAS', m.category === 'camisa' ? 'Tabela de medidas por tamanho' : 'Medidas')
+  // Ficha técnica: recomendada, não bloqueia a venda (decisão do vendedor em 26/09/2026).
+  // Na loja publicada, campo sem dado simplesmente não aparece — nada é inventado.
+  if (m.specs.material === null) add('MATERIAL', 'Material', 'recommended')
+  if (m.specs.measurements === null) add('MEDIDAS', m.category === 'camisa' ? 'Tabela de medidas por tamanho' : 'Medidas', 'recommended')
   else if (m.category === 'camisa' && /referência/i.test(m.specs.measurementsNote ?? '')) {
     add('MEDIDAS', 'Conferir a tabela de referência medindo uma peça de cada tamanho', 'recommended')
   }
-  if (m.specs.closure === null && m.category !== 'camisa') add('FECHAMENTO', 'Fechamento/ajuste')
+  if (m.specs.closure === null && m.category !== 'camisa') add('FECHAMENTO', 'Fechamento/ajuste', 'recommended')
   if (!checkoutConfigured(config) || m.variants.some((v) => v.checkoutUrl === null)) {
     add('CHECKOUT_POR_PRODUTO_OU_VARIANTE', 'Link de compra (Yampi) de cada cor')
   }

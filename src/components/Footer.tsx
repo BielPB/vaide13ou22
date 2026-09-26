@@ -3,7 +3,8 @@ import { allPending } from '../lib/pending'
 import { useShop } from '../lib/shop'
 import { Wordmark } from './Header'
 import { Pending, useShowPending } from './Pending'
-import { ContactLinks } from './ContactLinks'
+import { whatsappUrl } from '../lib/format'
+import { Icon } from './Icon'
 
 /** Abre o <details> de destino quando um link interno aponta para ele. */
 function useOpenDetailsOnHash() {
@@ -58,17 +59,18 @@ function PendingList() {
 export function Footer() {
   const { config } = useShop()
   const showPending = useShowPending()
-  const { store, policies } = config
+  const { store, policies, contact, commerce } = config
   useOpenDetailsOnHash()
 
   return (
     <footer className="site-footer" id="site-footer">
       <div className="container">
         <div className="site-footer__grid">
-          <div>
+          <div className="site-footer__about">
             <p className="site-footer__brand">
               <Wordmark /> {store.name ?? <Pending field="NOME_DA_LOJA">nome da loja</Pending>}
             </p>
+            <p className="site-footer__tagline">Bonés e camisas 13 e 22. Escolha o seu modelo.</p>
             {(store.independence.confirmed || showPending) && (
               <p className="site-footer__independence">
                 {store.independence.statement}{' '}
@@ -82,28 +84,31 @@ export function Footer() {
                   <br />
                 </>
               )}
-              {store.address && (
-                <>
-                  {store.address}
-                  <br />
-                </>
-              )}
-              {store.addressUrl && (
-                <a className="site-footer__map" href={store.addressUrl} target="_blank" rel="noopener">
-                  Ver no Google Maps
-                </a>
-              )}
+              {store.address}
             </p>
+            {store.addressUrl && (
+              <a className="site-footer__map" href={store.addressUrl} target="_blank" rel="noopener">
+                Ver no Google Maps
+              </a>
+            )}
           </div>
 
-          <div>
-            <h2 className="site-footer__heading">Atendimento</h2>
-            <ContactLinks />
-            {config.contact.hours && <p>{config.contact.hours}</p>}
-          </div>
-
-          <div>
-            <h2 className="site-footer__heading">Políticas</h2>
+          <nav className="site-footer__info" aria-labelledby="footer-info-title">
+            <h2 id="footer-info-title" className="site-footer__heading">
+              Informações
+            </h2>
+            <ul className="site-footer__links">
+              {contact.whatsapp && (
+                <li>
+                  <a href={whatsappUrl(contact.whatsapp)} target="_blank" rel="noopener">
+                    Fale conosco{contact.phone && <span className="site-footer__phone"> · WhatsApp {contact.phone}</span>}
+                  </a>
+                </li>
+              )}
+              <li>
+                <a href="#duvidas">Perguntas frequentes</a>
+              </li>
+            </ul>
             {policies
               .filter((p) => p.body || showPending)
               .map((p) => (
@@ -114,9 +119,26 @@ export function Footer() {
                   </div>
                 </details>
               ))}
-            <p className="site-footer__note">Esta página não usa cookies nem pixels de publicidade. A escolha do modelo não é salva nem enviada.</p>
-          </div>
+          </nav>
         </div>
+
+        {commerce.payments && (
+          <div className="site-footer__trust">
+            <ul className="paychips" aria-label="Formas de pagamento">
+              {['Visa', 'Mastercard', 'Elo', 'Pix'].map((b) => (
+                <li key={b} className="paychip">
+                  {b}
+                </li>
+              ))}
+            </ul>
+            <p className="safe-badge">
+              <Icon name="shield" size={18} />
+              <span>
+                <strong>Loja protegida</strong> Compra 100% segura
+              </span>
+            </p>
+          </div>
+        )}
 
         {showPending && <PendingList />}
 

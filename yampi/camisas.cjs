@@ -4,6 +4,11 @@
 
 const TAMANHOS = ['P', 'M', 'G', 'GG']
 
+// Textos de venda: fonte única em src/config/descricoes.json (o site usa o mesmo arquivo).
+const { porModelo } = require('./descricoes.cjs')
+const DESCRICAO_1 = porModelo('13/camisa')
+const DESCRICAO_2 = porModelo('22/camisa')
+
 module.exports = [
   {
     lado: 13,
@@ -22,31 +27,7 @@ module.exports = [
       ['VERMELHA', 'Vermelha', 'vermelha.jpg'],
     ],
     tamanhos: TAMANHOS,
-    descricao: {
-      abertura: [
-        'Uma estampa com presença, feita para ser notada.',
-        'A Camisa Lula 13 traz o <strong>rosto do Lula</strong> em arte de alto contraste, com o nome em destaque e a frase <strong>“Brilha uma estrela”</strong>. São sete cores para combinar do jeito que você gosta.',
-      ],
-      destaques: [
-        '<strong>Malha 100% algodão fio 30.1</strong>: toque macio, leve e respirável, confortável o dia inteiro',
-        '<strong>Gola careca em ribana com reforço</strong>, que mantém o formato',
-        '<strong>Costuras reforçadas</strong>, para durar mais',
-        '<strong>Modelagem unissex</strong>, com caimento moderno',
-        '<strong>Estampa frontal grande</strong>, com o rosto e o nome em destaque. Na preta, a arte vem em vermelho',
-      ],
-      ideal: 'Para o dia a dia, encontros com os amigos, eventos e para quem gosta de mostrar o que pensa com estilo.',
-      cores: 'branca, marrom, rosa, cinza, marrom escuro, preta e vermelha',
-      ficha: [
-        ['Tecido', '100% algodão, fio 30.1'],
-        ['Modelagem', 'Unissex'],
-        ['Gola', 'Redonda (careca), em ribana com reforço'],
-        ['Mangas', 'Curtas'],
-        ['Tamanhos', TAMANHOS.join(', ')],
-        ['Medidas (referência)', 'P 50 × 70 cm · M 53 × 72 cm · G 56 × 74 cm · GG 59 × 76 cm (largura de axila a axila × comprimento do ombro à barra). Podem variar até 2 cm.'],
-        ['Cuidados', 'Lavar com água fria ou morna, sem alvejante com cloro. Secar à sombra. Passar em temperatura média. Evitar secadora em alta temperatura.'],
-        ['Observação', 'A cor pode variar um pouco conforme a tela.'],
-      ],
-    },
+    descricao: DESCRICAO_1,
     termos:
       'camisa lula,camiseta lula,camisa do lula,camiseta do lula,camisa lula 13,camiseta lula 13,camisa 13,camiseta 13,camisa pt,camiseta pt,camisa brilha uma estrela,faz o l,camisa vermelha lula,camisa preta lula,camisa branca lula,camisa rosa lula,camisa cinza lula',
   },
@@ -66,31 +47,7 @@ module.exports = [
       ['preta-gordinho.jpg', 'camisa-bolsonaro-geral-preta-em-uso'],
     ],
     tamanhos: TAMANHOS,
-    descricao: {
-      abertura: [
-        'Direta, simples e com recado claro.',
-        'A Camisa Bolsonaro 22 traz <strong>“Tropa do Bolsonaro”</strong> no peito, com a <strong>faixa verde e amarela</strong> logo abaixo. Tecido leve, visual limpo e caimento unissex, mostrado nas fotos em dois tipos de corpo.',
-      ],
-      destaques: [
-        '<strong>“Tropa do Bolsonaro” em destaque</strong> no peito, com a faixa verde e amarela',
-        '<strong>Estampa de alta definição</strong>, resistente a lavagens',
-        '<strong>Tecido leve e de toque suave</strong>, confortável no dia a dia',
-        '<strong>Modelagem unissex</strong>, com bom caimento',
-        '<strong>Costura reforçada</strong>, para durar mais',
-      ],
-      ideal: 'Para o dia a dia, passeios, encontros com os amigos, eventos e para quem gosta de mostrar o que pensa com estilo.',
-      cores: 'branca e preta',
-      ficha: [
-        ['Tecido', '100% algodão'],
-        ['Estampa', 'Frontal, de alta definição'],
-        ['Modelagem', 'Unissex'],
-        ['Gola', 'Redonda'],
-        ['Mangas', 'Curtas'],
-        ['Tamanhos', TAMANHOS.join(', ')],
-        ['Medidas (referência)', 'P 50 × 70 cm · M 53 × 72 cm · G 56 × 74 cm · GG 59 × 76 cm (largura de axila a axila × comprimento do ombro à barra). Podem variar até 2 cm.'],
-        ['Cuidados', 'Lavar com água fria ou morna, sem alvejante com cloro. Secar à sombra. Passar em temperatura média. Evitar secadora em alta temperatura.'],
-      ],
-    },
+    descricao: DESCRICAO_2,
     termos:
       'camisa bolsonaro,camiseta bolsonaro,camisa do bolsonaro,camiseta do bolsonaro,camisa bolsonaro 22,camiseta bolsonaro 22,camisa 22,camiseta 22,camisa tropa do bolsonaro,camiseta tropa do bolsonaro,camisa pl,camiseta pl,camisa verde e amarela,camisa patriota,camisa preta bolsonaro,camisa branca bolsonaro',
   },

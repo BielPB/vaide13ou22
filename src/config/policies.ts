@@ -48,5 +48,23 @@ Trocas e devoluções. Seguem a Política de Trocas e Devoluções desta página
 
 Atendimento. Pelo WhatsApp ${WHATSAPP}.`
 
+export const sobreLoja = `A ${LOJA} vende bonés e camisas dos dois lados: Lula 13 e Bolsonaro 22. Cada cliente escolhe o seu modelo.
+
+Como vendemos. Fotos do produto real, sem alteração de cor. Pagamento por Pix ou cartão em até 12x. Postagem em até 2 dias úteis após a confirmação do pagamento. Frete grátis para todo o Brasil nas compras acima de R$ 149,90. 7 dias para desistir ou trocar tamanho ou cor, com o frete de devolução por nossa conta.
+
+Loja independente. Não temos vínculo com partidos, campanhas, candidatos ou com as pessoas citadas, e as vendas não são doações. Os nomes e números identificam os modelos dos produtos.
+
+Fale com a gente. WhatsApp ${WHATSAPP}. Endereço: ${ENDERECO}.`
+
+export const politicaCookies = `O que são cookies. São pequenos arquivos que um site guarda no seu navegador para lembrar informações enquanto você navega.
+
+Este site. A página da loja não usa cookies, pixels de publicidade nem ferramentas de análise. A escolha de modelo feita na página fica só na memória da aba e não é salva nem enviada.
+
+No checkout. Ao clicar em Comprar, você vai para o checkout da Yampi, que usa cookies necessários para funcionar: manter o carrinho, lembrar a sessão, concluir o pagamento com segurança e evitar fraudes.
+
+Como controlar. Você pode apagar ou bloquear cookies nas configurações do navegador. Se bloquear os cookies necessários, o checkout pode não funcionar.
+
+Dúvidas. Chame no WhatsApp ${WHATSAPP}. Veja também a Política de privacidade.`
+
 export const resumoTrocas =
   'Até 7 dias após receber para desistir ou trocar tamanho/cor (frete de devolução por nossa conta). Defeito de fabricação: até 90 dias.'

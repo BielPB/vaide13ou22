@@ -1,5 +1,6 @@
-import { politicaPrivacidade, politicaTrocas, resumoTrocas, termosVenda } from './policies.ts'
-import type { ProductImage, ProductModel, StoreConfig } from './types.ts'
+import descricoes from './descricoes.json'
+import { politicaCookies, politicaPrivacidade, politicaTrocas, resumoTrocas, sobreLoja, termosVenda } from './policies.ts'
+import type { ModelAbout, ProductImage, ProductModel, StoreConfig } from './types.ts'
 
 /**
  * ARQUIVO CENTRAL DE CONFIGURAÇÃO
@@ -381,7 +382,8 @@ const models13: ProductModel[] = [
 ]
 
 export const storeConfig: StoreConfig = {
-  status: 'preview',
+  // Loja publicada: o botão de compra leva ao checkout da Yampi.
+  status: 'live',
 
   store: {
     name: 'vaide13ou22',
@@ -451,15 +453,36 @@ export const storeConfig: StoreConfig = {
 
   policies: [
     // Rascunhos em src/config/policies.ts (CDC + LGPD). Revisar antes de publicar.
+    { id: 'privacidade', title: 'Política de privacidade', body: politicaPrivacidade },
+    { id: 'sobre', title: 'Sobre a loja', body: sobreLoja },
     { id: 'trocas', title: 'Trocas e devoluções', body: politicaTrocas },
-    { id: 'privacidade', title: 'Privacidade', body: politicaPrivacidade },
     { id: 'termos', title: 'Termos de venda', body: termosVenda },
+    { id: 'cookies', title: 'Política de cookies', body: politicaCookies },
   ],
 
   reviews: [],
 
-  // A página abre neste produto (o lado 13 ainda não tem modelos cadastrados).
+  // A compra abre neste produto (escolha do vendedor).
   defaultSelection: { productId: '22', modelId: 'flavio', variantId: 'amarelo' },
 
   shareImage: '/og-13x22.png',
+
+  // Arte do vendedor (a mesma do banner da Yampi). Os bonés do banner são ilustrativos;
+  // os modelos à venda aparecem logo abaixo, com fotos reais.
+  banner: {
+    src: '/banner.png',
+    width: 1942,
+    height: 809,
+    mobileSrc: '/banner-celular.png',
+    mobileWidth: 500,
+    mobileHeight: 375,
+    alt: 'Vai de 13 ou 22? Escolha o seu boné. Ver modelos',
+  },
+}
+
+// Descrições de venda (mesmo texto da Yampi) ligadas a cada modelo pelo par lado/modelo.
+for (const side of ['13', '22'] as const) {
+  for (const m of storeConfig.products[side].models) {
+    m.about = (descricoes as unknown as Record<string, ModelAbout>)[`${side}/${m.id}`]
+  }
 }

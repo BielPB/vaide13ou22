@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { formatBRL } from '../lib/format'
+import { formatBRL, whatsappUrl } from '../lib/format'
 import { useShop } from '../lib/shop'
 import { Pending, useShowPending } from './Pending'
 import { ContactLinks } from './ContactLinks'
@@ -9,6 +9,8 @@ interface Faq {
   /** `null` quando a resposta depende de dado ainda não confirmado. */
   a: ReactNode | null
   field: string
+  /** Âncora para links diretos (abre o item). */
+  id?: string
 }
 
 export function FAQ() {
@@ -39,7 +41,7 @@ export function FAQ() {
           <>
             {hasMeasures && (
               <p>
-                As medidas de cada modelo estão em <a href="#detalhes">Detalhes</a>.
+                As medidas de cada modelo estão na ficha técnica, em <a href="#detalhes">Sobre o produto</a>.
               </p>
             )}
             <ul>
@@ -98,6 +100,7 @@ export function FAQ() {
     {
       q: 'Como acompanho meu pedido?',
       field: 'POLITICAS (rastreio)',
+      id: 'faq-rastreio',
       a: commerce.tracking ? <p>{commerce.tracking}</p> : null,
     },
     {
@@ -117,16 +120,22 @@ export function FAQ() {
 
   return (
     <section className="section section--faq" id="duvidas" aria-labelledby="faq-title">
-      <div className="container container--narrow">
-        <header className="section__head">
+      <div className="container faq-grid">
+        <header className="section__head faq-grid__head">
           <p className="section__eyebrow">Dúvidas</p>
           <h2 id="faq-title" className="section__title">
             Ficou alguma dúvida?
           </h2>
+          <p className="faq-grid__lead">As respostas rápidas estão aqui. Se ainda restar dúvida, é só chamar.</p>
+          {config.contact.whatsapp && (
+            <a className="btn btn--ink faq-grid__cta" href={whatsappUrl(config.contact.whatsapp)} target="_blank" rel="noopener">
+              Falar no WhatsApp
+            </a>
+          )}
         </header>
         <div className="faq">
           {visible.map((item) => (
-            <details key={item.q} className="faq__item">
+            <details key={item.q} id={item.id} className="faq__item">
               <summary className="faq__q">{item.q}</summary>
               <div className="faq__a">
                 {item.a ?? (

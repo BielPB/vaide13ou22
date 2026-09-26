@@ -2,7 +2,8 @@ import type { StoreConfig } from './config/types'
 import { FAQ } from './components/FAQ'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
-import { Guarantee, Highlights, ModelGrid, Specs } from './components/ModelSections'
+import { HeroBanner, Intro, Showcase } from './components/Home'
+import { Guarantee, ProductInfo } from './components/ModelSections'
 import { ProductPage } from './components/ProductPage'
 import { Reviews } from './components/Reviews'
 import { StickyPurchaseBar } from './components/StickyPurchaseBar'
@@ -52,13 +53,15 @@ export function App({ config }: { config: StoreConfig }) {
       </a>
       <Header />
       <main>
+        <HeroBanner />
+        <Intro />
+        <Showcase side="13" />
+        <Showcase side="22" />
         <ProductPage />
-        <Highlights />
-        <ModelGrid />
-        <Reviews />
-        <Specs />
-        <FAQ />
         <Guarantee />
+        <ProductInfo />
+        <Reviews />
+        <FAQ />
       </main>
       <Footer />
       <StickyPurchaseBar />

@@ -20,23 +20,23 @@ npm test             # testes da lógica de preço, quantidade, variante e check
 
 ## Layout e hierarquia de compra
 
-A página segue o formato **página de produto**: o produto aparece logo no topo e dá para comprar sem rolar.
-
-1. **Faixa de oferta:** "Frete grátis para todo o Brasil em compras acima de R$ 149,90".
-2. **Produto (#comprar):** galeria à esquerda (no celular, em cima) e caixa de compra à direita, nesta ordem:
-   - lado (**13 ou 22 — qual vai na sua cabeça?**), modelo e cor, todos com miniatura;
-   - preço, com o preço de 2+ da mesma cor;
-   - quantidade e botão **Comprar agora — R$ subtotal**;
-   - progresso até o frete grátis e as garantias reais.
-3. **Por que escolher:** destaques numerados do modelo selecionado.
-4. **Todos os modelos:** grade dos dois lados; um toque seleciona o modelo e volta ao produto.
-5. **Avaliações:** só aparece com avaliações reais; a média e a contagem são calculadas delas.
-6. **Ficha técnica** do modelo, **Dúvidas** (FAQ) e **Compra tranquila** (7 dias do CDC, troca por defeito, frete grátis, WhatsApp).
-7. **Rodapé.** No celular, uma barra fixa com o modelo e o botão de compra aparece quando o produto sai da tela.
+1. **Faixa de oferta** (frete grátis) e cabeçalho com a linha vermelha e azul do 13|22.
+2. **Abas 13 | 22:** a assinatura da loja e o jeito de trocar de lado.
+3. **Faixa de modelos** do lado escolhido, com foto grande, preço e selo de desconto real.
+4. **Produto (#comprar):** galeria + compra enxuta.
+   - preço (com o anterior riscado, quando real) e formas de pagamento;
+   - cores em amostras com foto e, nas camisas, tamanho (a página nunca escolhe o tamanho pelo cliente);
+   - quantidade e **Comprar · R$ total** na mesma linha;
+   - progresso do frete grátis e garantias reais.
+5. **Faixa escura de garantias:** 7 dias, troca por defeito, frete grátis e WhatsApp.
+6. **Sobre o produto:** descrição completa (a mesma da Yampi) e, ao lado, a ficha técnica; nas camisas, a tabela de medidas.
+7. **Dúvidas** em duas colunas e **rodapé** com as políticas.
 
 A página abre no produto definido em `defaultSelection`, em `store.ts`.
 
-**Não entram, de propósito:** pop-up de entrada, preço riscado sem preço de referência real, contagem de avaliações ou estoque inventada e cronômetro na página.
+**Descrições:** a fonte única é `src/config/descricoes.json`. O site lê esse arquivo, e os scripts de `yampi/` também. Use `**negrito**` para os destaques.
+
+**Não entram, de propósito:** pop-up de entrada, preço riscado sem preço anterior real, contagem de avaliações ou estoque inventada e cronômetro na página.
 
 ### Cores
 
