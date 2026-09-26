@@ -7,28 +7,44 @@ Os itens abaixo são recomendações para melhorar a página.
 
 - **Loja:** vaide13ou22 · **WhatsApp:** (21) 96952-6716
 - **Endereço:** Sítio Côrrego de Santo Antônio, 998 – Côrrego de Santo Antonio, Barra Alegre – RJ, CEP 28666-971 (o link do Maps é uma busca por esse endereço).
-- **Oferta:** frete grátis em compras acima de R$ 149,90 (faixa no topo, resumo do pedido, Entrega e FAQ).
-- **Lado 22:** 4 modelos com fotos e preços. O preço de 2 ou mais vale para a **mesma cor** (mesma variação).
-  Nome e bandeira R$ 47,90 / R$ 39,90 · Simples R$ 35,90 / R$ 29,90 · Camuflado R$ 59,90 / R$ 49,90 · Flávio Bolsonaro R$ 37,90 / R$ 32,90.
+- **Oferta:** frete grátis para todo o Brasil em compras acima de R$ 149,90 (faixa no topo, compra, Entrega e FAQ).
+- **Sem desconto por quantidade:** cada peça sai pelo preço de 1 unidade (o plano da Yampi não libera cupons nem faixas).
+- **Lado 13:** Nome Lula (estrela), Número 13 e Nome Lula (letras grandes) a R$ 45,90 (antes R$ 54,90) · Simples vermelho e Trucker liso a R$ 39,90 (antes R$ 49,90) · Camisa Lula 13 a R$ 49,90 (7 cores).
+- **Lado 22:** Nome e bandeira R$ 47,90 (antes R$ 59,90) · Simples R$ 35,90 · Camuflado R$ 59,90 (antes R$ 79,90) · Flávio Bolsonaro R$ 37,90 (antes R$ 49,90) · Camisa Bolsonaro 22 a R$ 49,90 (branca e preta).
+- **Preços anteriores (riscados):** praticados antes pelo vendedor, com a origem registrada em `compareAtSource`.
+- **Camisas:** tamanhos P, M, G, GG (iguais aos da Yampi), algodão, cuidados de lavagem e tabela de medidas de **referência** (aviso de variação de até 2 cm).
 - **Fotos:** confirmadas pelo vendedor como fiéis ao produto.
 - **Fichas:** Nome e bandeira e Flávio Bolsonaro com regulagem fitão/strapback e tamanho único. Camuflado em poliéster, com fivela e ilhós.
-- **Lado 13:** 5 modelos com fotos. Nome Lula (estrela), Número 13 e Nome Lula (letras grandes): R$ 45,90 / R$ 39,90. Simples vermelho e Trucker liso: R$ 39,90 / R$ 37,90 (2+ da mesma cor).
-- **Checkout Yampi ligado:** 63 Links de compra conferidos abrindo cada link (27 cores de bonés + 36 cor×tamanho de camisas); domínio `vai-de-13-ou-22.pay.yampi.com.br`.
-- **Camisas:** Camisa Lula 13 (7 cores) e Camisa Bolsonaro 22 (2 cores), R$ 49,90, tamanhos P, M, G, GG (iguais aos da Yampi).
+- **Checkout Yampi ligado:** 63 Links de compra, um por variação, conferidos abrindo cada link (27 cores de bonés + 36 cor×tamanho de camisas); domínio `vai-de-13-ou-22.pay.yampi.com.br`.
+- **Layout:** mesma estrutura da loja na Yampi (banner em `public/banner.png` e `public/banner-celular.png`, vitrines 13 e 22, rodapé com Informações).
 
 ## Resolvido para publicar
 
-Pagamento (Pix e cartão em até 12x), postagem em até 2 dias úteis, frete, políticas (trocas, privacidade, termos),
-declaração de loja independente, links de compra (63) e tabela de medidas de referência das camisas.
+Pagamento (Pix e cartão em até 12x), postagem em até 2 dias úteis, frete, rastreio, políticas (privacidade, sobre a loja,
+trocas, termos e cookies), declaração de loja independente, links de compra (63) e tabela de medidas de referência das camisas.
+
+## Publicar o site
+
+| O que | Como |
+|---|---|
+| **Hospedagem** | Criar conta na Vercel e importar o repositório `BielPB/vaide13ou22` |
+| **Domínio** | Registrar no Registro.br e apontar para a Vercel |
+| **Endereço final** | Preencher `store.siteUrl` (liga canonical, `og:url` e dados estruturados) |
 
 ## Recomendado (não bloqueia a venda)
 
 | O que | Onde |
 |---|---|
 | Tecido, fechamento e tamanho dos bonés do lado 13 e do Simples (22); tecido do Nome e bandeira e do Flávio | `models[].specs` em `store.ts` (sem o dado, a linha não aparece no site) |
+| Foto do Camuflado Cinza | A cor existe na Yampi e no site, mas sem foto |
 | Confirmar as cores de cada modelo (lidas das fotos) | `products.*.models` |
 | Medir uma camisa de cada tamanho para trocar a tabela de referência | `measurements` das camisas |
-| Endereço final do site (domínio) | `store.siteUrl` |
+| Origem das fotos da camisa Bolsonaro (vieram de um anúncio da Shopee: usar só se forem do seu fornecedor) | `public/produtos/22-camisa` |
+| Banner de celular com 1000 px ou mais de largura (o atual tem 500 px e fica pouco nítido em telas de alta resolução) | `public/banner-celular.png` |
+| Estoque por cor (limita a quantidade e marca “Esgotado”) | `variants[].stock` |
+| Horário de atendimento | `contact.hours` |
+| Cuidados/lavagem dos bonés e circunferência em cm, se houver | `specs.care` / `specs.measurements` |
+| Avaliações verificadas: só depoimentos reais, de preferência com origem (print/link) | `reviews` |
 
 ## Aviso legal: identificação do vendedor
 
@@ -36,46 +52,27 @@ Por decisão do vendedor, o site **não mostra** nome completo nem CPF/CNPJ, só
 O Decreto 7.962/2013 (art. 2º) pede que sites de venda exibam nome ou razão social, CPF/CNPJ e endereço físico.
 Isso fica registrado como aviso e não bloqueia a página. Para cumprir o decreto, preencha `store.legalName` e `store.documentId`.
 
-## Na Yampi (antes de publicar)
+## Na Yampi
 
 | O que | Por quê |
 |---|---|
-| **Desconto de 2+** | Pausado: o plano da Yampi não libera cupons/faixas. A loja vende pelo preço de 1 unidade. Para reativar: plano com cupons → criar os 6 cupons (ver histórico) → testar → `quantityDiscountActive: true` e `OFERTA_2_MAIS_ATIVA = true`. |
 | **Renomear os dois "Boné Nome Lula"** | No checkout, os modelos estrela e letras grandes aparecem com o mesmo nome. Sugestão: "Boné Nome Lula (estrela)" e "Boné Nome Lula (letras grandes)", iguais ao site. |
-| **Foto do Camuflado Cinza** | A cor existe na Yampi e no site, mas sem foto. |
-| **Frete grátis acima de R$ 149,90** | Conferir com um CEP real no checkout. |
-
-## Camisas
-
-| O que falta | Por quê |
-|---|---|
-| **Tabela de medidas** (largura × comprimento por tamanho) | Evita troca por tamanho errado; é pendência essencial das camisas |
-| **Tecido** das duas camisas | A camisa Bolsonaro tem "algodão, unissex" só no título do anúncio de origem das fotos |
-| **Origem das fotos da camisa Bolsonaro** | Vieram de um anúncio da Shopee: usar só se forem do seu fornecedor |
-
-## Recomendadas
-
-| Chave | O que falta |
-|---|---|
-| `ESTOQUE` | Unidades por cor (limita a quantidade e marca “Esgotado”) |
-| `FOTOS_REAIS` | Fotos reais: lateral, parte traseira e detalhe do acabamento |
-| `CONDICOES_DE_FRETE` | Prazo de postagem após o pagamento |
-| `POLITICAS` | Como acompanhar o pedido (rastreio) |
-| `CONTATO` | Horário de atendimento |
-| `URL_DO_SITE` | Endereço final (canonical, `og:url` e dados estruturados) |
-| — | Cuidados/lavagem de cada modelo (`specs.care`) e circunferência em cm, se houver |
-| — | Avaliações verificadas: o vendedor vai enviar. Só entram depoimentos reais, de preferência com origem (print/link) |
+| **Trocar a marca "LULA13" por vaide13ou22** | A marca aparece só em um dos lados e quebra o equilíbrio da loja. |
+| **Barra do topo** | Trocar "Frete Grátis para todo Brasil!" por "Frete grátis para todo o Brasil acima de R$ 149,90" (sem o valor mínimo, a oferta é enganosa pelo CDC). |
+| **Frase do rodapé** | Trocar "Encontre o boné perfeito para apoiar seu candidato." por "Bonés e camisas 13 e 22. Escolha o seu modelo." |
+| **Seções de exemplo** | Ligar "Nome da coleção" às coleções Lula 13 / Bolsonaro 22 e desativar "Escolha por marcas". |
+| **Pixels e análise** | A Política de cookies diz que a loja não usa cookies de publicidade. Conferir em Integrações/Marketing que não há Meta Pixel, Google Analytics etc. ligados. |
+| **Preço promocional** | Só nos modelos com preço riscado no site (5 do lado 13; Nome e bandeira, Camuflado e Flávio no 22). |
+| **Frete grátis acima de R$ 149,90** | Conferir com um CEP real no checkout. A página só anuncia; quem aplica é a Yampi. |
+| **Desconto de 2+ (desligado)** | Para reativar: plano com cupons → criar os cupons → testar no checkout → `quantityDiscountActive: true`. |
 
 ## Validações externas (fora do código)
 
-- **Frete grátis na Yampi:** configurar frete grátis para pedidos acima de R$ 149,90. A página só anuncia; quem aplica é o checkout.
-- **Preço progressivo na Yampi:** configurar o desconto de 2 ou mais unidades igual ao da página. Se a Yampi cobrar diferente, vale o valor da Yampi.
-- **Yampi:** confirmar no painel que cada variação tem Link de compra próprio. Se só o produto tiver link, verificar como o checkout trata a escolha da variação e fazer uma compra de teste antes de publicar.
 - **Cores:** as cores vieram do manual *PT Digital* (2021) e do *Manual da Marca PL 2023*. Confirmar se existem versões mais recentes.
   O tom `--pl-blue-deep` é derivado e não aparece no manual.
-- **Revisão jurídica, recomendada antes de vender:** uso comercial dos nomes “Lula” e “Bolsonaro” e dos números 13 e 22,
+- **Revisão jurídica, recomendada:** uso comercial dos nomes “Lula” e “Bolsonaro” e dos números 13 e 22,
   referência às cores partidárias e regras da legislação eleitoral para venda de produtos com identificação política,
   principalmente em período eleitoral.
 - **Imagem de compartilhamento:** `public/og-13x22.png` foi gerada a partir de `og-13x22.svg` e pode ser substituída por uma arte com fotos reais.
-- **Desempenho:** medir com Lighthouse ou PageSpeed depois do deploy, já com as fotos reais otimizadas (WebP/AVIF com `srcSet`).
+- **Desempenho:** medir com Lighthouse ou PageSpeed depois do deploy. Os banners estão em PNG (cerca de 750 KB juntos); convertê-los para WebP deixa a página mais leve.
   Nenhuma nota foi medida até agora.
