@@ -930,32 +930,52 @@ html {
   margin-top: 6px;
   color: var(--ink-2);
 }
-/* Celular: fileira que rola para o lado. Computador: grade de 6 colunas. */
+/* Carrossel contínuo e sem pausa, com as bordas esmaecendo */
+.cphotos__viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
 .cphotos__track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 42%;
+  display: flex;
+  width: max-content;
+  animation: cphotos-scroll var(--cphotos-dur, 50s) linear infinite;
+}
+.cphotos__group {
+  display: flex;
   gap: 12px;
-  margin: 0 calc(var(--gutter) * -1);
-  padding: 0 var(--gutter) 8px;
+  margin: 0;
+  /* O espaço depois do último item é igual ao gap: a emenda entre as duas cópias fica invisível. */
+  padding: 0 12px 0 0;
   list-style: none;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
 }
-.cphotos__track::-webkit-scrollbar {
-  display: none;
+.cphotos__group li {
+  flex: none;
+  width: 120px;
 }
-.cphotos__track li {
-  scroll-snap-align: start;
+@media (min-width: 700px) {
+  .cphotos__group li {
+    width: 150px;
+  }
 }
-@media (min-width: 900px) {
+@keyframes cphotos-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* Quem pede menos movimento: faixa parada, rolagem manual e sem a cópia visual. */
+@media (prefers-reduced-motion: reduce) {
+  .cphotos__viewport {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
   .cphotos__track {
-    grid-auto-flow: row;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    margin: 0;
-    padding: 0;
-    overflow: visible;
+    animation: none;
+    padding-inline: var(--gutter);
+  }
+  .cphotos__group[aria-hidden] {
+    display: none;
   }
 }
 .cphoto {
@@ -980,7 +1000,7 @@ html {
   transform: scale(0.98);
 }
 .cphoto__name {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   text-align: center;
 }

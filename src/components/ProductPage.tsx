@@ -1,7 +1,7 @@
 import { useEffect, useId, useState, type ReactNode } from 'react'
 import type { ProductId, ProductModel, ProductVariant } from '../config/types'
 import { formatBRL } from '../lib/format'
-import { blockMessages, checkoutProviderName, discountFromCompareAt, isVariantInStock } from '../lib/purchase'
+import { blockMessages, discountFromCompareAt, isVariantInStock } from '../lib/purchase'
 import { Link } from '../lib/router'
 import { modelFullName } from '../lib/routes'
 import { useCart } from '../lib/cartContext'
@@ -209,7 +209,6 @@ export function ProductPage() {
   const { product, model, variant, quantity, rule, unitCents, subtotalCents, state } = selection
   const images = model?.images ?? [product.heroImage]
   const off = model ? discountFromCompareAt(model) : null
-  const provider = checkoutProviderName(config)
   const sized = model ? hasSizes(model) : false
   const color = variant?.label ?? pendingColor
 
@@ -395,15 +394,11 @@ export function ProductPage() {
             <ul className="trust">
               <li>
                 <Icon name="lock" size={18} />
-                <span>Pagamento seguro {provider ? `pela ${provider}` : 'em checkout externo'}</span>
+                <span>Pagamento seguro</span>
               </li>
               <li>
                 <Icon name="truck" size={18} />
                 <span>{config.commerce.dispatchShort ?? config.commerce.dispatchTime ?? 'Frete e prazo calculados pelo CEP'}</span>
-              </li>
-              <li>
-                <Icon name="refresh" size={18} />
-                <span>Troca ou devolução em até 7 dias</span>
               </li>
             </ul>
           </div>

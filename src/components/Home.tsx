@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import type { ProductId, Review } from '../config/types'
 import { formatBRL, whatsappUrl } from '../lib/format'
 import { discountFromCompareAt } from '../lib/purchase'
@@ -111,7 +112,7 @@ const reviewCount = (reviews: Review[], productId: ProductId, modelId: string) =
  */
 export function CustomerPhotos() {
   const { config } = useShop()
-  const MAX = 12
+  const MAX = 16
   /** Fotos de um lado, revezando os modelos (a mais útil de cada modelo primeiro). */
   const fila = (side: ProductId) => {
     const porModelo = new Map<string, Review[]>()
@@ -154,16 +155,34 @@ export function CustomerPhotos() {
           </h2>
           <p className="cphotos__lead">Pedidos que já chegaram. Toque na foto para ver o produto.</p>
         </header>
-        <ul className="cphotos__track">
-          {itens.map(({ review, href, name }) => (
-            <li key={review.photo}>
-              <Link href={href} className="cphoto">
-                <img className="cphoto__img" src={review.photo} alt={`Foto de cliente: ${name}`} loading="lazy" width={300} height={400} />
-                <span className="cphoto__name">{name}</span>
-              </Link>
-            </li>
+      </div>
+      {/*
+        Carrossel contínuo: a lista aparece duas vezes seguidas e a faixa anda até a metade
+        e recomeça, sem emenda. A segunda cópia é só visual (oculta para leitores de tela e
+        fora da navegação por teclado). Com "reduzir movimento", a faixa fica parada e rola à mão.
+      */}
+      <div className="cphotos__viewport">
+        <div className="cphotos__track" style={{ '--cphotos-dur': `${itens.length * 3.5}s` } as CSSProperties}>
+          {[0, 1].map((copia) => (
+            <ul key={copia} className="cphotos__group" aria-hidden={copia === 1 || undefined}>
+              {itens.map(({ review, href, name }) => (
+                <li key={review.photo}>
+                  <Link href={href} className="cphoto" tabIndex={copia === 1 ? -1 : undefined}>
+                    <img
+                      className="cphoto__img"
+                      src={review.photo}
+                      alt={copia === 1 ? '' : `Foto de cliente: ${name}`}
+                      loading="lazy"
+                      width={150}
+                      height={200}
+                    />
+                    <span className="cphoto__name">{name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   )
