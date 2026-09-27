@@ -133,11 +133,7 @@ export function Guarantee() {
     {
       icon: 'shield',
       title: 'Garantia de 90 dias',
-      text: (
-        <>
-          Contra defeito de fabricação. <a href="#politica-trocas">Ver política</a>
-        </>
-      ),
+      text: 'Contra defeito de fabricação.',
     },
     ...(commerce.freeShippingAboveCents !== null
       ? [

@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { Lightbox } from './Lightbox'
 import { ReviewVotes, reviewId } from './ReviewVotes'
-import type { ProductId, Review } from '../config/types'
+import type { ProductId, ProductImage, Review } from '../config/types'
 import { useShop } from '../lib/shop'
 
 /**
@@ -56,8 +57,21 @@ export function Reviews() {
     .sort((a, b) => Number(!!b.photo) - Number(!!a.photo) || (b.helpful ?? 0) - (a.helpful ?? 0) || b.date.localeCompare(a.date))
   const summary = useReviewSummary(selection?.product.id, selection?.model?.id)
   const [showAll, setShowAll] = useState(false)
+  // Foto aberta na janela de ampliação (índice em `photos`); null = fechada.
+  const [zoom, setZoom] = useState<number | null>(null)
   if (!summary || reviews.length === 0) return null
   const shown = showAll ? reviews : reviews.slice(0, FIRST)
+  // Fotos das avaliações visíveis, na mesma ordem, para navegar com as setas.
+  const withPhoto = shown.filter((r) => r.photo)
+  const photos: ProductImage[] = withPhoto.map((r) => ({
+    src: r.photo!,
+    label: [r.author, r.variantLabel].filter(Boolean).join(' · '),
+    alt: `Foto enviada por ${r.author}`,
+    // Proporção aproximada (fotos de celular em pé); o navegador usa a real ao carregar.
+    width: 900,
+    height: 1200,
+    illustrative: false,
+  }))
 
   const rated = reviews.filter((r) => r.rating !== undefined)
   const dist = [5, 4, 3, 2, 1].map((n) => ({ n, count: rated.filter((r) => r.rating === n).length }))
@@ -132,20 +146,20 @@ export function Reviews() {
                 </div>
               )}
               {r.photo && (
-                <a
+                <button
+                  type="button"
                   className="review__photo-link"
-                  href={r.photo}
-                  target="_blank"
-                  rel="noopener"
-                  aria-label={`Ver foto enviada por ${r.author} em tamanho grande`}
+                  aria-label={`Ampliar foto enviada por ${r.author}`}
+                  onClick={() => setZoom(withPhoto.indexOf(r))}
                 >
-                  <img className="review__photo" src={r.photo} alt={`Foto enviada por ${r.author}`} loading="lazy" />
-                </a>
+                  <img className="review__photo" src={r.photo} alt="" loading="lazy" />
+                </button>
               )}
               <ReviewVotes id={reviewId(r)} helpful={r.helpful ?? 0} />
             </li>
           ))}
         </ul>
+        <Lightbox title="Fotos dos clientes" images={photos} index={zoom} onIndexChange={setZoom} onClose={() => setZoom(null)} />
         {reviews.length > FIRST && !showAll && (
           <p className="rv-more">
             <button type="button" className="btn btn--outline" aria-controls="lista-avaliacoes" onClick={() => setShowAll(true)}>

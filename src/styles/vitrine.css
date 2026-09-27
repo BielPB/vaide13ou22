@@ -668,6 +668,12 @@ html {
     width: 100%;
     text-align: center;
   }
+  /* Preço anterior (riscado) numa linha acima do preço atual */
+  .store .price-block__was {
+    order: -1;
+    flex-basis: 100%;
+    text-align: center;
+  }
   .pick__help {
     display: inline-flex;
     align-items: center;
@@ -704,34 +710,6 @@ html {
     flex-direction: column;
     align-items: center;
     gap: 6px;
-    text-align: center;
-  }
-
-  /* Sobre o produto e ficha técnica */
-  .about__text {
-    text-align: center;
-  }
-  .about__lead {
-    margin-inline: auto;
-  }
-  .about__list li {
-    padding-left: 0;
-  }
-  .about__list li::before {
-    content: none;
-  }
-  .spec-row {
-    grid-template-columns: 1fr;
-    gap: 2px;
-    text-align: center;
-  }
-  .about__specs-title,
-  .sizes-box__title,
-  .size-table__note {
-    text-align: center;
-  }
-  .size-table th,
-  .size-table td {
     text-align: center;
   }
 
@@ -913,7 +891,11 @@ html {
 /* Foto enviada pelo cliente: miniatura que abre em tamanho grande */
 .review__photo-link {
   display: inline-block;
+  padding: 0;
+  border: 0;
   border-radius: 10px;
+  background: none;
+  cursor: zoom-in;
 }
 .review .review__photo {
   display: block;

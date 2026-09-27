@@ -281,7 +281,6 @@ export function ProductPage() {
                 ) : (
                   <>
                     {summary.count} {summary.count === 1 ? 'avaliação' : 'avaliações'}
-                    {summary.origins.length === 1 && ` na ${summary.origins[0]}`}
                   </>
                 )}
               </a>
