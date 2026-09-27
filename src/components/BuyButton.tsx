@@ -11,7 +11,7 @@ export function BuyButton({ className = '', label }: { className?: string; label
   return (
     <button
       type="button"
-      className={`btn btn--buy btn--accent ${className}`}
+      className={`btn btn--buy btn--checkout ${className}`}
       aria-disabled={disabled}
       aria-busy={busy}
       aria-describedby={state.block ? `block-${product.id}` : undefined}

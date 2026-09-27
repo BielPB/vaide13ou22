@@ -390,6 +390,7 @@ export const storeConfig: StoreConfig = {
     // O vendedor optou por não exibir nome completo nem CPF/CNPJ (veja PENDENCIAS.md).
     legalName: null,
     documentId: null,
+    // Endereço NÃO exibido no site (decisão do vendedor em 26/09/2026). Fica só como registro.
     address: 'Sítio Côrrego de Santo Antônio, 998 – Côrrego de Santo Antonio, Barra Alegre – RJ, CEP 28666-971',
     // Busca do endereço acima no Google Maps (o link curto anterior apontava para Belo Horizonte/MG).
     addressUrl:
@@ -443,7 +444,9 @@ export const storeConfig: StoreConfig = {
     quantityDiscountActive: false,
     shipping: 'Enviamos para todo o Brasil. O frete e o prazo de entrega são calculados pelo CEP no checkout; acima de R$ 149,90, o frete é grátis.',
     dispatchTime: 'Postamos em até 2 dias úteis após a confirmação do pagamento.',
+    dispatchShort: 'Postagem em até 2 dias úteis',
     payments: ['Pix', 'Cartão de crédito em até 12x'],
+    paymentsShort: 'No Pix ou em até 12x no cartão',
     returns: resumoTrocas,
     // Canal do rastreio a confirmar com o vendedor (e-mail da Yampi ou WhatsApp).
     tracking: 'Após a postagem, você recebe o código de rastreio pelos contatos informados no pedido.',
@@ -461,9 +464,6 @@ export const storeConfig: StoreConfig = {
   ],
 
   reviews: [],
-
-  // A compra abre neste produto (escolha do vendedor).
-  defaultSelection: { productId: '22', modelId: 'flavio', variantId: 'amarelo' },
 
   shareImage: '/og-13x22.png',
 

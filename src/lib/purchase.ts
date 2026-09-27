@@ -108,7 +108,7 @@ export const blockMessages: Record<PurchaseBlock, string> = {
   'price-missing': 'Preço ainda não confirmado.',
   'variants-missing': 'Cores/opções ainda não cadastradas.',
   'variant-not-chosen': 'Escolha a cor para continuar.',
-  'out-of-stock': 'Esta opção está esgotada no momento.',
+  'out-of-stock': 'Esta opção está esgotada.',
   'checkout-missing': 'Compra indisponível: checkout ainda não configurado para esta opção.',
   'product-incomplete': 'Compra indisponível: faltam informações obrigatórias deste modelo.',
 }

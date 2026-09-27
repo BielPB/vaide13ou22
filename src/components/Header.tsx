@@ -1,8 +1,9 @@
-import { useEffect, useId, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { isExampleData } from '../config'
 import { formatBRL } from '../lib/format'
 import { allPending, hasEssential } from '../lib/pending'
 import { useShop } from '../lib/shop'
+import { Link } from '../lib/router'
 import { ServiceBar } from './Home'
 
 export function Wordmark() {
@@ -46,31 +47,43 @@ function PromoBar() {
   )
 }
 
-const links = [
-  { href: '#vitrine-13', label: 'Lula 13' },
-  { href: '#vitrine-22', label: 'Bolsonaro 22' },
-  { href: '#detalhes', label: 'Detalhes' },
-  { href: '#duvidas', label: 'Dúvidas' },
+type Page = 'home' | 'product' | 'other'
+
+/** Categorias: as vitrines ficam na página inicial; "Detalhes" só existe na página de produto. */
+const linksFor = (page: Page): Array<{ id: string; href: string; label: string; side?: '13' | '22' }> => [
+  { id: 'vitrine-13', href: '/#vitrine-13', label: 'Lula 13', side: '13' },
+  { id: 'vitrine-22', href: '/#vitrine-22', label: 'Bolsonaro 22', side: '22' },
+  ...(page === 'product' ? [{ id: 'detalhes', href: '#detalhes', label: 'Detalhes' }] : []),
+  { id: 'duvidas', href: '#duvidas', label: 'Dúvidas' },
 ]
 
-export function Header() {
-  const { config } = useShop()
-  const [open, setOpen] = useState(false)
-  const menuId = useId()
-  const buttonRef = useRef<HTMLButtonElement>(null)
-  const storeName = config.store.name
-
+/** Seção da barra de categorias que está na tela agora (para o sublinhado). */
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState<string | null>(null)
   useEffect(() => {
-    if (!open) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setOpen(false)
-        buttonRef.current?.focus()
-      }
-    }
-    document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
-  }, [open])
+    const els = ids.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => el !== null)
+    if (els.length === 0 || typeof IntersectionObserver === 'undefined') return
+    const visible = new Map<string, boolean>()
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) visible.set(e.target.id, e.isIntersecting)
+        setActive(ids.find((id) => visible.get(id)) ?? null)
+      },
+      // Conta como "na tela" a faixa logo abaixo do cabeçalho fixo.
+      { rootMargin: '-30% 0px -60% 0px' },
+    )
+    els.forEach((el) => io.observe(el))
+    return () => io.disconnect()
+  }, [ids])
+  return active
+}
+
+export function Header({ page }: { page: Page }) {
+  const { config } = useShop()
+  const storeName = config.store.name
+  const links = useMemo(() => linksFor(page), [page])
+  const ids = useMemo(() => links.map((l) => l.id), [links])
+  const active = useActiveSection(ids)
 
   return (
     <>
@@ -79,37 +92,33 @@ export function Header() {
       <ServiceBar />
       <header className="site-header">
         <div className="container site-header__inner">
-          <a className="brand" href="#">
-            <Wordmark />
+          <Link className="brand" href="/">
+            <img className="brand__logo" src="/logo-96.webp" srcSet="/logo-96.webp 96w, /logo-192.webp 192w" sizes="44px" width={44} height={44} alt="" />
             <span className={storeName ? 'brand__name' : 'visually-hidden'}>{storeName ?? 'Bonés e camisas 13 e 22'}</span>
             <span className="visually-hidden"> — voltar ao início</span>
-          </a>
+          </Link>
 
-          <nav className="site-nav" aria-label="Principal">
-            <button
-              ref={buttonRef}
-              type="button"
-              className="site-nav__toggle"
-              aria-expanded={open}
-              aria-controls={menuId}
-              onClick={() => setOpen((v) => !v)}
-            >
-              Menu
-            </button>
-            <ul id={menuId} className="site-nav__list" data-open={open}>
+          <nav className="catbar" aria-label="Categorias">
+            <ul className="catbar__list">
               {links.map((l) => (
-                <li key={l.href}>
-                  <a href={l.href} onClick={() => setOpen(false)}>
+                <li key={l.id}>
+                  <Link
+                    className="catbar__link"
+                    href={l.href}
+                    data-side={l.side}
+                    aria-current={active === l.id ? 'location' : undefined}
+                  >
+                    {l.side && (
+                      <span className="catbar__num" aria-hidden="true">
+                        {l.side}
+                      </span>
+                    )}
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
-
-          <a className="btn btn--ink btn--small" href="#comprar">
-            Comprar
-          </a>
         </div>
       </header>
     </>

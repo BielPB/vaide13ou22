@@ -1,11 +1,12 @@
 import { useEffect, useId, useState, type ReactNode } from 'react'
 import type { ProductId, ProductModel, ProductVariant } from '../config/types'
 import { formatBRL } from '../lib/format'
-import { blockMessages, checkoutProviderName, discountFromCompareAt, isVariantInStock, lowestPriceCents } from '../lib/purchase'
+import { blockMessages, checkoutProviderName, discountFromCompareAt, isVariantInStock } from '../lib/purchase'
+import { Link } from '../lib/router'
 import { useShop } from '../lib/shop'
 import { BuyButton } from './BuyButton'
 import { Icon } from './Icon'
-import { Pending, useShowPending } from './Pending'
+import { Pending } from './Pending'
 import { ProductGallery } from './ProductGallery'
 import { ProductImageView } from './ProductImageView'
 import { ReviewStars, useReviewSummary } from './Reviews'
@@ -35,93 +36,39 @@ function Choice({
 }) {
   return (
     <label className={className} data-selected={checked} data-disabled={disabled}>
-      <input className="choice__input" type="radio" name={name} value={value} checked={checked} disabled={disabled} onChange={onChange} />
+      <input
+        className="choice__input"
+        type="radio"
+        name={name}
+        value={value}
+        checked={checked}
+        disabled={disabled}
+        onChange={onChange}
+        // Clicar de novo na opção marcada não dispara onChange; repete a escolha (a galeria volta à foto da cor).
+        onClick={checked ? onChange : undefined}
+      />
       {children}
     </label>
   )
 }
 
-/** Abas grandes 13 | 22 no topo: a assinatura da loja e o jeito de trocar de lado. */
-function SideTabs() {
-  const { config, selectedId, selectProduct } = useShop()
-  const showPending = useShowPending()
-  return (
-    <fieldset className="sides">
-      <legend className="sides__legend">13 ou 22 — qual vai na sua cabeça?</legend>
-      <div className="sides__row">
-        {(['13', '22'] as ProductId[]).map((id) => {
-          const p = config.products[id]
-          const from = lowestPriceCents(p)
-          if (p.models.length === 0 && !showPending) return null
-          return (
-            <Choice
-              key={id}
-              name="lado"
-              value={id}
-              checked={selectedId === id}
-              onChange={() => selectProduct(id)}
-              className={`side side--${id}`}
-            >
-              <span className="side__num" aria-hidden="true">
-                {p.number}
-              </span>
-              <span className="side__text">
-                <span className="side__name">{p.name}</span>
-                <span className="side__meta">
-                  {p.models.length} {p.models.length === 1 ? 'modelo' : 'modelos'}
-                  {from !== null && ` · a partir de ${formatBRL(from)}`}
-                </span>
-              </span>
-            </Choice>
-          )
-        })}
-      </div>
-    </fieldset>
-  )
-}
-
-/** Faixa de modelos do lado escolhido, com foto grande. */
-function ModelRail() {
-  const { selection, selectModel } = useShop()
-  if (!selection || selection.product.models.length === 0) return null
+/** Caminho de volta: Início › lado › modelo. */
+function Breadcrumb() {
+  const { selection } = useShop()
+  if (!selection?.model) return null
   const { product, model } = selection
   return (
-    <fieldset className="rail" id="modelos">
-      <legend className="rail__legend">
-        Modelos <span className="rail__count">{product.models.length}</span>
-      </legend>
-      <div className="rail__track">
-        {product.models.map((m) => {
-          const img = m.images.find((i) => i.src)
-          const off = discountFromCompareAt(m)
-          return (
-            <Choice
-              key={m.id}
-              name={`modelo-${product.id}`}
-              value={m.id}
-              checked={model?.id === m.id}
-              onChange={() => selectModel(m.id)}
-              className="rcard"
-            >
-              <span className="rcard__img">
-                {img && <ProductImageView image={img} frame="1 / 1" showBadge={false} sizes="(min-width: 900px) 180px, 40vw" />}
-                {off && <span className="rcard__off">-{off.percent}%</span>}
-              </span>
-              <span className="rcard__name">{m.name}</span>
-              <span className="rcard__price">
-                {off && (
-                  <s>
-                    <span className="visually-hidden">Preço anterior: </span>
-                    {formatBRL(off.wasCents)}
-                  </s>
-                )}
-                {m.priceCents === null ? 'Preço a confirmar' : formatBRL(m.priceCents)}
-              </span>
-            </Choice>
-          )
-        })}
-      </div>
-    </fieldset>
+    <nav className="crumbs" aria-label="Você está em">
+      <ol>
+        <li>
+          <Link href="/">Início</Link>
+        </li>
+        <li>
+          <Link href={`/#vitrine-${product.id}`}>{product.name}</Link>
+        </li>
+        <li aria-current="page">{model.name}</li>
+      </ol>
+    </nav>
   )
 }
 
@@ -141,7 +88,7 @@ function ColorSwatches({
   return (
     <fieldset className="pick">
       <legend className="pick__label">
-        Cor: <span className="pick__chosen">{current ?? 'escolha uma cor'}</span>
+        Cor: <span className="pick__chosen">{current ?? 'escolha'}</span>
       </legend>
       <div className="swatches">
         {colors.map((c) => {
@@ -189,7 +136,7 @@ function SizePicker({
   return (
     <fieldset className="pick" disabled={!color}>
       <legend className="pick__label">
-        Tamanho: <span className="pick__chosen">{variant?.size ?? (color ? 'escolha o tamanho' : 'escolha a cor primeiro')}</span>
+        Tamanho: <span className="pick__chosen">{variant?.size ?? (color ? 'escolha' : 'escolha a cor antes')}</span>
         <a className="pick__help" href="#detalhes">
           Tabela de medidas
         </a>
@@ -229,11 +176,11 @@ function FreeShippingProgress({ subtotalCents }: { subtotalCents: number | null 
       <p className="ship__text">
         {done ? (
           <>
-            <strong>Frete grátis{region}</strong> neste pedido
+            Este pedido tem <strong>frete grátis</strong>
           </>
         ) : (
           <>
-            Faltam <strong>{formatBRL(min - subtotalCents + 1)}</strong> para <strong>frete grátis{region}</strong>
+            Faltam <strong>{formatBRL(min - subtotalCents + 1)}</strong> para o frete grátis{region}
           </>
         )}
       </p>
@@ -249,19 +196,12 @@ export function ProductPage() {
   const qtyId = useId()
   const summary = useReviewSummary(selection?.product.id, selection?.model?.id)
   const [pendingColor, setPendingColor] = useState<string | null>(null)
+  // Conta cada escolha de cor: a galeria volta para a foto mesmo se a cor se repetir.
+  const [colorTick, setColorTick] = useState(0)
   const modelKey = selection ? `${selection.product.id}/${selection.model?.id ?? ''}` : ''
   useEffect(() => setPendingColor(null), [modelKey])
 
-  if (!selection) {
-    return (
-      <section className="store" aria-labelledby="pdp-title">
-        <h1 id="pdp-title" className="visually-hidden">
-          13 ou 22. Qual vai na sua cabeça?
-        </h1>
-        <SideTabs />
-      </section>
-    )
-  }
+  if (!selection) return null
 
   const { product, model, variant, quantity, rule, unitCents, subtotalCents, state } = selection
   const images = model?.images ?? [product.heroImage]
@@ -272,6 +212,7 @@ export function ProductPage() {
 
   const pickColor = (label: string) => {
     if (!model) return
+    setColorTick((t) => t + 1)
     if (!sized) {
       const v = model.variants.find((x) => x.label === label)
       if (v) selectVariant(v.id)
@@ -281,6 +222,17 @@ export function ProductPage() {
     const same = variant && model.variants.find((x) => x.label === label && x.size === variant.size && isVariantInStock(x))
     setPendingColor(label)
     selectVariant(same ? same.id : null)
+  }
+
+  // Foto e aviso da cor escolhida (cor sem foto não mostra a foto de outra cor).
+  const colorVariant = color ? model?.variants.find((v) => v.label === color) : undefined
+  const colorImage = colorVariant?.image ?? null
+  const missingLabel = colorVariant && !colorImage ? colorVariant.label : null
+
+  // Miniatura de uma cor clicada na galeria: seleciona essa cor.
+  const pickFromGallery = (src: string) => {
+    const v = model?.variants.find((x) => x.image === src)
+    if (v && v.label !== color) pickColor(v.label)
   }
 
   const blockText =
@@ -294,10 +246,8 @@ export function ProductPage() {
 
   return (
     <section className="store" data-accent={product.id} aria-labelledby="pdp-title">
-      <SideTabs />
-
       <div className="container">
-        <ModelRail />
+        <Breadcrumb />
 
         <div className="pdp__grid" id="comprar" tabIndex={-1}>
           <div className="pdp__media">
@@ -305,7 +255,9 @@ export function ProductPage() {
               key={modelKey}
               title={[product.name, model?.name].filter(Boolean).join(' · ')}
               images={images}
-              focusSrc={variant?.image ?? model?.variants.find((v) => v.label === pendingColor)?.image}
+              focus={{ src: colorImage, tick: colorTick }}
+              missingLabel={missingLabel}
+              onPick={pickFromGallery}
               priority
             />
           </div>
@@ -345,7 +297,9 @@ export function ProductPage() {
                     )}
                   </p>
                 )}
-                {config.commerce.payments && <p className="price-block__pay">{config.commerce.payments.join(' ou ')}</p>}
+                {config.commerce.payments && (
+                  <p className="price-block__pay">{config.commerce.paymentsShort ?? config.commerce.payments.join(' ou ')}</p>
+                )}
               </div>
             )}
 
@@ -428,18 +382,15 @@ export function ProductPage() {
             <ul className="trust">
               <li>
                 <Icon name="lock" size={18} />
-                <span>
-                  <strong>Compra 100% segura</strong>: pagamento {provider ? `no checkout da ${provider}` : 'em checkout externo'}, em
-                  conexão criptografada
-                </span>
+                <span>Pagamento seguro {provider ? `pela ${provider}` : 'em checkout externo'}</span>
               </li>
               <li>
                 <Icon name="truck" size={18} />
-                <span>{config.commerce.dispatchTime ?? 'Frete e prazo calculados pelo CEP antes de pagar.'}</span>
+                <span>{config.commerce.dispatchShort ?? config.commerce.dispatchTime ?? 'Frete e prazo calculados pelo CEP'}</span>
               </li>
               <li>
                 <Icon name="refresh" size={18} />
-                <span>7 dias para desistir ou trocar tamanho/cor após receber</span>
+                <span>Troca ou devolução em até 7 dias</span>
               </li>
             </ul>
           </div>

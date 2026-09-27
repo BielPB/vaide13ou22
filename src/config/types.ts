@@ -216,8 +216,12 @@ export interface CommerceInfo {
   shipping: string | null
   /** Prazo de postagem após confirmação do pagamento. */
   dispatchTime: string | null
+  /** Versão curta para a lista da compra (ex.: "Postagem em até 2 dias úteis"). */
+  dispatchShort?: string
   /** PAGAMENTOS — formas aceitas exatamente como aparecem no checkout. */
   payments: string[] | null
+  /** Frase curta sob o preço (ex.: "No Pix ou em até 12x no cartão"). */
+  paymentsShort?: string
   /** Política de trocas e devoluções (resumo). */
   returns: string | null
   /** Como acompanhar o pedido. */
@@ -254,7 +258,7 @@ export interface Review {
   sourceUrl?: string
 }
 
-/** O que a página mostra selecionado ao abrir (formato página de produto). */
+/** Modelo (e cor) aberto numa página de produto. */
 export interface DefaultSelection {
   productId: ProductId
   modelId: string
@@ -271,8 +275,6 @@ export interface StoreConfig {
   policies: PolicyDoc[]
   /** Deixe vazio enquanto não houver avaliações verificadas — a seção some. */
   reviews: Review[]
-  /** Produto aberto ao carregar a página. `null` = visitante escolhe antes. */
-  defaultSelection: DefaultSelection | null
   /** Imagem de compartilhamento (1200 × 630). */
   shareImage: string
   /** Banner largo do topo (arte em /public). Ausente ou `null` = a seção não aparece. */

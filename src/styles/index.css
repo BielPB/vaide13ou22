@@ -17,12 +17,12 @@
   --pl-green: #009640;
   --pl-yellow: #ffd500;
 
-  --paper: #f6f4ef;
-  --paper-2: #ece8e0;
+  --paper: #ffffff;
+  --paper-2: #f4f4f5;
   --surface: #ffffff;
   --ink: #16161a;
   --ink-2: #4a4a52;
-  --line: #d9d4ca;
+  --line: #e4e4e7;
   --focus: #16161a;
 
   --accent: var(--ink);
@@ -69,7 +69,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  scroll-padding-top: 80px;
+
 }
 
 body {
@@ -97,10 +97,10 @@ h1,
 h2,
 h3 {
   margin: 0;
-  font-family: var(--font-display);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-family: var(--font-text);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
@@ -301,7 +301,7 @@ input {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgb(246 244 239 / 0.92);
+  background: rgb(255 255 255 / 0.94);
   backdrop-filter: saturate(1.4) blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -325,8 +325,7 @@ input {
 }
 .wordmark {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-stretch: 112%;
+  font-weight: 800;
   font-size: 1.375rem;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -456,15 +455,15 @@ input {
   margin-bottom: clamp(24px, 4vw, 48px);
 }
 .section__eyebrow {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-2);
   margin-bottom: 10px;
 }
 .section__title {
-  font-size: clamp(1.75rem, 4.2vw, 3.25rem);
+  font-size: clamp(1.5rem, 3vw, 2.125rem);
 }
 
 /* ---------- Imagem de produto ---------- */
@@ -812,10 +811,10 @@ input {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  min-height: 60px;
-  padding: 14px 0;
-  font-weight: 600;
-  font-size: 1.0625rem;
+  min-height: 56px;
+  padding: 12px 0;
+  font-weight: 500;
+  font-size: 1rem;
   cursor: pointer;
   list-style: none;
 }
@@ -827,12 +826,11 @@ input {
   flex: none;
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
-  border: 1.5px solid var(--line);
-  border-radius: 999px;
-  font-weight: 400;
-  font-size: 1.25rem;
+  width: 24px;
+  height: 24px;
+  color: var(--ink-2);
+  font-weight: 300;
+  font-size: 1.375rem;
   transition: transform 200ms var(--ease);
 }
 .faq__item[open] .faq__q::after {
@@ -851,7 +849,10 @@ input {
 }
 .faq__a a {
   color: var(--ink);
-  font-weight: 600;
+  font-weight: 500;
+}
+.faq__a .size-table {
+  max-width: 420px;
 }
 
 /* ---------- Encerramento ---------- */
@@ -1137,7 +1138,7 @@ input {
   transition: border-color 160ms var(--ease);
 }
 .model:hover {
-  border-color: #b9b2a5;
+  border-color: #a1a1aa;
 }
 .model:has(input:focus-visible) {
   outline: 3px solid var(--focus);

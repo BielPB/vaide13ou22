@@ -77,19 +77,10 @@ export function Footer() {
                 {!store.independence.confirmed && <Pending field="IDENTIFICACAO_DO_VENDEDOR">confirmar</Pending>}
               </p>
             )}
-            <p className="site-footer__legal">
-              {store.legalName && store.documentId && (
-                <>
-                  {store.legalName} · {store.documentId}
-                  <br />
-                </>
-              )}
-              {store.address}
-            </p>
-            {store.addressUrl && (
-              <a className="site-footer__map" href={store.addressUrl} target="_blank" rel="noopener">
-                Ver no Google Maps
-              </a>
+            {store.legalName && store.documentId && (
+              <p className="site-footer__legal">
+                {store.legalName} · {store.documentId}
+              </p>
             )}
           </div>
 
@@ -101,7 +92,7 @@ export function Footer() {
               {contact.whatsapp && (
                 <li>
                   <a href={whatsappUrl(contact.whatsapp)} target="_blank" rel="noopener">
-                    Fale conosco{contact.phone && <span className="site-footer__phone"> · WhatsApp {contact.phone}</span>}
+                    Fale conosco{contact.phone && <span className="site-footer__phone">{` · WhatsApp ${contact.phone}`}</span>}
                   </a>
                 </li>
               )}

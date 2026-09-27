@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
-import type { Product, ProductId, ProductModel, ProductVariant, StoreConfig } from '../config/types'
+import type { DefaultSelection, Product, ProductId, ProductModel, ProductVariant, StoreConfig } from '../config/types'
 import {
   buildCheckoutUrl,
   CheckoutError,
@@ -31,7 +31,6 @@ interface ShopContextValue {
   selectedId: ProductId | null
   selection: Selection | null
   checkout: CheckoutStatus
-  selectProduct: (id: ProductId) => void
   /** Seleciona um modelo; com `productId`, troca também de lado (13/22). */
   selectModel: (modelId: string, productId?: ProductId) => void
   selectVariant: (variantId: string | null) => void
@@ -45,9 +44,17 @@ const ShopContext = createContext<ShopContextValue | null>(null)
 const only = <T extends { id: string }>(items: T[]) => (items.length === 1 ? items[0]!.id : null)
 const variantKey = (productId: ProductId, modelId: string) => `${productId}/${modelId}`
 
-export function ShopProvider({ config, children }: { config: StoreConfig; children: ReactNode }) {
+export function ShopProvider({
+  config,
+  initial = null,
+  children,
+}: {
+  config: StoreConfig
+  /** Produto aberto pela página (a página de produto passa o modelo dela; a inicial, nada). */
+  initial?: DefaultSelection | null
+  children: ReactNode
+}) {
   // A escolha vive só na memória desta aba: não é salva, enviada ou medida.
-  const initial = config.defaultSelection
   const [selectedId, setSelectedId] = useState<ProductId | null>(initial?.productId ?? null)
   const [modelIds, setModelIds] = useState<Record<ProductId, string | null>>(() => ({
     '13': initial?.productId === '13' ? initial.modelId : only(config.products['13'].models),
@@ -86,15 +93,6 @@ export function ShopProvider({ config, children }: { config: StoreConfig; childr
       state: purchaseState(config, product, model, variant),
     }
   }, [config, selectedId, modelIds, variantIds, rawQuantity])
-
-  const selectProduct = useCallback(
-    (id: ProductId) => {
-      if (id !== selectedId) setRawQuantity(1)
-      setSelectedId(id)
-      setCheckout({ kind: 'idle' })
-    },
-    [selectedId],
-  )
 
   const selectModel = useCallback(
     (modelId: string, productId?: ProductId) => {
@@ -146,8 +144,8 @@ export function ShopProvider({ config, children }: { config: StoreConfig; childr
   }, [config, selection])
 
   const value = useMemo(
-    () => ({ config, selectedId, selection, checkout, selectProduct, selectModel, selectVariant, setQuantity, startCheckout }),
-    [config, selectedId, selection, checkout, selectProduct, selectModel, selectVariant, setQuantity, startCheckout],
+    () => ({ config, selectedId, selection, checkout, selectModel, selectVariant, setQuantity, startCheckout }),
+    [config, selectedId, selection, checkout, selectModel, selectVariant, setQuantity, startCheckout],
   )
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>

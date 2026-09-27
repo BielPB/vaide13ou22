@@ -1,6 +1,8 @@
 import type { ProductId } from '../config/types'
-import { formatBRL, scrollToAndFocus, whatsappUrl } from '../lib/format'
+import { formatBRL, whatsappUrl } from '../lib/format'
 import { discountFromCompareAt } from '../lib/purchase'
+import { Link } from '../lib/router'
+import { modelFullName, productPath } from '../lib/routes'
 import { useShop } from '../lib/shop'
 import { Icon } from './Icon'
 import { ProductImageView } from './ProductImageView'
@@ -55,33 +57,39 @@ export function HeroBanner() {
   )
 }
 
-/** Duas fotos (uma de cada lado) e o texto de apresentação da loja. */
+/** Duas fotos (uma de cada lado, cada uma leva ao produto) e o texto de apresentação da loja. */
 export function Intro() {
   const { config } = useShop()
   const { products, commerce } = config
-  const pick = (id: ProductId, modelId: string) => products[id].models.find((m) => m.id === modelId)?.images[0]
-  const photos = [pick('13', 'nome-lula-estrela'), pick('22', 'flavio')].filter((i) => i?.src)
+  const pick = (id: ProductId, modelId: string) => {
+    const model = products[id].models.find((m) => m.id === modelId)
+    const image = model?.images.find((img) => img.src)
+    return model && image ? { href: productPath(products[id], model), name: modelFullName(model), image } : null
+  }
+  const photos = [pick('13', 'nome-lula-estrela'), pick('22', 'flavio')].filter((p) => p !== null)
   const min = commerce.freeShippingAboveCents
 
   return (
     <section className="intro" aria-labelledby="intro-title">
       <div className="container intro__grid">
         <div className="intro__photos">
-          {photos.map((img) => (
-            <ProductImageView key={img!.src} image={img!} frame="4 / 5" showBadge={false} sizes="(min-width: 900px) 280px, 45vw" />
+          {photos.map((p) => (
+            <Link key={p.href} href={p.href} className="intro__photo" aria-label={p.name}>
+              <ProductImageView image={p.image} frame="4 / 5" showBadge={false} sizes="(min-width: 900px) 280px, 45vw" />
+            </Link>
           ))}
         </div>
         <div className="intro__text">
-          <h2 id="intro-title" className="intro__title">
+          <h1 id="intro-title" className="intro__title">
             Bonés e camisas 13 e 22
-          </h2>
+          </h1>
           <p>
-            Modelos do Lula 13 e do Bolsonaro 22: bonés trucker, lisos e camuflados e camisas de algodão em várias cores.
-            {commerce.payments && ` ${commerce.payments.join(' ou ')}.`}
+            Bonés trucker, lisos e camuflados e camisas de algodão, com fotos do produto real.
+            {commerce.paymentsShort && ` Pagamento ${commerce.paymentsShort.charAt(0).toLowerCase()}${commerce.paymentsShort.slice(1)}.`}
             {min !== null && ` Frete grátis para ${commerce.freeShippingRegion ?? 'todo o Brasil'} acima de ${formatBRL(min)}.`}
           </p>
           <a className="btn btn--outline" href="#vitrine-13">
-            Ver todos os produtos
+            Ver produtos
           </a>
         </div>
       </div>
@@ -89,56 +97,58 @@ export function Intro() {
   )
 }
 
-/** Vitrine de um lado: todos os modelos com foto, preço e botão Comprar. */
-export function Showcase({ side }: { side: ProductId }) {
-  const { config, selectModel } = useShop()
+/**
+ * Vitrine de um lado: cada cartão leva à página do produto.
+ * Com `exclude`, vira a seção "mais modelos" da página de produto.
+ */
+export function Showcase({ side, exclude, title }: { side: ProductId; exclude?: string; title?: string }) {
+  const { config } = useShop()
   const product = config.products[side]
-  if (product.models.length === 0) return null
-
-  const buy = (modelId: string) => {
-    selectModel(modelId, side)
-    // Espera a troca de modelo renderizar antes de rolar até a compra.
-    setTimeout(() => scrollToAndFocus('comprar'), 0)
-  }
+  const models = product.models.filter((m) => m.id !== exclude)
+  if (models.length === 0) return null
+  const headingId = exclude ? 'mais-modelos-title' : `vitrine-${side}-title`
 
   return (
-    <section className="showcase" id={`vitrine-${side}`} data-accent={side} aria-labelledby={`vitrine-${side}-title`}>
+    <section className="showcase" id={exclude ? 'mais-modelos' : `vitrine-${side}`} data-accent={side} aria-labelledby={headingId}>
       <div className="container">
         <header className="showcase__head">
-          <h2 id={`vitrine-${side}-title`} className="showcase__title">
+          <h2 id={headingId} className="showcase__title">
             <span className="showcase__num" aria-hidden="true">
               {product.number}
             </span>
-            {product.name}
+            {title ?? product.name}
           </h2>
-          <p className="showcase__count">
-            {product.models.length} {product.models.length === 1 ? 'produto' : 'produtos'}
-          </p>
+          {!exclude && (
+            <p className="showcase__count">
+              {models.length} {models.length === 1 ? 'produto' : 'produtos'}
+            </p>
+          )}
         </header>
         <ul className="showcase__grid">
-          {product.models.map((m) => {
+          {models.map((m) => {
             const img = m.images.find((i) => i.src)
             const off = discountFromCompareAt(m)
-            const name = m.category === 'camisa' ? m.name : `Boné ${m.name}`
             return (
               <li key={m.id} className="pcard">
-                <div className="pcard__img">
-                  {img && <ProductImageView image={img} frame="1 / 1" showBadge={false} sizes="(min-width: 1100px) 280px, (min-width: 700px) 30vw, 45vw" />}
-                  {off && <span className="pcard__off">-{off.percent}%</span>}
-                </div>
-                <h3 className="pcard__name">{name}</h3>
-                <p className="pcard__price">
-                  {off && (
-                    <s>
-                      <span className="visually-hidden">Preço anterior: </span>
-                      {formatBRL(off.wasCents)}
-                    </s>
-                  )}
-                  <strong>{m.priceCents === null ? 'Preço a confirmar' : formatBRL(m.priceCents)}</strong>
-                </p>
-                <button type="button" className="btn btn--outline pcard__btn" onClick={() => buy(m.id)}>
-                  Comprar<span className="visually-hidden"> {name}</span>
-                </button>
+                <Link href={productPath(product, m)} className="pcard__link">
+                  <span className="pcard__img">
+                    {img && <ProductImageView image={img} frame="1 / 1" showBadge={false} sizes="(min-width: 1100px) 280px, (min-width: 700px) 30vw, 45vw" />}
+                    {off && <span className="pcard__off">-{off.percent}%</span>}
+                  </span>
+                  <h3 className="pcard__name">{modelFullName(m)}</h3>
+                  <span className="pcard__price">
+                    {off && (
+                      <s>
+                        <span className="visually-hidden">Preço anterior: </span>
+                        {formatBRL(off.wasCents)}
+                      </s>
+                    )}
+                    <strong>{m.priceCents === null ? 'Preço a confirmar' : formatBRL(m.priceCents)}</strong>
+                  </span>
+                  <span className="btn btn--checkout pcard__btn" aria-hidden="true">
+                    Comprar
+                  </span>
+                </Link>
               </li>
             )
           })}

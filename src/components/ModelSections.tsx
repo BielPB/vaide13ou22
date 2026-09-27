@@ -60,7 +60,7 @@ export function ProductInfo() {
                 ))}
               </ul>
               <p className="about__when">
-                <strong>Quando usar:</strong> {about.quandoUsar}
+                <strong>Para usar:</strong> {about.quandoUsar}
               </p>
             </>
           ) : (
@@ -128,13 +128,13 @@ export function Guarantee() {
   const { config } = useShop()
   const { commerce, contact } = config
   const items: Array<{ icon: IconName; title: string; text: ReactNode }> = [
-    { icon: 'refresh', title: '7 dias para desistir', text: 'Mudou de ideia? Devolva em até 7 dias após receber, com o frete por nossa conta.' },
+    { icon: 'refresh', title: 'Troca em 7 dias', text: 'Não gostou? Devolva em até 7 dias após receber. O frete de volta é por nossa conta.' },
     {
       icon: 'shield',
-      title: 'Troca por defeito',
+      title: 'Garantia de 90 dias',
       text: (
         <>
-          Defeito de fabricação é trocado em até 90 dias. <a href="#politica-trocas">Ver política</a>
+          Contra defeito de fabricação. <a href="#politica-trocas">Ver política</a>
         </>
       ),
     },
@@ -143,19 +143,19 @@ export function Guarantee() {
           {
             icon: 'truck' as const,
             title: 'Frete grátis',
-            text: `Acima de ${formatBRL(commerce.freeShippingAboveCents)}${commerce.freeShippingRegion ? ` para ${commerce.freeShippingRegion}` : ''}.`,
+            text: `Nas compras acima de ${formatBRL(commerce.freeShippingAboveCents)}${commerce.freeShippingRegion ? `, para ${commerce.freeShippingRegion}` : ''}.`,
           },
         ]
       : []),
     ...(contact.whatsapp
-      ? [{ icon: 'chat' as const, title: 'Atendimento no WhatsApp', text: `Dúvida antes ou depois da compra? ${contact.phone ?? ''}` }]
+      ? [{ icon: 'chat' as const, title: 'Atendimento no WhatsApp', text: `Antes e depois da compra: ${contact.phone ?? ''}` }]
       : []),
   ]
   return (
     <section className="guarantee-band" aria-labelledby="guarantee-title">
       <div className="container">
         <h2 id="guarantee-title" className="visually-hidden">
-          Compra tranquila
+          Garantias da compra
         </h2>
         <ul className="gband">
           {items.map((i) => (

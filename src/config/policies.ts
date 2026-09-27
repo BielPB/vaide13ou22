@@ -5,7 +5,6 @@
  */
 
 const LOJA = 'vaide13ou22'
-const ENDERECO = 'Sítio Côrrego de Santo Antônio, 998 – Côrrego de Santo Antonio, Barra Alegre – RJ, CEP 28666-971'
 const WHATSAPP = '(21) 96952-6716'
 
 export const politicaTrocas = `Seu direito de desistir (arrependimento). Em compras pela internet, você pode desistir em até 7 dias corridos a partir do recebimento, sem precisar explicar o motivo (Código de Defesa do Consumidor, art. 49). Devolvemos o valor pago, inclusive o frete, e o frete de devolução é por nossa conta.
@@ -16,11 +15,11 @@ Produto com defeito. Se o produto apresentar defeito de fabricação, avise em a
 
 Condições. Para devolução ou troca, o produto deve estar sem uso, sem lavagem e com a etiqueta. Produto com defeito pode ter sido usado.
 
-Como pedir. Chame no WhatsApp ${WHATSAPP} com o número do pedido e o motivo. Passamos as instruções de envio. A devolução é feita para: ${ENDERECO}.
+Como pedir. Chame no WhatsApp ${WHATSAPP} com o número do pedido e o motivo. Passamos as instruções e o endereço de envio.
 
 Reembolso. Assim que recebermos o produto, fazemos o reembolso imediatamente, pela mesma forma de pagamento. No Pix, o valor volta para a sua conta; no cartão de crédito, o estorno aparece na fatura conforme o prazo da operadora.`
 
-export const politicaPrivacidade = `Quem somos. Esta loja é a ${LOJA}. Contato: WhatsApp ${WHATSAPP}. Endereço: ${ENDERECO}.
+export const politicaPrivacidade = `Quem somos. Esta loja é a ${LOJA}. Contato: WhatsApp ${WHATSAPP}.
 
 Este site. A página da loja não usa cookies de rastreamento, pixels de publicidade nem ferramentas de análise. A escolha de modelo feita na página não é salva nem enviada a ninguém.
 
@@ -54,7 +53,7 @@ Como vendemos. Fotos do produto real, sem alteração de cor. Pagamento por Pix 
 
 Loja independente. Não temos vínculo com partidos, campanhas, candidatos ou com as pessoas citadas, e as vendas não são doações. Os nomes e números identificam os modelos dos produtos.
 
-Fale com a gente. WhatsApp ${WHATSAPP}. Endereço: ${ENDERECO}.`
+Fale com a gente. WhatsApp ${WHATSAPP}.`
 
 export const politicaCookies = `O que são cookies. São pequenos arquivos que um site guarda no seu navegador para lembrar informações enquanto você navega.
 
@@ -67,4 +66,4 @@ Como controlar. Você pode apagar ou bloquear cookies nas configurações do nav
 Dúvidas. Chame no WhatsApp ${WHATSAPP}. Veja também a Política de privacidade.`
 
 export const resumoTrocas =
-  'Até 7 dias após receber para desistir ou trocar tamanho/cor (frete de devolução por nossa conta). Defeito de fabricação: até 90 dias.'
+  'Você tem até 7 dias após receber para desistir ou trocar o tamanho ou a cor, com o frete de volta por nossa conta. Defeito de fabricação tem garantia de 90 dias.'

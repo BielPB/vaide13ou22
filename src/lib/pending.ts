@@ -52,7 +52,7 @@ export function storePending(config: StoreConfig): PendingItem[] {
   if (store.name === null) add('NOME_DA_LOJA', 'Nome da loja')
   if (store.legalName === null || store.documentId === null) {
     // Decisão do vendedor: não exibir. Mantido como aviso (Decreto 7.962/2013, art. 2º).
-    add('IDENTIFICACAO_DO_VENDEDOR', 'Nome/razão social e CPF/CNPJ não exibidos (decisão do vendedor; ver aviso legal)', 'recommended')
+    add('IDENTIFICACAO_DO_VENDEDOR', 'Nome/razão social, CPF/CNPJ e endereço não exibidos (decisão do vendedor; ver aviso legal)', 'recommended')
   }
   if (!store.address && !store.addressUrl) add('IDENTIFICACAO_DO_VENDEDOR', 'Endereço da loja')
   if (!store.independence.confirmed) {
