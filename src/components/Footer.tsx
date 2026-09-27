@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { allPending } from '../lib/pending'
 import { useShop } from '../lib/shop'
-import { Wordmark } from './Header'
+import { BrandLogo } from './Header'
 import { Pending, useShowPending } from './Pending'
 import { whatsappUrl } from '../lib/format'
 import { Link } from '../lib/router'
@@ -69,7 +69,7 @@ export function Footer() {
         <div className="site-footer__grid">
           <div className="site-footer__about">
             <p className="site-footer__brand">
-              <Wordmark /> {store.name ?? <Pending field="NOME_DA_LOJA">nome da loja</Pending>}
+              <BrandLogo className="site-footer__logo" /> {store.name ?? <Pending field="NOME_DA_LOJA">nome da loja</Pending>}
             </p>
             <p className="site-footer__tagline">Bonés e camisas 13 e 22. Escolha o seu modelo.</p>
             {(store.independence.confirmed || showPending) && (

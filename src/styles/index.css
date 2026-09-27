@@ -323,26 +323,6 @@ input {
   font-weight: 600;
   font-size: 0.9375rem;
 }
-.wordmark {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.375rem;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  white-space: nowrap;
-}
-.wordmark__13 {
-  color: var(--pt-red-deep);
-}
-.wordmark__22 {
-  color: var(--pl-blue);
-}
-.wordmark__x {
-  color: var(--ink-2);
-  font-weight: 400;
-  font-size: 0.8em;
-  margin-inline: 0.12em;
-}
 
 .site-nav {
   position: relative;
@@ -392,9 +372,6 @@ input {
   .site-header .btn--small {
     padding-inline: 0.8em;
     font-size: 0.875rem;
-  }
-  .wordmark {
-    font-size: 1.2rem;
   }
 }
 
@@ -895,15 +872,6 @@ input {
   align-items: center;
   gap: 12px;
   font-weight: 600;
-}
-.site-footer .wordmark__13 {
-  color: #ff5a6a;
-}
-.site-footer .wordmark__22 {
-  color: #6fb0ff;
-}
-.site-footer .wordmark__x {
-  color: #b9b4aa;
 }
 .site-footer__independence {
   margin-top: 14px;

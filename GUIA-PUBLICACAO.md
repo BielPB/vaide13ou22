@@ -16,7 +16,7 @@ Por isso a loja vende tudo pelo **preço de 1 unidade**, que é exatamente o que
 
 ## Passo 2 — Ajustes nos produtos (Yampi)
 
-- [ ] Renomear os dois "Boné Nome Lula" para **Boné Nome Lula (estrela)** e **Boné Nome Lula (letras grandes)**.
+- [ ] Renomear na Yampi: os dois "Boné Nome Lula" para **Boné Lula (estrela)** e **Boné Lula (letras grandes)**, e o "Nome e bandeira" para **Boné Brasil e bandeira**.
 - [ ] Trocar a **Marca** de "LULA13" para **vaide13ou22** em todos os produtos.
 - [ ] Preencher **peso** (kg) e **medidas da embalagem** (cm) em todos: sem isso, o frete não é calculado.
 - [ ] Me mandar uma **foto do Camuflado Cinza**.
@@ -47,12 +47,12 @@ Por isso a loja vende tudo pelo **preço de 1 unidade**, que é exatamente o que
 
 | Modelo | Falta |
 |---|---|
-| Boné Nome Lula (estrela) | tecido, fechamento, tamanho |
+| Boné Lula (estrela) | tecido, fechamento, tamanho |
 | Boné Número 13 | tecido, fechamento, tamanho |
-| Boné Nome Lula (letras grandes) | tecido, fechamento, tamanho |
+| Boné Lula (letras grandes) | tecido, fechamento, tamanho |
 | Boné Simples vermelho | tecido, fechamento, tamanho |
 | Boné Trucker liso | tecido, fechamento, tamanho |
-| Boné Brasil 22 (Nome e bandeira) | tecido |
+| Boné Brasil 22 (Brasil e bandeira) | tecido |
 | Boné Simples (22) | tecido, fechamento, tamanho |
 | Boné Flávio Bolsonaro | tecido |
 | Boné Camuflado | ✅ completo |

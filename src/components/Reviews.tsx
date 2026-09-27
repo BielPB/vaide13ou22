@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import type { ProductId, Review } from '../config/types'
 import { useShop } from '../lib/shop'
 
 /**
  * Avaliações verificadas. Tudo aqui é calculado a partir de `config.reviews`:
  * nenhuma nota, contagem ou "útil" é inventado. Sem avaliações, a seção some.
+ * Avaliação sem nota aparece sem estrelas e fica fora da média.
  */
 
 export function ReviewStars({ value }: { value: number }) {
@@ -20,77 +22,131 @@ export function ReviewStars({ value }: { value: number }) {
   )
 }
 
-const verified = (reviews: Review[]) => reviews.filter((r) => r.verified)
-
-/** Média e contagem das avaliações de um modelo (ou do lado inteiro). */
-export function useReviewSummary(productId?: ProductId, modelId?: string) {
+/** Avaliações verificadas de um modelo (ou do lado inteiro, ou da loja). */
+function useModelReviews(productId?: ProductId, modelId?: string) {
   const { config } = useShop()
-  const list = verified(config.reviews).filter(
-    (r) => (!productId || r.productId === productId) && (!modelId || r.modelId === modelId),
+  return config.reviews.filter(
+    (r) => r.verified && (!productId || r.productId === productId) && (!modelId || r.modelId === modelId),
   )
-  if (list.length === 0) return null
-  return { count: list.length, average: list.reduce((s, r) => s + r.rating, 0) / list.length }
 }
 
-export function Reviews() {
-  const { config } = useShop()
-  const reviews = verified(config.reviews).sort((a, b) => b.date.localeCompare(a.date))
-  if (reviews.length === 0) return null
+/** Contagem e média (só das avaliações com nota; `null` sem nenhuma nota). */
+export function useReviewSummary(productId?: ProductId, modelId?: string) {
+  const list = useModelReviews(productId, modelId)
+  if (list.length === 0) return null
+  const rated = list.filter((r): r is Review & { rating: number } => r.rating !== undefined)
+  return {
+    count: list.length,
+    average: rated.length ? rated.reduce((s, r) => s + r.rating, 0) / rated.length : null,
+    origins: [...new Set(list.map((r) => r.origin).filter(Boolean))] as string[],
+  }
+}
 
-  const average = reviews.reduce((s, r) => s + r.rating, 0) / reviews.length
-  const dist = [5, 4, 3, 2, 1].map((n) => ({ n, count: reviews.filter((r) => r.rating === n).length }))
-  const modelName = (r: Review) => config.products[r.productId].models.find((m) => m.id === r.modelId)?.name ?? ''
+/** Quantas avaliações aparecem antes de "Ver todas". */
+const FIRST = 6
+
+const formatDate = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString('pt-BR')
+
+/** Avaliações do produto aberto: as mais úteis primeiro, depois as mais recentes. */
+export function Reviews() {
+  const { selection } = useShop()
+  const reviews = useModelReviews(selection?.product.id, selection?.model?.id)
+    .slice()
+    .sort((a, b) => (b.helpful ?? 0) - (a.helpful ?? 0) || b.date.localeCompare(a.date))
+  const summary = useReviewSummary(selection?.product.id, selection?.model?.id)
+  const [showAll, setShowAll] = useState(false)
+  if (!summary || reviews.length === 0) return null
+  const shown = showAll ? reviews : reviews.slice(0, FIRST)
+
+  const rated = reviews.filter((r) => r.rating !== undefined)
+  const dist = [5, 4, 3, 2, 1].map((n) => ({ n, count: rated.filter((r) => r.rating === n).length }))
+  const origin = summary.origins.length === 1 ? summary.origins[0] : null
 
   return (
     <section className="section section--reviews" id="avaliacoes" aria-labelledby="reviews-title">
       <div className="container">
         <header className="section__head section__head--center">
-          <p className="section__eyebrow">Avaliações de clientes</p>
+          <p className="section__eyebrow">Avaliações</p>
           <h2 id="reviews-title" className="section__title">
-            Quem comprou, conta.
+            O que dizem os clientes
           </h2>
+          <p className="rv-lead">
+            {summary.count} {summary.count === 1 ? 'avaliação' : 'avaliações'}
+            {origin && ` de compras feitas na nossa loja da ${origin}`}
+          </p>
         </header>
 
-        <div className="rv-summary">
-          <p className="rv-summary__avg">
-            <span className="rv-summary__num">{average.toFixed(1).replace('.', ',')}</span>
-            <ReviewStars value={average} />
-            <span className="rv-summary__count">
-              {reviews.length} {reviews.length === 1 ? 'avaliação' : 'avaliações'}
-            </span>
-          </p>
-          <ul className="rv-dist">
-            {dist.map(({ n, count }) => (
-              <li key={n}>
-                <span>{n} ★</span>
-                <span className="rv-dist__bar" aria-hidden="true">
-                  <span style={{ width: `${(count / reviews.length) * 100}%` }} />
-                </span>
-                <span>{count}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {summary.average !== null && (
+          <div className="rv-summary">
+            <p className="rv-summary__avg">
+              <span className="rv-summary__num">{summary.average.toFixed(1).replace('.', ',')}</span>
+              <ReviewStars value={summary.average} />
+              <span className="rv-summary__count">
+                {rated.length} {rated.length === 1 ? 'nota' : 'notas'}
+              </span>
+            </p>
+            <ul className="rv-dist">
+              {dist.map(({ n, count }) => (
+                <li key={n}>
+                  <span>{n} ★</span>
+                  <span className="rv-dist__bar" aria-hidden="true">
+                    <span style={{ width: `${(count / rated.length) * 100}%` }} />
+                  </span>
+                  <span>{count}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-        <ul className="reviews">
-          {reviews.map((r) => (
-            <li key={`${r.author}-${r.date}-${r.modelId}`} className="review">
+        <ul className="reviews" id="lista-avaliacoes">
+          {shown.map((r) => (
+            <li key={`${r.author}-${r.date}-${r.variantLabel ?? ''}`} className="review">
               <p className="review__head">
                 <strong>{r.author}</strong>
-                <ReviewStars value={r.rating} />
+                {r.rating !== undefined && <ReviewStars value={r.rating} />}
               </p>
               <p className="review__meta">
-                {config.products[r.productId].name} · {modelName(r)}
-                {r.variantLabel && ` · ${r.variantLabel}`} ·{' '}
-                <time dateTime={r.date}>{new Date(`${r.date}T12:00:00`).toLocaleDateString('pt-BR')}</time>
+                <time dateTime={r.date}>{formatDate(r.date)}</time>
+                {r.variantLabel && ` · ${r.variantLabel}`}
+                {r.origin && <span className="review__origin">Compra na {r.origin}</span>}
               </p>
-              <blockquote>
-                <p>{r.text}</p>
-              </blockquote>
+              {r.details && r.details.length > 0 && (
+                <dl className="review__details">
+                  {r.details.map(([k, v]) => (
+                    <div key={k}>
+                      <dt>{k}:</dt> <dd>{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+              {r.text && (
+                <blockquote>
+                  <p>{r.text}</p>
+                </blockquote>
+              )}
+              {r.sellerReply && (
+                <div className="review__reply">
+                  <p className="review__reply-title">Resposta da loja</p>
+                  <p>{r.sellerReply}</p>
+                </div>
+              )}
               {r.photo && <img className="review__photo" src={r.photo} alt={`Foto enviada por ${r.author}`} loading="lazy" />}
+              {r.helpful ? (
+                <p className="review__helpful">
+                  {r.helpful} {r.helpful === 1 ? 'pessoa achou' : 'pessoas acharam'} útil
+                </p>
+              ) : null}
             </li>
           ))}
         </ul>
+        {reviews.length > FIRST && !showAll && (
+          <p className="rv-more">
+            <button type="button" className="btn btn--outline" aria-controls="lista-avaliacoes" onClick={() => setShowAll(true)}>
+              Ver todas as {reviews.length} avaliações
+            </button>
+          </p>
+        )}
       </div>
     </section>
   )

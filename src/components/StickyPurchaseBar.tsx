@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { formatBRL, scrollToAndFocus } from '../lib/format'
+import { modelFullName } from '../lib/routes'
 import { useShop } from '../lib/shop'
 import { BuyButton } from './BuyButton'
 
@@ -57,8 +58,7 @@ export function StickyPurchaseBar() {
     <div className="sticky-bar" data-show={show} data-accent={product.id} aria-hidden={!show} inert={!show}>
       <div className="sticky-bar__info">
         <span className="sticky-bar__name">
-          {product.name}
-          {model && ` · ${model.name}`}
+          {model ? modelFullName(model) : product.name}
         </span>
         <span className="sticky-bar__price">
           {!model ? 'Escolha o modelo' : price === null ? 'Preço a confirmar' : `${formatBRL(price)}${quantity > 1 ? ` · ${quantity} un.` : ''}`}

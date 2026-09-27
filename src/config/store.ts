@@ -1,4 +1,5 @@
 import descricoes from './descricoes.json'
+import { reviews } from './reviews.ts'
 import { politicaCookies, politicaPrivacidade, politicaTrocas, resumoTrocas, sobreLoja, termosVenda } from './policies.ts'
 import type { ModelAbout, ProductImage, ProductModel, StoreConfig } from './types.ts'
 
@@ -45,7 +46,7 @@ const colorOption = (id: string, label: string, image: string | null, token: str
 })
 
 /**
- * Ficha informada pelo vendedor para Nome e bandeira; o vendedor pediu a mesma
+ * Ficha informada pelo vendedor para Brasil e bandeira; o vendedor pediu a mesma
  * para o Flávio Bolsonaro. Tecido (material) ainda não informado.
  */
 const strapbackSpecs = (): ProductModel['specs'] => ({
@@ -193,18 +194,18 @@ const camisaBolsonaro: ProductModel = {
 const models22: ProductModel[] = [
   {
     id: 'nome-bandeira',
-    name: 'Nome e bandeira',
+    name: 'Brasil e bandeira',
     description: 'Frente com a palavra BRASIL e a bandeira do Brasil. Aba curva e regulagem atrás.',
     priceCents: 4790,
     compareAtCents: 5990,
     compareAtSource: 'Preço praticado anteriormente (informado pelo vendedor em 26/09/2026)',
     tiers: [],
     images: [
-      photo('22-bandeira/1.webp', 'Azul', 'Boné Nome e bandeira azul, com BRASIL e bandeira na frente'),
-      photo('22-bandeira/2.webp', 'Preto', 'Boné Nome e bandeira preto, com BRASIL e bandeira na frente'),
-      photo('22-bandeira/3.webp', 'Verde', 'Boné Nome e bandeira verde, com BRASIL e bandeira na frente'),
-      photo('22-bandeira/4.webp', 'Amarelo', 'Boné Nome e bandeira amarelo, com BRASIL e bandeira na frente'),
-      photo('22-bandeira/5.webp', 'Branco', 'Boné Nome e bandeira branco, com BRASIL e bandeira na frente', 1024, 1024),
+      photo('22-bandeira/1.webp', 'Azul', 'Boné Brasil e bandeira azul, com BRASIL e bandeira na frente'),
+      photo('22-bandeira/2.webp', 'Preto', 'Boné Brasil e bandeira preto, com BRASIL e bandeira na frente'),
+      photo('22-bandeira/3.webp', 'Verde', 'Boné Brasil e bandeira verde, com BRASIL e bandeira na frente'),
+      photo('22-bandeira/4.webp', 'Amarelo', 'Boné Brasil e bandeira amarelo, com BRASIL e bandeira na frente'),
+      photo('22-bandeira/5.webp', 'Branco', 'Boné Brasil e bandeira branco, com BRASIL e bandeira na frente', 1024, 1024),
     ],
     variants: [
       colorOption('azul', 'Azul', '22-bandeira/1.webp', 'GC9QPIAGGQ'),
@@ -237,18 +238,19 @@ const models22: ProductModel[] = [
     compareAtSource: 'Preço praticado anteriormente (informado pelo vendedor em 26/09/2026)',
     tiers: [],
     images: [
-      photo('22-camuflado/1.webp', 'As três cores', 'Bonés do modelo Camuflado nas cores camuflado, preto e verde-oliva', 450, 600),
+      // Cores das fotos 3 (cinza) e 4 (verde-oliva) confirmadas pelo vendedor em 26/09/2026.
+      photo('22-camuflado/1.webp', 'Três cores', 'Bonés do modelo Camuflado nas cores camuflado, preto e cinza', 450, 600),
       photo('22-camuflado/2.webp', 'Preto', 'Boné Camuflado preto com patch da bandeira', 450, 600),
-      photo('22-camuflado/3.webp', 'Verde-oliva', 'Boné Camuflado verde-oliva com patch da bandeira', 450, 600),
+      photo('22-camuflado/4.webp', 'Verde-oliva', 'Pessoa usando o boné Camuflado verde-oliva', 450, 600),
       photo('22-camuflado/6.webp', 'Camuflado', 'Boné Camuflado na estampa camuflada com patch da bandeira', 450, 600),
+      photo('22-camuflado/3.webp', 'Cinza', 'Boné Camuflado cinza com patch da bandeira', 450, 600),
       photo('22-camuflado/5.webp', 'Detalhe do patch', 'Detalhe do patch da bandeira no boné preto', 450, 600),
-      photo('22-camuflado/4.webp', 'Em uso', 'Pessoa usando o boné Camuflado verde-oliva', 450, 600),
     ],
     variants: [
       colorOption('preto', 'Preto', '22-camuflado/2.webp', 'CVC4ONB2WI'),
-      colorOption('oliva', 'Verde-oliva', '22-camuflado/3.webp', 'KOB33NE5JA'),
+      colorOption('oliva', 'Verde-oliva', '22-camuflado/4.webp', 'KOB33NE5JA'),
       colorOption('camuflado', 'Camuflado', '22-camuflado/6.webp', 'TP5ICRX09U'),
-      colorOption('cinza', 'Cinza', null, 'CLFY0H6VJ4'), // cadastrada na Yampi; falta foto
+      colorOption('cinza', 'Cinza', '22-camuflado/3.webp', 'CLFY0H6VJ4'),
     ],
     // Ficha informada pelo vendedor.
     specs: {
@@ -295,19 +297,19 @@ const models22: ProductModel[] = [
 const models13: ProductModel[] = [
   {
     id: 'nome-lula-estrela',
-    name: 'Nome Lula (estrela)',
+    name: 'Lula (estrela)',
     description: 'Estilo trucker, com tela atrás e “LULA” com estrela na frente.',
     priceCents: 4590,
     compareAtCents: 5490,
     compareAtSource: 'Preço praticado na loja física do vendedor (informado em 26/09/2026)',
     tiers: [],
     images: [
-      photo('13-nome-lula/4.webp', 'Vermelho', 'Boné Nome Lula vermelho, estilo trucker, com LULA e estrela na frente'),
-      photo('13-nome-lula/3.webp', 'Preto', 'Boné Nome Lula preto, estilo trucker'),
-      photo('13-nome-lula/5.webp', 'Branco', 'Boné Nome Lula branco, estilo trucker'),
-      photo('13-nome-lula/6.webp', 'Branco e preto', 'Boné Nome Lula com frente branca e tela preta'),
-      photo('13-nome-lula/2.webp', 'Em uso', 'Pessoa usando o boné Nome Lula vermelho'),
-      photo('13-nome-lula/1.webp', 'Detalhes', 'Boné Nome Lula vermelho com a lista de características do fornecedor'),
+      photo('13-nome-lula/4.webp', 'Vermelho', 'Boné Lula vermelho, estilo trucker, com LULA e estrela na frente'),
+      photo('13-nome-lula/3.webp', 'Preto', 'Boné Lula preto, estilo trucker'),
+      photo('13-nome-lula/5.webp', 'Branco', 'Boné Lula branco, estilo trucker'),
+      photo('13-nome-lula/6.webp', 'Branco e preto', 'Boné Lula com frente branca e tela preta'),
+      photo('13-nome-lula/2.webp', 'Em uso', 'Pessoa usando o boné Lula vermelho'),
+      photo('13-nome-lula/1.webp', 'Detalhes', 'Boné Lula vermelho com a lista de características do fornecedor'),
     ],
     variants: [
       colorOption('vermelho', 'Vermelho', '13-nome-lula/4.webp', 'BSE1DAV8IX'),
@@ -337,19 +339,19 @@ const models13: ProductModel[] = [
   },
   {
     id: 'nome-lula-letras',
-    name: 'Nome Lula (letras grandes)',
+    name: 'Lula (letras grandes)',
     description: 'Estilo trucker, com tela atrás e “LULA” em letras grandes na frente.',
     priceCents: 4590,
     compareAtCents: 5490,
     compareAtSource: 'Preço praticado na loja física do vendedor (informado em 26/09/2026)',
     tiers: [],
     images: [
-      photo('13-nome-lula-2/1.webp', 'Vermelho', 'Boné Nome Lula vermelho com LULA em letras grandes'),
-      photo('13-nome-lula-2/4.webp', 'Branco', 'Boné Nome Lula branco com LULA em vermelho', 829, 829),
-      photo('13-nome-lula-2/5.webp', 'Branco e vermelho', 'Boné Nome Lula com frente branca e aba e tela vermelhas', 796, 796),
-      photo('13-nome-lula-2/6.webp', 'Preto', 'Boné Nome Lula preto com LULA em branco', 1024, 1024),
-      photo('13-nome-lula-2/2.webp', 'Em uso', 'Pessoa usando o boné Nome Lula vermelho', 1024, 1024),
-      photo('13-nome-lula-2/3.webp', 'Ângulos', 'Boné Nome Lula vermelho visto de vários ângulos', 1024, 1024),
+      photo('13-nome-lula-2/1.webp', 'Vermelho', 'Boné Lula vermelho com LULA em letras grandes'),
+      photo('13-nome-lula-2/4.webp', 'Branco', 'Boné Lula branco com LULA em vermelho', 829, 829),
+      photo('13-nome-lula-2/5.webp', 'Branco e vermelho', 'Boné Lula com frente branca e aba e tela vermelhas', 796, 796),
+      photo('13-nome-lula-2/6.webp', 'Preto', 'Boné Lula preto com LULA em branco', 1024, 1024),
+      photo('13-nome-lula-2/2.webp', 'Em uso', 'Pessoa usando o boné Lula vermelho', 1024, 1024),
+      photo('13-nome-lula-2/3.webp', 'Ângulos', 'Boné Lula vermelho visto de vários ângulos', 1024, 1024),
     ],
     variants: [
       colorOption('vermelho', 'Vermelho', '13-nome-lula-2/1.webp', 'FZSSM5MOJC'),
@@ -416,7 +418,7 @@ export const storeConfig: StoreConfig = {
       number: '13',
       shortName: 'Lula 13',
       name: 'Lula 13',
-      tagline: 'Cinco modelos: Nome Lula (estrela), Número 13, Nome Lula (letras grandes), Simples e Trucker liso.',
+      tagline: 'Cinco modelos: Lula (estrela), Número 13, Lula (letras grandes), Simples e Trucker liso.',
       heroImage: photo('13-numero/3.webp', 'Número 13 · Vermelho', 'Boné Número 13 vermelho, com 13 branco na frente', 800, 800),
       models: [...models13, camisaLula],
     },
@@ -425,7 +427,7 @@ export const storeConfig: StoreConfig = {
       number: '22',
       shortName: 'Bolsonaro 22',
       name: 'Bolsonaro 22',
-      tagline: 'Quatro modelos: Nome e bandeira, Simples, Camuflado e Flávio Bolsonaro.',
+      tagline: 'Quatro modelos: Brasil e bandeira, Simples, Camuflado e Flávio Bolsonaro.',
       heroImage: photo('22-flavio/2.webp', 'Flávio Bolsonaro · Amarelo', 'Boné Flávio Bolsonaro amarelo, estilo trucker'),
       models: [...models22, camisaBolsonaro],
     },
@@ -461,9 +463,11 @@ export const storeConfig: StoreConfig = {
     { id: 'cookies', title: 'Política de cookies', body: politicaCookies },
   ],
 
-  reviews: [],
+  // Avaliações de compras na loja do vendedor na Shopee (src/config/reviews.ts).
+  reviews,
 
   shareImage: '/og-13x22.png',
+
 
   // Arte do vendedor (a mesma do banner da Yampi). Os bonés do banner são ilustrativos;
   // os modelos à venda aparecem logo abaixo, com fotos reais.

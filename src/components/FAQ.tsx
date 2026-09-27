@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { formatBRL, whatsappUrl } from '../lib/format'
+import { modelFullName } from '../lib/routes'
 import { useShop } from '../lib/shop'
 import { Pending, useShowPending } from './Pending'
 import { ContactLinks } from './ContactLinks'
@@ -47,7 +48,7 @@ export function FAQ() {
                 const closure = m.specs.closure!
                 return (
                   <li key={`${p.id}-${m.id}`}>
-                    <strong>{m.name}</strong> ({p.number}): {size ? `tamanho ${size.split(',')[0]!.toLowerCase()}, com ` : ''}
+                    <strong>{modelFullName(m)}</strong> ({p.number}): {size ? `tamanho ${size.split(',')[0]!.toLowerCase()}, com ` : ''}
                     {closure.charAt(0).toLowerCase() + closure.slice(1)}.
                   </li>
                 )

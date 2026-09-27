@@ -1,5 +1,6 @@
 import { Fragment, type ReactNode } from 'react'
 import { formatBRL } from '../lib/format'
+import { modelFullName } from '../lib/routes'
 import { useShop } from '../lib/shop'
 import { Icon, type IconName } from './Icon'
 import { Pending, useShowPending } from './Pending'
@@ -43,7 +44,7 @@ export function ProductInfo() {
         <div className="about__text">
           <p className="section__eyebrow">Sobre o produto</p>
           <h2 id="about-title" className="section__title">
-            {model.name}
+            {modelFullName(model)}
           </h2>
           {about ? (
             <>

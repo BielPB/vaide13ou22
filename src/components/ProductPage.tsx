@@ -3,6 +3,7 @@ import type { ProductId, ProductModel, ProductVariant } from '../config/types'
 import { formatBRL } from '../lib/format'
 import { blockMessages, checkoutProviderName, discountFromCompareAt, isVariantInStock } from '../lib/purchase'
 import { Link } from '../lib/router'
+import { modelFullName } from '../lib/routes'
 import { useShop } from '../lib/shop'
 import { BuyButton } from './BuyButton'
 import { Icon } from './Icon'
@@ -66,7 +67,7 @@ function Breadcrumb() {
         <li>
           <Link href={`/#vitrine-${product.id}`}>{product.name}</Link>
         </li>
-        <li aria-current="page">{model.name}</li>
+        <li aria-current="page">{modelFullName(model)}</li>
       </ol>
     </nav>
   )
@@ -253,7 +254,7 @@ export function ProductPage() {
           <div className="pdp__media">
             <ProductGallery
               key={modelKey}
-              title={[product.name, model?.name].filter(Boolean).join(' · ')}
+              title={model ? modelFullName(model) : product.name}
               images={images}
               focus={{ src: colorImage, tick: colorTick }}
               missingLabel={missingLabel}
@@ -264,16 +265,25 @@ export function ProductPage() {
 
           <div className="buybox">
             <p className="buybox__badge">
-              {model?.category === 'camisa' ? 'Camisa' : 'Boné'} {product.number}
+              {product.name}
               {variant && ` · ${variantName(variant)}`}
             </p>
             <h1 id="pdp-title" className="buybox__title">
-              {model ? model.name : product.name}
+              {model ? modelFullName(model) : product.name}
             </h1>
             {summary && (
               <a className="buybox__rating" href="#avaliacoes">
-                <ReviewStars value={summary.average} /> {summary.average.toFixed(1).replace('.', ',')} ({summary.count}{' '}
-                {summary.count === 1 ? 'avaliação' : 'avaliações'})
+                {summary.average !== null ? (
+                  <>
+                    <ReviewStars value={summary.average} /> {summary.average.toFixed(1).replace('.', ',')} ({summary.count}{' '}
+                    {summary.count === 1 ? 'avaliação' : 'avaliações'})
+                  </>
+                ) : (
+                  <>
+                    {summary.count} {summary.count === 1 ? 'avaliação' : 'avaliações'}
+                    {summary.origins.length === 1 && ` na ${summary.origins[0]}`}
+                  </>
+                )}
               </a>
             )}
 

@@ -235,22 +235,32 @@ export interface PolicyDoc {
   body: string | null
 }
 
-/** Avaliação de um cliente real. Só entram avaliações verificadas de compras. */
+/** Avaliação de um cliente real. Só entram avaliações verificadas de compras da loja. */
 export interface Review {
-  /** Nome como o cliente autorizou exibir (ex.: "Carlos E."). */
+  /** Nome como aparece publicamente, já mascarado (ex.: "t*****e"). */
   author: string
-  rating: 1 | 2 | 3 | 4 | 5
-  text: string
+  /** Nota de 1 a 5. Ausente = nota não informada (nunca estimar). */
+  rating?: 1 | 2 | 3 | 4 | 5
+  /** Comentário livre do cliente, sem edição. */
+  text?: string
+  /** Itens avaliados, como no marketplace (ex.: ["Conforto", "Muito confortável"]). */
+  details?: Array<[string, string]>
   productId: ProductId
   modelId: string
-  /** Cor/opção comprada, ex.: "Preto". */
+  /** Cor/opção comprada, como o cliente registrou, ex.: "Vermelho, M". */
   variantLabel?: string
   /** Data ISO, ex.: "2026-09-20". */
   date: string
   /** Foto enviada pelo cliente (em /public). */
   photo?: string
   verified: true
-  /** Origem (print, link do WhatsApp/Instagram), para auditoria. */
+  /** Onde a compra foi feita, quando não foi neste site (ex.: "Shopee"). */
+  origin?: string
+  /** Quantas pessoas marcaram a avaliação como útil na origem. */
+  helpful?: number
+  /** Resposta da loja publicada junto da avaliação. */
+  sellerReply?: string
+  /** Origem (link do anúncio, print), para auditoria. */
   sourceUrl?: string
 }
 

@@ -357,14 +357,11 @@
 .site-footer :focus-visible {
   outline-color: var(--ink);
 }
-.site-footer .wordmark__13 {
-  color: var(--pt-red-deep);
-}
-.site-footer .wordmark__22 {
-  color: var(--pl-blue);
-}
-.site-footer .wordmark__x {
-  color: var(--ink-2);
+.site-footer__logo {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
 }
 .site-footer__brand {
   color: var(--ink);
@@ -790,5 +787,95 @@ html {
   .not-found .container {
     justify-items: center;
     text-align: center;
+  }
+}
+
+/* =====================================================================
+   AVALIAÇÕES (página de produto)
+   ===================================================================== */
+.section--reviews {
+  border-top: 1px solid var(--line);
+}
+.rv-lead {
+  margin-top: 8px;
+  color: var(--ink-2);
+}
+.review {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 12px;
+}
+.review__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.review__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin-top: 0;
+}
+.review__origin {
+  padding: 1px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: var(--ink-2);
+}
+.review__details {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  font-size: 0.9375rem;
+}
+.review__details dt {
+  display: inline;
+  font-weight: 600;
+}
+.review__details dd {
+  display: inline;
+  margin: 0;
+  color: var(--ink-2);
+}
+.review blockquote {
+  font-size: 1rem;
+}
+.review blockquote p,
+.review__reply p {
+  white-space: pre-line;
+}
+.review__reply {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--paper-2);
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+}
+.review__reply-title {
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-weight: 600;
+}
+.review__helpful {
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+}
+.rv-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+@media (max-width: 699px) {
+  .review {
+    justify-items: center;
+    text-align: center;
+  }
+  .review__head,
+  .review__meta {
+    justify-content: center;
   }
 }

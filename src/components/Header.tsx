@@ -7,13 +7,18 @@ import { Link } from '../lib/router'
 import { ServiceBar } from './Home'
 import { SideMark } from './Icon'
 
-export function Wordmark() {
+/** Logo redonda da loja (versões leves em /public; original em marca/logo22x13.png). */
+export function BrandLogo({ className = 'brand__logo' }: { className?: string }) {
   return (
-    <span className="wordmark" aria-hidden="true">
-      <span className="wordmark__13">13</span>
-      <span className="wordmark__x">×</span>
-      <span className="wordmark__22">22</span>
-    </span>
+    <img
+      className={className}
+      src="/logo-96.webp"
+      srcSet="/logo-96.webp 96w, /logo-192.webp 192w"
+      sizes="(min-width: 900px) 56px, 48px"
+      width={56}
+      height={56}
+      alt=""
+    />
   )
 }
 
@@ -95,7 +100,7 @@ export function Header({ page }: { page: Page }) {
       <header className="site-header">
         <div className="container site-header__inner">
           <Link className="brand" href="/">
-            <img className="brand__logo" src="/logo-96.webp" srcSet="/logo-96.webp 96w, /logo-192.webp 192w" sizes="(min-width: 900px) 56px, 48px" width={56} height={56} alt="" />
+            <BrandLogo />
             <span className={storeName ? 'brand__name' : 'visually-hidden'}>{storeName ?? 'Bonés e camisas 13 e 22'}</span>
             <span className="visually-hidden"> — voltar ao início</span>
           </Link>

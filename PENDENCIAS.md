@@ -8,12 +8,12 @@ Os itens abaixo são recomendações para melhorar a página.
 - **Loja:** vaide13ou22 · **WhatsApp:** (21) 96952-6716
 - **Oferta:** frete grátis para todo o Brasil em compras acima de R$ 149,90 (faixa no topo, compra, Entrega e FAQ).
 - **Sem desconto por quantidade:** cada peça sai pelo preço de 1 unidade (o plano da Yampi não libera cupons nem faixas).
-- **Lado 13:** Nome Lula (estrela), Número 13 e Nome Lula (letras grandes) a R$ 45,90 (antes R$ 54,90) · Simples vermelho e Trucker liso a R$ 39,90 (antes R$ 49,90) · Camisa Lula 13 a R$ 49,90 (7 cores).
-- **Lado 22:** Nome e bandeira R$ 47,90 (antes R$ 59,90) · Simples R$ 35,90 · Camuflado R$ 59,90 (antes R$ 79,90) · Flávio Bolsonaro R$ 37,90 (antes R$ 49,90) · Camisa Bolsonaro 22 a R$ 49,90 (branca e preta).
+- **Lado 13:** Lula (estrela), Número 13 e Lula (letras grandes) a R$ 45,90 (antes R$ 54,90) · Simples vermelho e Trucker liso a R$ 39,90 (antes R$ 49,90) · Camisa Lula 13 a R$ 49,90 (7 cores).
+- **Lado 22:** Brasil e bandeira R$ 47,90 (antes R$ 59,90) · Simples R$ 35,90 · Camuflado R$ 59,90 (antes R$ 79,90) · Flávio Bolsonaro R$ 37,90 (antes R$ 49,90) · Camisa Bolsonaro 22 a R$ 49,90 (branca e preta).
 - **Preços anteriores (riscados):** praticados antes pelo vendedor, com a origem registrada em `compareAtSource`.
 - **Camisas:** tamanhos P, M, G, GG (iguais aos da Yampi), algodão, cuidados de lavagem e tabela de medidas de **referência** (aviso de variação de até 2 cm).
 - **Fotos:** confirmadas pelo vendedor como fiéis ao produto.
-- **Fichas:** Nome e bandeira e Flávio Bolsonaro com regulagem fitão/strapback e tamanho único. Camuflado em poliéster, com fivela e ilhós.
+- **Fichas:** Brasil e bandeira e Flávio Bolsonaro com regulagem fitão/strapback e tamanho único. Camuflado em poliéster, com fivela e ilhós.
 - **Checkout Yampi ligado:** 63 Links de compra, um por variação, conferidos abrindo cada link (27 cores de bonés + 36 cor×tamanho de camisas); domínio `vai-de-13-ou-22.pay.yampi.com.br`.
 - **Layout:** mesma estrutura da loja na Yampi (banner em `public/banner.png` e `public/banner-celular.png`, vitrines 13 e 22, rodapé com Informações).
 
@@ -34,8 +34,7 @@ trocas, termos e cookies), declaração de loja independente, links de compra (6
 
 | O que | Onde |
 |---|---|
-| Tecido, fechamento e tamanho dos bonés do lado 13 e do Simples (22); tecido do Nome e bandeira e do Flávio | `models[].specs` em `store.ts` (sem o dado, a linha não aparece no site) |
-| Foto do Camuflado Cinza | A cor existe na Yampi e no site, mas sem foto |
+| Tecido, fechamento e tamanho dos bonés do lado 13 e do Simples (22); tecido do Brasil e bandeira e do Flávio | `models[].specs` em `store.ts` (sem o dado, a linha não aparece no site) |
 | Confirmar as cores de cada modelo (lidas das fotos) | `products.*.models` |
 | Medir uma camisa de cada tamanho para trocar a tabela de referência | `measurements` das camisas |
 | Origem das fotos da camisa Bolsonaro (vieram de um anúncio da Shopee: usar só se forem do seu fornecedor) | `public/produtos/22-camisa` |
@@ -43,7 +42,7 @@ trocas, termos e cookies), declaração de loja independente, links de compra (6
 | Estoque por cor (limita a quantidade e marca “Esgotado”) | `variants[].stock` |
 | Horário de atendimento | `contact.hours` |
 | Cuidados/lavagem dos bonés e circunferência em cm, se houver | `specs.care` / `specs.measurements` |
-| Avaliações verificadas: só depoimentos reais, de preferência com origem (print/link) | `reviews` |
+| Avaliações: a Camisa Lula 13 tem 22 avaliações da loja na Shopee, sem estrelas. Faltam a nota (1 a 5) de cada uma, o link do anúncio na Shopee e avaliações dos outros produtos | `src/config/reviews.ts` |
 
 ## Aviso legal: identificação do vendedor
 
@@ -55,13 +54,13 @@ Isso fica registrado como aviso e não bloqueia a página. Para cumprir o decret
 
 | O que | Por quê |
 |---|---|
-| **Renomear os dois "Boné Nome Lula"** | No checkout, os modelos estrela e letras grandes aparecem com o mesmo nome. Sugestão: "Boné Nome Lula (estrela)" e "Boné Nome Lula (letras grandes)", iguais ao site. |
+| **Renomear os bonés "Nome"** | Deixar igual ao site: os dois "Boné Nome Lula" viram "Boné Lula (estrela)" e "Boné Lula (letras grandes)"; o "Nome e bandeira" vira "Boné Brasil e bandeira". Hoje, no checkout, os dois modelos do Lula aparecem com o mesmo nome. |
 | **Trocar a marca "LULA13" por vaide13ou22** | A marca aparece só em um dos lados e quebra o equilíbrio da loja. |
 | **Barra do topo** | Trocar "Frete Grátis para todo Brasil!" por "Frete grátis para todo o Brasil acima de R$ 149,90" (sem o valor mínimo, a oferta é enganosa pelo CDC). |
 | **Frase do rodapé** | Trocar "Encontre o boné perfeito para apoiar seu candidato." por "Bonés e camisas 13 e 22. Escolha o seu modelo." |
 | **Seções de exemplo** | Ligar "Nome da coleção" às coleções Lula 13 / Bolsonaro 22 e desativar "Escolha por marcas". |
 | **Pixels e análise** | A Política de cookies diz que a loja não usa cookies de publicidade. Conferir em Integrações/Marketing que não há Meta Pixel, Google Analytics etc. ligados. |
-| **Preço promocional** | Só nos modelos com preço riscado no site (5 do lado 13; Nome e bandeira, Camuflado e Flávio no 22). |
+| **Preço promocional** | Só nos modelos com preço riscado no site (5 do lado 13; Brasil e bandeira, Camuflado e Flávio no 22). |
 | **Frete grátis acima de R$ 149,90** | Conferir com um CEP real no checkout. A página só anuncia; quem aplica é a Yampi. |
 | **Desconto de 2+ (desligado)** | Para reativar: plano com cupons → criar os cupons → testar no checkout → `quantityDiscountActive: true`. |
 

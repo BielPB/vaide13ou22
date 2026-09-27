@@ -10,7 +10,7 @@ estão alinhados com o site. **Os nomes precisam ficar iguais aos do site**, por
 | **Peso** (kg) de cada boné embalado | A Yampi calcula o frete com ele | ❗ Pesar um boné já embalado |
 | **Dimensões da embalagem** (altura × largura × comprimento, em cm) | Idem | ❗ Medir a embalagem |
 | **Estoque** de cada cor | Evita vender o que não tem | ❗ Contar |
-| Material do Nome e bandeira, do Flávio e do Simples | Ficha do produto | ❗ Pendente |
+| Material do Brasil e bandeira, do Flávio e do Simples | Ficha do produto | ❗ Pendente |
 | Ficha do Simples (fechamento, tamanho) | Ficha do produto | ❗ Pendente |
 | Ficha dos modelos do 13 (tecido, regulagem, tamanho) | Ficha do produto | ❗ Pendente |
 
@@ -34,9 +34,9 @@ quantidade** (mesmo SKU/cor), com os valores da tabela de cada produto abaixo.
 
 # Lado 13
 
-## 13.1 Boné Nome Lula (estrela)
+## 13.1 Boné Lula (estrela)
 
-- **Nome:** `Boné Nome Lula (estrela)` · **Slug:** `bone-nome-lula-estrela`
+- **Nome:** `Boné Lula (estrela)` · **Slug:** `bone-nome-lula-estrela`
 - **Preço de venda:** `45.90`
 - **2 ou mais da mesma cor:** R$ 39,90 cada (desconto progressivo)
 - **Variação:** Cor → Vermelho, Preto, Branco, Branco e preto
@@ -77,9 +77,9 @@ Só use essa arte se os itens dela forem verdadeiros para o boné que você vend
 
 Gerais: `numero-13-geral-vermelho-angulos.jpg`, `numero-13-geral-preto-angulos.jpg`, `numero-13-geral-em-uso.jpg`.
 
-## 13.3 Boné Nome Lula (letras grandes)
+## 13.3 Boné Lula (letras grandes)
 
-- **Nome:** `Boné Nome Lula (letras grandes)` · **Slug:** `bone-nome-lula-letras`
+- **Nome:** `Boné Lula (letras grandes)` · **Slug:** `bone-nome-lula-letras`
 - **Preço de venda:** `45.90`
 - **2 ou mais da mesma cor:** R$ 39,90 cada (desconto progressivo)
 - **Variação:** Cor → Vermelho, Branco, Branco e vermelho, Preto
@@ -129,9 +129,9 @@ Gerais: `lula-letras-geral-em-uso.jpg`, `lula-letras-geral-angulos.jpg`.
 
 # Lado 22
 
-## 1. Boné Nome e bandeira
+## 1. Boné Brasil e bandeira
 
-- **Nome:** `Boné Nome e bandeira`
+- **Nome:** `Boné Brasil e bandeira`
 - **Slug (URL):** `bone-nome-e-bandeira`
 - **Preço de venda:** `47.90`
 - **2 ou mais da mesma cor:** R$ 39,90 cada (desconto progressivo)
@@ -199,7 +199,7 @@ Gerais: `lula-letras-geral-em-uso.jpg`, `lula-letras-geral-angulos.jpg`.
 > - Aba curva com visor rígido, que mantém o formato
 > - Forro interno macio e faixa que absorve o suor
 >
-> **Cores:** preto, verde-oliva e camuflado.
+> **Cores:** preto, verde-oliva, cinza e camuflado.
 
 | SKU | Cor | Foto |
 |---|---|---|
