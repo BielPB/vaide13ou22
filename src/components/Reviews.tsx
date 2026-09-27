@@ -40,7 +40,6 @@ export function useReviewSummary(productId?: ProductId, modelId?: string) {
   return {
     count: list.length,
     average: rated.length ? rated.reduce((s, r) => s + r.rating, 0) / rated.length : null,
-    origins: [...new Set(list.map((r) => r.origin).filter(Boolean))] as string[],
   }
 }
 
@@ -75,7 +74,6 @@ export function Reviews() {
 
   const rated = reviews.filter((r) => r.rating !== undefined)
   const dist = [5, 4, 3, 2, 1].map((n) => ({ n, count: rated.filter((r) => r.rating === n).length }))
-  const origin = summary.origins.length === 1 ? summary.origins[0] : null
 
   return (
     <section className="section section--reviews" id="avaliacoes" aria-labelledby="reviews-title">
@@ -87,7 +85,6 @@ export function Reviews() {
           </h2>
           <p className="rv-lead">
             {summary.count} {summary.count === 1 ? 'avaliação' : 'avaliações'}
-            {origin && ` de compras feitas na nossa loja da ${origin}`}
           </p>
         </header>
 
