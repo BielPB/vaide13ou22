@@ -6,7 +6,6 @@ Os itens abaixo são recomendações para melhorar a página.
 ## Já recebido
 
 - **Loja:** vaide13ou22 · **WhatsApp:** (21) 96952-6716
-- **Endereço:** Sítio Côrrego de Santo Antônio, 998 – Côrrego de Santo Antonio, Barra Alegre – RJ, CEP 28666-971 (o link do Maps é uma busca por esse endereço).
 - **Oferta:** frete grátis para todo o Brasil em compras acima de R$ 149,90 (faixa no topo, compra, Entrega e FAQ).
 - **Sem desconto por quantidade:** cada peça sai pelo preço de 1 unidade (o plano da Yampi não libera cupons nem faixas).
 - **Lado 13:** Nome Lula (estrela), Número 13 e Nome Lula (letras grandes) a R$ 45,90 (antes R$ 54,90) · Simples vermelho e Trucker liso a R$ 39,90 (antes R$ 49,90) · Camisa Lula 13 a R$ 49,90 (7 cores).

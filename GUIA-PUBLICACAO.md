@@ -68,7 +68,7 @@ Eu redijo **Trocas e devoluções**, **Privacidade** e **Termos de venda** com b
 **Me responda:**
 1. Além dos 7 dias de arrependimento (obrigatório por lei), você aceita troca de cor ou modelo? Em até quantos dias?
 2. Na devolução por arrependimento ou defeito, o frete é por sua conta (é o que a lei exige). Para troca por gosto (outra cor), quem paga o frete?
-3. O cliente devolve para o endereço de Barra Alegre (RJ)?
+3. Para onde o cliente devolve o produto? (o endereço é passado só no atendimento)
 4. Como o cliente recebe o rastreio: e-mail automático da Yampi ou você manda no WhatsApp?
 5. Horário de atendimento no WhatsApp.
 

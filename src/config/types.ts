@@ -18,10 +18,6 @@ export interface StoreInfo {
   legalName: string | null
   /** CNPJ ou CPF do vendedor, como deve aparecer no rodapé. */
   documentId: string | null
-  /** Endereço comercial em texto (opcional). */
-  address: string | null
-  /** Link do endereço no Google Maps. */
-  addressUrl: string | null
   /**
    * Declaração de independência. `confirmed` precisa ser `true` para que o texto
    * seja publicado — confirme que a loja não tem vínculo oficial com partidos,

@@ -1104,16 +1104,6 @@ input {
 
 /* Cards de seleção mais baixos no desktop: a área de compra aparece mais cedo. */
 
-@media (max-width: 599px) {
-  .brand__name {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-  }
-}
 
 /* =====================================================================
    MODELOS, CORES E PREÇO PROGRESSIVO

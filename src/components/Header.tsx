@@ -93,7 +93,7 @@ export function Header({ page }: { page: Page }) {
       <header className="site-header">
         <div className="container site-header__inner">
           <Link className="brand" href="/">
-            <img className="brand__logo" src="/logo-96.webp" srcSet="/logo-96.webp 96w, /logo-192.webp 192w" sizes="44px" width={44} height={44} alt="" />
+            <img className="brand__logo" src="/logo-96.webp" srcSet="/logo-96.webp 96w, /logo-192.webp 192w" sizes="(min-width: 900px) 56px, 48px" width={56} height={56} alt="" />
             <span className={storeName ? 'brand__name' : 'visually-hidden'}>{storeName ?? 'Bonés e camisas 13 e 22'}</span>
             <span className="visually-hidden"> — voltar ao início</span>
           </Link>

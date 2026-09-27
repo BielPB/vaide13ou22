@@ -390,12 +390,6 @@ export const storeConfig: StoreConfig = {
     // O vendedor optou por não exibir nome completo nem CPF/CNPJ (veja PENDENCIAS.md).
     legalName: null,
     documentId: null,
-    // Endereço NÃO exibido no site (decisão do vendedor em 26/09/2026). Fica só como registro.
-    address: 'Sítio Côrrego de Santo Antônio, 998 – Côrrego de Santo Antonio, Barra Alegre – RJ, CEP 28666-971',
-    // Busca do endereço acima no Google Maps (o link curto anterior apontava para Belo Horizonte/MG).
-    addressUrl:
-      'https://www.google.com/maps/search/?api=1&query=' +
-      encodeURIComponent('Sítio Côrrego de Santo Antônio, 998, Barra Alegre, RJ, 28666-971'),
     independence: {
       statement:
         'Loja independente. Não temos vínculo com partidos, campanhas, candidatos ou com as pessoas citadas, e as vendas não são doações. Os nomes e números identificam os modelos dos produtos.',

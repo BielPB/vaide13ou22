@@ -86,9 +86,15 @@
 }
 .brand__logo {
   flex: none;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
+}
+@media (min-width: 900px) {
+  .brand__logo {
+    width: 56px;
+    height: 56px;
+  }
 }
 .site-header .brand__name {
   font-size: 1rem;
