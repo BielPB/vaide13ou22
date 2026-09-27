@@ -4,6 +4,7 @@ import { formatBRL } from '../lib/format'
 import { blockMessages, checkoutProviderName, discountFromCompareAt, isVariantInStock } from '../lib/purchase'
 import { Link } from '../lib/router'
 import { modelFullName } from '../lib/routes'
+import { useCart } from '../lib/cartContext'
 import { useShop } from '../lib/shop'
 import { BuyButton } from './BuyButton'
 import { Icon } from './Icon'
@@ -165,7 +166,7 @@ function SizePicker({
 }
 
 /** Progresso até o frete grátis (valor real configurado). */
-function FreeShippingProgress({ subtotalCents }: { subtotalCents: number | null }) {
+export function FreeShippingProgress({ subtotalCents }: { subtotalCents: number | null }) {
   const { commerce } = useShop().config
   const min = commerce.freeShippingAboveCents
   if (min === null || subtotalCents === null) return null
@@ -194,6 +195,7 @@ function FreeShippingProgress({ subtotalCents }: { subtotalCents: number | null 
 
 export function ProductPage() {
   const { config, selection, checkout, selectVariant, setQuantity } = useShop()
+  const { subtotalCents: cartTotal } = useCart()
   const qtyId = useId()
   const summary = useReviewSummary(selection?.product.id, selection?.model?.id)
   const [pendingColor, setPendingColor] = useState<string | null>(null)
@@ -370,10 +372,11 @@ export function ProductPage() {
                 )}
                 <BuyButton
                   className="btn--large"
-                  label={subtotalCents !== null && variant ? `Comprar · ${formatBRL(subtotalCents)}` : 'Comprar'}
+                  label={subtotalCents !== null && variant ? `Adicionar · ${formatBRL(subtotalCents)}` : 'Adicionar ao carrinho'}
                 />
               </div>
             )}
+            {model && <BuyButton mode="now" className="buy-now" />}
 
             {blockText && (
               <p className="summary__block" id={`block-${product.id}`}>
@@ -386,7 +389,8 @@ export function ProductPage() {
               </p>
             )}
 
-            {model && <FreeShippingProgress subtotalCents={subtotalCents} />}
+            {/* Frete grátis considera o que já está no carrinho mais a escolha atual. */}
+            {model && <FreeShippingProgress subtotalCents={subtotalCents === null ? null : cartTotal + subtotalCents} />}
 
             <ul className="trust">
               <li>

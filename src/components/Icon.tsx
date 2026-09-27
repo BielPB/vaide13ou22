@@ -7,6 +7,8 @@ const paths = {
   shield: 'M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z M8.5 12l2.5 2.5 4.5-5',
   card: 'M3 6h18v12H3zM3 10h18M7 15h4',
   send: 'M21 3L3 10.5l7 2.5 2.5 7zM10 13l5-5',
+  bag: 'M5 8h14l-1.2 12H6.2zM9 8V6.5a3 3 0 0 1 6 0V8',
+  trash: 'M5 7h14M10 7V5h4v2M7 7l1 13h8l1-13',
 } as const
 
 export type IconName = keyof typeof paths

@@ -15,7 +15,7 @@ Os itens abaixo são recomendações para melhorar a página.
 - **Fotos:** confirmadas pelo vendedor como fiéis ao produto.
 - **Fichas:** Brasil e bandeira e Flávio Bolsonaro com regulagem fitão/strapback e tamanho único. Camuflado em poliéster, com fivela e ilhós.
 - **Checkout Yampi ligado:** 63 Links de compra, um por variação, conferidos abrindo cada link (27 cores de bonés + 36 cor×tamanho de camisas); domínio `vai-de-13-ou-22.pay.yampi.com.br`.
-- **Layout:** mesma estrutura da loja na Yampi (banner em `public/banner.png` e `public/banner-celular.png`, vitrines 13 e 22, rodapé com Informações).
+- **Layout:** mesma estrutura da loja na Yampi (banner em `public/banner.webp` e `public/banner-celular.webp`, vitrines 13 e 22, rodapé com Informações).
 
 ## Resolvido para publicar
 
@@ -38,7 +38,7 @@ trocas, termos e cookies), declaração de loja independente, links de compra (6
 | Confirmar as cores de cada modelo (lidas das fotos) | `products.*.models` |
 | Medir uma camisa de cada tamanho para trocar a tabela de referência | `measurements` das camisas |
 | Origem das fotos da camisa Bolsonaro (vieram de um anúncio da Shopee: usar só se forem do seu fornecedor) | `public/produtos/22-camisa` |
-| Banner de celular com 1000 px ou mais de largura (o atual tem 500 px e fica pouco nítido em telas de alta resolução) | `public/banner-celular.png` |
+| Banner de celular com 1000 px ou mais de largura (o atual tem 500 px e fica pouco nítido em telas de alta resolução) | `public/banner-celular.webp` |
 | Estoque por cor (limita a quantidade e marca “Esgotado”) | `variants[].stock` |
 | Horário de atendimento | `contact.hours` |
 | Cuidados/lavagem dos bonés e circunferência em cm, se houver | `specs.care` / `specs.measurements` |
@@ -72,5 +72,5 @@ Isso fica registrado como aviso e não bloqueia a página. Para cumprir o decret
   referência às cores partidárias e regras da legislação eleitoral para venda de produtos com identificação política,
   principalmente em período eleitoral.
 - **Imagem de compartilhamento:** `public/og-13x22.png` foi gerada a partir de `og-13x22.svg` e pode ser substituída por uma arte com fotos reais.
-- **Desempenho:** medir com Lighthouse ou PageSpeed depois do deploy. Os banners estão em PNG (cerca de 750 KB juntos); convertê-los para WebP deixa a página mais leve.
+- **Desempenho:** medir com Lighthouse ou PageSpeed depois do deploy. Banners, fotos das camisas e fotos das avaliações já estão em WebP (em 27/09/2026 caíram de ~3,3 MB para ~1 MB).
   Nenhuma nota foi medida até agora.

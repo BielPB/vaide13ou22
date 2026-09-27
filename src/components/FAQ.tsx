@@ -119,7 +119,21 @@ export function FAQ() {
       q: 'Como acompanho meu pedido?',
       field: 'POLITICAS (rastreio)',
       id: 'faq-rastreio',
-      a: commerce.tracking ? <p>{commerce.tracking}</p> : null,
+      a: commerce.tracking ? (
+        <p>
+          {commerce.tracking}
+          {commerce.trackingUrl && (
+            <>
+              {' '}
+              Com o código em mãos, acompanhe no{' '}
+              <a href={commerce.trackingUrl} target="_blank" rel="noopener">
+                site dos Correios
+              </a>
+              .
+            </>
+          )}
+        </p>
+      ) : null,
     },
     {
       q: 'Posso cancelar o pedido?',

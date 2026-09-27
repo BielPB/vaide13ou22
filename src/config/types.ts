@@ -222,6 +222,8 @@ export interface CommerceInfo {
   returns: string | null
   /** Como acompanhar o pedido. */
   tracking: string | null
+  /** Página de rastreio (Correios) aberta pelo link "Rastreie seu pedido". */
+  trackingUrl?: string
   /** As fotos publicadas são do produto vendido? */
   photosMatchProduct: boolean | null
   /** Como ajustar o boné / tabela de medidas (quando existir). */

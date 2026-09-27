@@ -5,6 +5,7 @@ import { allPending, hasEssential } from '../lib/pending'
 import { useShop } from '../lib/shop'
 import { Link } from '../lib/router'
 import { ServiceBar } from './Home'
+import { CartButton } from './Cart'
 import { SideMark } from './Icon'
 
 /** Logo redonda da loja (versões leves em /public; original em marca/logo22x13.png). */
@@ -96,7 +97,7 @@ export function Header({ page }: { page: Page }) {
     <>
       <PreviewBanner />
       <PromoBar />
-      <ServiceBar showTracking={page === 'home'} />
+      <ServiceBar />
       <header className="site-header">
         <div className="container site-header__inner">
           <Link className="brand" href="/">
@@ -104,6 +105,8 @@ export function Header({ page }: { page: Page }) {
             <span className={storeName ? 'brand__name' : 'visually-hidden'}>{storeName ?? 'Bonés e camisas 13 e 22'}</span>
             <span className="visually-hidden"> — voltar ao início</span>
           </Link>
+
+          <CartButton />
 
           <nav className="catbar" aria-label="Categorias">
             <ul className="catbar__list">

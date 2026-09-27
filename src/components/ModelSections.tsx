@@ -35,8 +35,13 @@ export function ProductInfo() {
   const id = selection.product.id
   const camisa = model.category === 'camisa'
   const sizes = [...new Set(model.variants.map((v) => v.size).filter(Boolean))].join(', ')
-  // Linhas da ficha da descrição que não repetem os campos estruturados
-  const extraFicha = (about?.ficha ?? []).filter(([k]) => !/^(tecido|material|fechamento|tamanhos?|cuidados|medidas)/i.test(k))
+  // Linhas da ficha da descrição: só saem quando o mesmo dado já aparece num campo estruturado acima.
+  const repetida = (k: string) =>
+    (/^(tecido|material)/i.test(k) && specs.material !== null) ||
+    (/^fechamento/i.test(k) && !camisa && specs.closure !== null) ||
+    (/^(tamanhos?|medidas)/i.test(k) && (camisa || specs.measurements !== null)) ||
+    (/^cuidados/i.test(k) && specs.care !== null)
+  const extraFicha = (about?.ficha ?? []).filter(([k]) => !repetida(k))
 
   return (
     <section className="section about" id="detalhes" aria-labelledby="about-title" data-accent={id}>
@@ -77,18 +82,30 @@ export function ProductInfo() {
             <SpecRow label="Cores" field={`VARIANTES_${id}`} value={[...new Set(model.variants.map((v) => v.label))].join(', ') || null} />
             {camisa && <SpecRow label="Tamanhos" field={`VARIANTES_${id}`} value={sizes || null} />}
             <SpecRow label="Material" field={`MATERIAL_${id}`} value={specs.material} />
+            {/* Modelo, frente, aba etc. antes do fechamento e do tamanho; observações por último. */}
+            {extraFicha
+              .filter(([k]) => !/^observa/i.test(k))
+              .map(([k, v]) => (
+                <SpecRow key={k} label={k} field="—" value={v} />
+              ))}
             {!camisa && <SpecRow label="Fechamento" field={`FECHAMENTO_${id}`} value={specs.closure} />}
             {!camisa && (
               <SpecRow
-                label="Medidas"
+                // Uma linha só ("Tamanho: Único, regulável") vira o próprio rótulo, sem repetir "Medidas: Tamanho:".
+                label={specs.measurements?.length === 1 ? specs.measurements[0]![0] : 'Medidas'}
                 field={`MEDIDAS_${id}`}
-                value={specs.measurements && specs.measurements.map(([k, v]) => `${k}: ${v}`).join(' · ')}
+                value={
+                  specs.measurements &&
+                  (specs.measurements.length === 1 ? specs.measurements[0]![1] : specs.measurements.map(([k, v]) => `${k}: ${v}`).join(' · '))
+                }
               />
             )}
-            {extraFicha.map(([k, v]) => (
-              <SpecRow key={k} label={k} field="—" value={v} />
-            ))}
             <SpecRow label="Cuidados" field={`CUIDADOS_${id}`} value={specs.care} />
+            {extraFicha
+              .filter(([k]) => /^observa/i.test(k))
+              .map(([k, v]) => (
+                <SpecRow key={k} label={k} field="—" value={v} />
+              ))}
           </dl>
 
           {camisa && specs.measurements && (

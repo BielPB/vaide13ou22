@@ -19,12 +19,20 @@
         "Trucker com tela"
       ],
       [
-        "Estampa",
-        "DTF na frente"
+        "Frente",
+        "“LULA” com estrela, estampa em DTF"
+      ],
+      [
+        "Parte de trás e laterais",
+        "Tela respirável"
+      ],
+      [
+        "Aba",
+        "Curva"
       ],
       [
         "Fechamento",
-        "Ajustável atrás"
+        "Fecho ajustável atrás"
       ]
     ]
   },
@@ -46,6 +54,18 @@
       [
         "Modelo",
         "Trucker com tela"
+      ],
+      [
+        "Frente",
+        "Número 13 grande"
+      ],
+      [
+        "Parte de trás",
+        "Tela"
+      ],
+      [
+        "Aba",
+        "Curva"
       ]
     ]
   },
@@ -67,6 +87,18 @@
       [
         "Modelo",
         "Trucker com tela"
+      ],
+      [
+        "Frente",
+        "“LULA” em letras grandes"
+      ],
+      [
+        "Parte de trás",
+        "Tela"
+      ],
+      [
+        "Aba",
+        "Curva"
       ]
     ]
   },
@@ -87,6 +119,14 @@
       [
         "Modelo",
         "Tradicional, liso"
+      ],
+      [
+        "Frente",
+        "Sem estampa"
+      ],
+      [
+        "Aba",
+        "Curva"
       ]
     ]
   },
@@ -109,8 +149,16 @@
         "Trucker com tela"
       ],
       [
-        "Estampa",
+        "Frente",
         "Sem estampa"
+      ],
+      [
+        "Parte de trás",
+        "Tela"
+      ],
+      [
+        "Aba",
+        "Curva"
       ]
     ]
   },
@@ -131,6 +179,14 @@
     "quandoUsar": "Para o dia a dia, viagens, dias de jogo do Brasil e para quem gosta de vestir as cores do país.",
     "cores": "azul, preto, verde, amarelo e branco",
     "ficha": [
+      [
+        "Frente",
+        "BRASIL e bandeira do Brasil"
+      ],
+      [
+        "Aba",
+        "Curva"
+      ],
       [
         "Fechamento",
         "Regulagem traseira tipo fitão (strapback)"
@@ -158,6 +214,14 @@
       [
         "Modelo",
         "Tradicional, liso"
+      ],
+      [
+        "Frente",
+        "Sem estampa"
+      ],
+      [
+        "Aba",
+        "Curva"
       ]
     ]
   },
@@ -178,8 +242,16 @@
     "cores": "preto, verde-oliva, cinza e camuflado",
     "ficha": [
       [
+        "Frente",
+        "Patch da bandeira do Brasil"
+      ],
+      [
         "Tecido",
         "Poliéster"
+      ],
+      [
+        "Aba",
+        "Curva"
       ],
       [
         "Fechamento",
@@ -215,6 +287,18 @@
       [
         "Modelo",
         "Trucker com tela"
+      ],
+      [
+        "Frente",
+        "“Flávio Bolsonaro”"
+      ],
+      [
+        "Parte de trás",
+        "Tela"
+      ],
+      [
+        "Aba",
+        "Curva"
       ],
       [
         "Fechamento",

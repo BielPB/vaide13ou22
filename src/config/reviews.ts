@@ -128,7 +128,7 @@ const boneSimples: Entrada[] = [
   {
     author: 't*****7',
     date: '2024-11-25',
-    photo: '/avaliacoes/bone-simples-1.png',
+    photo: '/avaliacoes/bone-simples-1.webp',
     variantLabel: 'Preto',
     details: [
       ['Parecido com anúncio', 'sim'],
@@ -807,7 +807,7 @@ export const reviews: Review[] = [
   boneBandeira({
     author: 'c*****a',
     date: '2026-07-04',
-    photo: '/avaliacoes/bone-brasil-2.png',
+    photo: '/avaliacoes/bone-brasil-2.webp',
     variantLabel: 'Amarelo',
     details: [
       ['Conforto', 'leve , confortável , ajustável perfeito'],
@@ -1421,7 +1421,7 @@ export const reviews: Review[] = [
   boneLulaEstrela({
     author: '6*****o',
     date: '2026-09-09',
-    photo: '/avaliacoes/bone-lula-estrela-1.png',
+    photo: '/avaliacoes/bone-lula-estrela-1.webp',
     variantLabel: 'Vermelho',
     details: [
       ['Estilo', 'Estilo formal.'],

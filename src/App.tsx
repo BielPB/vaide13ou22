@@ -3,7 +3,7 @@ import type { DefaultSelection, Product, ProductModel, StoreConfig } from './con
 import { FAQ } from './components/FAQ'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
-import { HeroBanner, Intro, Showcase } from './components/Home'
+import { CustomerPhotos, HeroBanner, Intro, Showcase } from './components/Home'
 import { Guarantee, ProductInfo } from './components/ModelSections'
 import { ProductPage } from './components/ProductPage'
 import { Reviews } from './components/Reviews'
@@ -13,6 +13,8 @@ import { hasEssential, modelPending, storePending } from './lib/pending'
 import { Link, usePathname } from './lib/router'
 import { modelFullName, productPath, resolveRoute, type Route } from './lib/routes'
 import { ShopProvider, useShop } from './lib/shop'
+import { CartProvider } from './lib/cartContext'
+import { CartDrawer } from './components/Cart'
 
 /**
  * Dados estruturados do produto da página — só com loja publicada, URL
@@ -81,6 +83,7 @@ function HomePage() {
     <>
       <HeroBanner />
       <Intro />
+      <CustomerPhotos />
       <Showcase side="13" />
       <Showcase side="22" />
       <FAQ />
@@ -127,19 +130,23 @@ export function App({ config }: { config: StoreConfig }) {
   const page = route.kind === 'home' ? 'home' : route.kind === 'product' ? 'product' : 'other'
 
   return (
-    // Cada página começa do zero (cor, tamanho e quantidade da página anterior não passam adiante).
-    <ShopProvider key={pathname} config={config} initial={initialFor(route)}>
-      <a className="skip-link" href={route.kind === 'product' ? '#comprar' : '#conteudo'}>
-        {route.kind === 'product' ? 'Pular para a compra' : 'Pular para o conteúdo'}
-      </a>
-      <Header page={page} />
-      <main id="conteudo" tabIndex={-1}>
-        {route.kind === 'home' && <HomePage />}
-        {route.kind === 'product' && <ProductRoute product={route.product} model={route.model} />}
-        {route.kind === 'not-found' && <NotFound />}
-      </main>
-      <Footer showFaq={route.kind === 'home'} />
-      <StickyPurchaseBar />
-    </ShopProvider>
+    // O carrinho fica acima da página e não zera ao navegar.
+    <CartProvider config={config}>
+      {/* Cada página começa do zero (cor, tamanho e quantidade da página anterior não passam adiante). */}
+      <ShopProvider key={pathname} config={config} initial={initialFor(route)}>
+        <a className="skip-link" href={route.kind === 'product' ? '#comprar' : '#conteudo'}>
+          {route.kind === 'product' ? 'Pular para a compra' : 'Pular para o conteúdo'}
+        </a>
+        <Header page={page} />
+        <main id="conteudo" tabIndex={-1}>
+          {route.kind === 'home' && <HomePage />}
+          {route.kind === 'product' && <ProductRoute product={route.product} model={route.model} />}
+          {route.kind === 'not-found' && <NotFound />}
+        </main>
+        <Footer showFaq={route.kind === 'home'} />
+        <StickyPurchaseBar />
+        <CartDrawer />
+      </ShopProvider>
+    </CartProvider>
   )
 }

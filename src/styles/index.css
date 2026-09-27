@@ -28,7 +28,8 @@
   --accent: var(--ink);
   --accent-ink: #ffffff;
 
-  --font-display: 'Archivo Variable', 'Arial Narrow', Arial, sans-serif;
+  /* Números 13 e 22 em destaque: a mesma Inter do texto (a Archivo saiu para deixar a página mais leve). */
+  --font-display: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-text: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   --radius: 14px;
