@@ -43,9 +43,7 @@ Acompanhamento. Após a postagem, você recebe o código de rastreio pelos conta
 
 Cancelamento. Antes da postagem, peça o cancelamento pelo WhatsApp ${WHATSAPP} e devolvemos o valor integral. Depois da postagem, vale a Política de Trocas e Devoluções.
 
-Trocas e devoluções. Seguem a Política de Trocas e Devoluções desta página.
-
-Atendimento. Pelo WhatsApp ${WHATSAPP}.`
+Trocas e devoluções. Seguem a Política de Trocas e Devoluções desta página.`
 
 export const sobreLoja = `A ${LOJA} vende bonés e camisas dos dois lados: Lula 13 e Bolsonaro 22. Cada cliente escolhe o seu modelo.
 
