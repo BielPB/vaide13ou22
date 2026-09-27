@@ -7,8 +7,8 @@ import { useShop } from '../lib/shop'
 import { Icon } from './Icon'
 import { ProductImageView } from './ProductImageView'
 
-/** Faixa fina abaixo do frete grátis: atendimento à esquerda, rastreio à direita. */
-export function ServiceBar() {
+/** Faixa fina abaixo do frete grátis: atendimento à esquerda, rastreio à direita (só na página inicial, onde fica o FAQ). */
+export function ServiceBar({ showTracking }: { showTracking: boolean }) {
   const { contact } = useShop().config
   if (!contact.whatsapp) return null
   return (
@@ -22,10 +22,12 @@ export function ServiceBar() {
             {contact.phone}
           </a>
         </p>
-        <Link className="service-bar__track" href="/#faq-rastreio">
+        {showTracking && (
+        <Link className="service-bar__track" href="#faq-rastreio">
           <Icon name="send" size={16} />
           Rastreie seu pedido
         </Link>
+        )}
       </div>
     </div>
   )

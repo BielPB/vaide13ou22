@@ -138,7 +138,7 @@ export function App({ config }: { config: StoreConfig }) {
         {route.kind === 'product' && <ProductRoute product={route.product} model={route.model} />}
         {route.kind === 'not-found' && <NotFound />}
       </main>
-      <Footer />
+      <Footer showFaq={route.kind === 'home'} />
       <StickyPurchaseBar />
     </ShopProvider>
   )

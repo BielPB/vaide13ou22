@@ -4,7 +4,6 @@ import { useShop } from '../lib/shop'
 import { BrandLogo } from './Header'
 import { Pending, useShowPending } from './Pending'
 import { whatsappUrl } from '../lib/format'
-import { Link } from '../lib/router'
 import { Icon } from './Icon'
 
 /** Abre o <details> de destino quando um link interno aponta para ele. */
@@ -57,7 +56,7 @@ function PendingList() {
   )
 }
 
-export function Footer() {
+export function Footer({ showFaq }: { showFaq: boolean }) {
   const { config } = useShop()
   const showPending = useShowPending()
   const { store, policies, contact, commerce } = config
@@ -97,9 +96,11 @@ export function Footer() {
                   </a>
                 </li>
               )}
-              <li>
-                <Link href="/#duvidas">Perguntas frequentes</Link>
-              </li>
+              {showFaq && (
+                <li>
+                  <a href="#duvidas">Perguntas frequentes</a>
+                </li>
+              )}
             </ul>
             {policies
               .filter((p) => p.body || showPending)

@@ -60,8 +60,8 @@ const linksFor = (page: Page): Array<{ id: string; href: string; label: string; 
   { id: 'vitrine-13', href: '/#vitrine-13', label: 'Lula 13', side: '13' },
   { id: 'vitrine-22', href: '/#vitrine-22', label: 'Bolsonaro 22', side: '22' },
   ...(page === 'product' ? [{ id: 'detalhes', href: '#detalhes', label: 'Detalhes' }] : []),
-  // As perguntas frequentes ficam só na página inicial.
-  { id: 'duvidas', href: '/#duvidas', label: 'Dúvidas' },
+  // As perguntas frequentes (e o atalho para elas) só existem na página inicial.
+  ...(page === 'home' ? [{ id: 'duvidas', href: '#duvidas', label: 'Dúvidas' }] : []),
 ]
 
 /** Seção da barra de categorias que está na tela agora (para o sublinhado). */
@@ -96,7 +96,7 @@ export function Header({ page }: { page: Page }) {
     <>
       <PreviewBanner />
       <PromoBar />
-      <ServiceBar />
+      <ServiceBar showTracking={page === 'home'} />
       <header className="site-header">
         <div className="container site-header__inner">
           <Link className="brand" href="/">
