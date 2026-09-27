@@ -164,17 +164,13 @@
 .catbar__link[aria-current]::after {
   transform: scaleX(1);
 }
-.catbar__num {
-  font-family: var(--font-display);
-  font-size: 0.9375rem;
-  font-weight: 800;
-  line-height: 1;
+.side-mark {
+  flex: none;
+  display: block;
 }
-.catbar__link[data-side='13'] .catbar__num {
-  color: var(--pt-red-deep);
-}
-.catbar__link[data-side='22'] .catbar__num {
-  color: var(--pl-blue);
+.side-mark--flag {
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.08);
 }
 @media (min-width: 900px) {
   .catbar__list {
@@ -630,4 +626,169 @@ html {
 }
 .not-found__text {
   color: var(--ink-2);
+}
+
+/* =====================================================================
+   CELULAR: tudo centralizado, do cabeçalho ao rodapé (até 699 px)
+   ===================================================================== */
+@media (max-width: 699px) {
+  /* Topo */
+  .service-bar__inner {
+    justify-content: center;
+    column-gap: 20px;
+  }
+  .site-header .brand {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+  .catbar__list {
+    justify-content: safe center;
+  }
+
+  /* Vitrines e "mais modelos" */
+  .showcase__head {
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Página de produto */
+  .crumbs ol {
+    justify-content: center;
+  }
+  .store .buybox {
+    justify-items: center;
+    text-align: center;
+  }
+  .store .buybox__badge {
+    justify-self: center;
+  }
+  .price-block__main,
+  .swatches,
+  .sizes {
+    justify-content: center;
+  }
+  .pick__label {
+    width: 100%;
+    text-align: center;
+  }
+  .pick__help {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-left: 8px;
+  }
+  .buyrow,
+  .store .ship,
+  .store .trust {
+    width: 100%;
+  }
+  .store .ship {
+    justify-items: center;
+    text-align: center;
+  }
+  .store .trust {
+    justify-items: center;
+  }
+  .store .trust li {
+    justify-content: center;
+    text-align: left;
+  }
+  .store .gallery__thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .store .gallery__thumbs li {
+    width: 64px;
+  }
+
+  /* Garantias */
+  .gband__item {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+  }
+
+  /* Sobre o produto e ficha técnica */
+  .about__text {
+    text-align: center;
+  }
+  .about__lead {
+    margin-inline: auto;
+  }
+  .about__list li {
+    padding-left: 0;
+  }
+  .about__list li::before {
+    content: none;
+  }
+  .spec-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    text-align: center;
+  }
+  .about__specs-title,
+  .sizes-box__title,
+  .size-table__note {
+    text-align: center;
+  }
+  .size-table th,
+  .size-table td {
+    text-align: center;
+  }
+
+  /* Perguntas frequentes (página inicial) */
+  .faq-grid__head {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+  }
+  .faq__q {
+    position: relative;
+    justify-content: center;
+    padding-inline: 32px;
+    text-align: center;
+  }
+  .faq__q::after {
+    position: absolute;
+    right: 0;
+  }
+  .faq__a {
+    margin-inline: auto;
+    text-align: center;
+  }
+  .faq__a ul {
+    padding-left: 0;
+    list-style-position: inside;
+  }
+  .faq__a .size-table {
+    margin-inline: auto;
+  }
+
+  /* Rodapé */
+  .site-footer__grid,
+  .site-footer__about,
+  .site-footer__info {
+    text-align: center;
+  }
+  .site-footer__brand {
+    justify-content: center;
+  }
+  .site-footer__independence {
+    margin-inline: auto;
+  }
+  .site-footer__links a,
+  .site-footer .policy summary {
+    justify-content: center;
+  }
+  .site-footer__copy {
+    text-align: center;
+  }
+
+  /* Página não encontrada */
+  .not-found .container {
+    justify-items: center;
+    text-align: center;
+  }
 }

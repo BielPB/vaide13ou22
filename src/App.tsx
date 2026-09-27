@@ -96,7 +96,6 @@ function ProductRoute({ product, model }: { product: Product; model: ProductMode
       <ProductInfo />
       <Showcase side={product.id} exclude={model.id} title={`Mais modelos de ${product.name}`} />
       <Reviews />
-      <FAQ />
       <ProductJsonLd product={product} model={model} />
     </>
   )
@@ -116,7 +115,6 @@ function NotFound() {
       </section>
       <Showcase side="13" />
       <Showcase side="22" />
-      <FAQ />
     </>
   )
 }

@@ -5,6 +5,7 @@ import { allPending, hasEssential } from '../lib/pending'
 import { useShop } from '../lib/shop'
 import { Link } from '../lib/router'
 import { ServiceBar } from './Home'
+import { SideMark } from './Icon'
 
 export function Wordmark() {
   return (
@@ -54,7 +55,8 @@ const linksFor = (page: Page): Array<{ id: string; href: string; label: string; 
   { id: 'vitrine-13', href: '/#vitrine-13', label: 'Lula 13', side: '13' },
   { id: 'vitrine-22', href: '/#vitrine-22', label: 'Bolsonaro 22', side: '22' },
   ...(page === 'product' ? [{ id: 'detalhes', href: '#detalhes', label: 'Detalhes' }] : []),
-  { id: 'duvidas', href: '#duvidas', label: 'Dúvidas' },
+  // As perguntas frequentes ficam só na página inicial.
+  { id: 'duvidas', href: '/#duvidas', label: 'Dúvidas' },
 ]
 
 /** Seção da barra de categorias que está na tela agora (para o sublinhado). */
@@ -108,11 +110,7 @@ export function Header({ page }: { page: Page }) {
                     data-side={l.side}
                     aria-current={active === l.id ? 'location' : undefined}
                   >
-                    {l.side && (
-                      <span className="catbar__num" aria-hidden="true">
-                        {l.side}
-                      </span>
-                    )}
+                    {l.side && <SideMark side={l.side} />}
                     {l.label}
                   </Link>
                 </li>

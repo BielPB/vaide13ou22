@@ -4,6 +4,7 @@ import { useShop } from '../lib/shop'
 import { Wordmark } from './Header'
 import { Pending, useShowPending } from './Pending'
 import { whatsappUrl } from '../lib/format'
+import { Link } from '../lib/router'
 import { Icon } from './Icon'
 
 /** Abre o <details> de destino quando um link interno aponta para ele. */
@@ -92,12 +93,12 @@ export function Footer() {
               {contact.whatsapp && (
                 <li>
                   <a href={whatsappUrl(contact.whatsapp)} target="_blank" rel="noopener">
-                    Fale conosco{contact.phone && <span className="site-footer__phone">{` · WhatsApp ${contact.phone}`}</span>}
+                    Fale conosco{contact.phone && <span className="site-footer__phone">{` · WhatsApp ${contact.phone}`}</span>}
                   </a>
                 </li>
               )}
               <li>
-                <a href="#duvidas">Perguntas frequentes</a>
+                <Link href="/#duvidas">Perguntas frequentes</Link>
               </li>
             </ul>
             {policies

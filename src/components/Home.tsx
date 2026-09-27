@@ -22,10 +22,10 @@ export function ServiceBar() {
             {contact.phone}
           </a>
         </p>
-        <a className="service-bar__track" href="#faq-rastreio">
+        <Link className="service-bar__track" href="/#faq-rastreio">
           <Icon name="send" size={16} />
           Rastreie seu pedido
-        </a>
+        </Link>
       </div>
     </div>
   )

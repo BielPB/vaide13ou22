@@ -170,19 +170,24 @@ describe('configuração publicada (store.ts)', () => {
   })
 
   it('preço anterior real só nos modelos informados, com % arredondada para baixo', () => {
-    const all = [...storeConfig.products['13'].models, ...storeConfig.products['22'].models]
-    const withWas = Object.fromEntries(all.filter((m) => m.compareAtCents).map((m) => [m.id, [m.compareAtCents, discountFromCompareAt(m)!.percent]]))
+    // Chave lado/modelo: "simples" e "camisa" existem nos dois lados.
+    const all = (['13', '22'] as const).flatMap((side) => storeConfig.products[side].models.map((m) => ({ key: `${side}/${m.id}`, m })))
+    const withWas = Object.fromEntries(
+      all.filter(({ m }) => m.compareAtCents).map(({ key, m }) => [key, [m.compareAtCents, discountFromCompareAt(m)!.percent]]),
+    )
     expect(withWas).toEqual({
-      'nome-lula-estrela': [5490, 16],
-      'numero-13': [5490, 16],
-      'nome-lula-letras': [5490, 16],
-      simples: [4990, 20],
-      'trucker-liso': [4990, 20],
-      'nome-bandeira': [5990, 20],
-      camuflado: [7990, 25],
-      flavio: [4990, 24],
+      '13/nome-lula-estrela': [5490, 16],
+      '13/numero-13': [5490, 16],
+      '13/nome-lula-letras': [5490, 16],
+      '13/simples': [4990, 20],
+      '13/trucker-liso': [4990, 20],
+      '13/camisa': [7990, 37],
+      '22/nome-bandeira': [5990, 20],
+      '22/camuflado': [7990, 25],
+      '22/flavio': [4990, 24],
+      '22/camisa': [7990, 37],
     })
-    expect(all.filter((m) => m.compareAtCents).every((m) => !!m.compareAtSource)).toBe(true)
+    expect(all.filter(({ m }) => m.compareAtCents).every(({ m }) => !!m.compareAtSource)).toBe(true)
   })
 
   it('sem faixas: subtotal = preço × quantidade (o que a Yampi cobra: 2 Número 13 = R$ 91,80)', () => {

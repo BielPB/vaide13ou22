@@ -75,6 +75,8 @@ const camisaLula: ProductModel = {
   description:
     'Camiseta 100% algodão com o rosto do Lula, o nome em destaque e a frase “Brilha uma estrela”. Modelagem unissex, em sete cores.',
   priceCents: 4990,
+  compareAtCents: 7990,
+  compareAtSource: 'Preço praticado na loja física do vendedor (informado em 26/09/2026)',
   tiers: [],
   images: [
     photo('13-camisa/branca.jpg', 'Branca', 'Camisa Lula 13 branca com o rosto do Lula e a frase Brilha uma estrela', 1024, 1024),
@@ -145,6 +147,8 @@ const camisaBolsonaro: ProductModel = {
   description:
     'Camiseta de algodão com “Tropa do Bolsonaro” no peito e a faixa verde e amarela logo abaixo. Modelagem unissex, em branca e preta.',
   priceCents: 4990,
+  compareAtCents: 7990,
+  compareAtSource: 'Preço praticado na loja física do vendedor (informado em 26/09/2026)',
   tiers: [],
   images: [
     photo('22-camisa/branca-bombado.jpg', 'Branca', 'Camisa Bolsonaro 22 branca com Tropa do Bolsonaro no peito', 1024, 1024),

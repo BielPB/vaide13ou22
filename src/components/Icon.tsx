@@ -29,3 +29,23 @@ export function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
     </svg>
   )
 }
+
+/** Marca de cada lado na barra de categorias: estrela vermelha (Lula 13) e bandeira do Brasil (Bolsonaro 22). */
+export function SideMark({ side }: { side: '13' | '22' }) {
+  if (side === '13') {
+    return (
+      <svg className="side-mark" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#e4142c" />
+      </svg>
+    )
+  }
+  // Verde, amarelo e azul da bandeira (valores hexadecimais de uso comum).
+  return (
+    <svg className="side-mark side-mark--flag" viewBox="0 0 28 20" width="22" height="16" aria-hidden="true">
+      <rect width="28" height="20" rx="2" fill="#009c3b" />
+      <path d="M14 2.6L25.4 10 14 17.4 2.6 10z" fill="#ffdf00" />
+      <circle cx="14" cy="10" r="4.4" fill="#002776" />
+      <path d="M9.8 9.1c2.9-.5 5.9.1 8.3 1.6" stroke="#fff" strokeWidth="0.9" fill="none" />
+    </svg>
+  )
+}
