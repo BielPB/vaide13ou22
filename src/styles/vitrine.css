@@ -853,9 +853,45 @@ html {
   color: var(--ink);
   font-weight: 600;
 }
-.review__helpful {
-  font-size: 0.8125rem;
+.votes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.vote {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
   color: var(--ink-2);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition:
+    transform 160ms var(--ease),
+    background-color 200ms var(--ease),
+    color 200ms var(--ease),
+    border-color 200ms var(--ease);
+}
+.vote:hover {
+  border-color: #a1a1aa;
+  color: var(--ink);
+}
+.vote:active {
+  transform: scale(0.95);
+}
+.vote[aria-pressed='true'] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+.vote__count {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 .rv-more {
   display: flex;
@@ -868,7 +904,24 @@ html {
     text-align: center;
   }
   .review__head,
-  .review__meta {
+  .review__meta,
+  .votes {
     justify-content: center;
   }
+}
+
+/* Foto enviada pelo cliente: miniatura que abre em tamanho grande */
+.review__photo-link {
+  display: inline-block;
+  border-radius: 10px;
+}
+.review .review__photo {
+  display: block;
+  width: 160px;
+  margin-top: 0;
+  object-position: center top;
+  transition: transform 160ms var(--ease);
+}
+.review__photo-link:active .review__photo {
+  transform: scale(0.97);
 }

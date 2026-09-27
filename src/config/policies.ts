@@ -21,7 +21,7 @@ Reembolso. Assim que recebermos o produto, fazemos o reembolso imediatamente, pe
 
 export const politicaPrivacidade = `Quem somos. Esta loja é a ${LOJA}. Contato: WhatsApp ${WHATSAPP}.
 
-Este site. A página da loja não usa cookies de rastreamento, pixels de publicidade nem ferramentas de análise. A escolha de modelo feita na página não é salva nem enviada a ninguém.
+Este site. A página da loja não usa cookies de rastreamento, pixels de publicidade nem ferramentas de análise. A escolha de modelo feita na página não é salva nem enviada a ninguém. Se você marcar uma avaliação como útil ou não útil, esse voto fica salvo só no seu navegador e não é enviado a ninguém.
 
 No pagamento. O checkout é da Yampi. Lá você informa nome, e-mail, CPF, telefone e endereço de entrega. Esses dados são usados para processar o pagamento, emitir o pedido, entregar, prestar atendimento e avisar sobre o andamento do pedido. A Yampi também pode avisar você caso uma compra fique sem finalizar e manter o seu histórico de compras nesta loja. Dados de cartão são tratados pela Yampi e pelos meios de pagamento; nós não temos acesso a eles.
 
@@ -57,7 +57,7 @@ Fale com a gente. WhatsApp ${WHATSAPP}.`
 
 export const politicaCookies = `O que são cookies. São pequenos arquivos que um site guarda no seu navegador para lembrar informações enquanto você navega.
 
-Este site. A página da loja não usa cookies, pixels de publicidade nem ferramentas de análise. A escolha de modelo feita na página fica só na memória da aba e não é salva nem enviada.
+Este site. A página da loja não usa cookies, pixels de publicidade nem ferramentas de análise. A escolha de modelo feita na página fica só na memória da aba e não é salva nem enviada. Os votos de útil e não útil nas avaliações ficam guardados só no seu navegador (armazenamento local), sem cookies, e não são enviados.
 
 No checkout. Ao clicar em Comprar, você vai para o checkout da Yampi, que usa cookies necessários para funcionar: manter o carrinho, lembrar a sessão, concluir o pagamento com segurança e evitar fraudes.
 

@@ -22,7 +22,103 @@ const boneBandeira = daShopee('22', 'nome-bandeira')
 const boneFlavio = daShopee('22', 'flavio')
 const boneCamuflado = daShopee('22', 'camuflado')
 const boneNumero13 = daShopee('13', 'numero-13')
-const boneTruckerLiso = daShopee('13', 'trucker-liso')
+const boneLulaEstrela = daShopee('13', 'nome-lula-estrela')
+const boneLulaLetras = daShopee('13', 'nome-lula-letras')
+
+/** Seis avaliações enviadas para o Boné Lula (letras grandes); também aparecem no Boné Simples. */
+const lulaSeis: Entrada[] = [
+  {
+    author: 'a*****e',
+    date: '2026-09-04',
+    variantLabel: 'Branco',
+    text: 'Eu tinha um vermelho que comprei em outro canto, ai comprei o branco aqui, o material é bom sem cheiro vale cada centavos.',
+  },
+  {
+    author: 'y*****f',
+    date: '2026-08-27',
+    variantLabel: 'Vermelho',
+    details: [
+      ['Visual sugerido', 'eleicao'],
+      ['Adequado', 'dia da eleicao'],
+      ['Custo-benefício', 'otimo'],
+    ],
+    text: 'Boné maravilhoso é Lula de novo meu povo 🥰🥰',
+    helpful: 22,
+  },
+  {
+    author: 'g*****a',
+    date: '2026-09-04',
+    variantLabel: 'Branco',
+    details: [
+      ['Ocasião adequada', 'perfeito para as eleições'],
+      ['Visual sugerido', 'pedi branco combina com tudo'],
+      ['Estilo', 'lindo demais'],
+    ],
+    helpful: 2,
+  },
+  {
+    author: 'a*****8',
+    date: '2026-09-06',
+    variantLabel: 'Vermelho',
+    details: [
+      ['Estilo', 'top'],
+      ['Custo-benefício', 'ótimo'],
+    ],
+    text: 'Gostei muito rumo ao tetra!!!',
+    helpful: 1,
+  },
+  {
+    author: 'l*****4',
+    date: '2026-09-22',
+    variantLabel: 'Vermelho',
+    details: [['Conforto', 'chegou dentro do prazo e o material de boa qualidade....']],
+  },
+  {
+    author: 'i*****a',
+    date: '2026-09-21',
+    variantLabel: 'Vermelho',
+    details: [
+      ['Conforto', 'o boné é confortável porém veio com um defeito na letra no segundo L'],
+      ['Qualidade', 'boa'],
+      ['Estilo', 'casual'],
+    ],
+  },
+]
+
+/** Avaliações que estavam no Trucker liso; o vendedor pediu para mostrá-las no Boné Simples. */
+const exTruckerLiso: Entrada[] = [
+  {
+    author: 's*****1',
+    date: '2026-09-17',
+    variantLabel: 'Vermelho',
+    text: 'É bom, mais achei que a qualidade fosse melhor, achei a frente muito pontuda',
+  },
+  {
+    author: 'v*****0',
+    date: '2026-09-11',
+    variantLabel: 'Vermelho',
+    text: 'Chegou rápido, igual ao anúncio...obrigada ao vendedor',
+    helpful: 1,
+  },
+  {
+    author: 'p*****3',
+    date: '2026-09-26',
+    variantLabel: 'Vermelho',
+    details: [
+      ['Qualidade', 'Boa'],
+      ['Conforto', 'Ótimo'],
+      ['Visual', 'Moderno…'],
+    ],
+  },
+  { author: 'i*****s', date: '2026-09-25', variantLabel: 'Vermelho' },
+  { author: 'h*****o', date: '2026-09-16', variantLabel: 'Vermelho', text: 'Ótima qualidade, recomendo!' },
+  {
+    author: 'g*****2',
+    date: '2026-09-22',
+    variantLabel: 'Vermelho',
+    details: [['Conforto', 'achei de boa qualidade perfeito']],
+  },
+]
 
 /**
  * Boné Simples: o vendedor pediu as mesmas avaliações nos dois "Boné Simples"
@@ -32,6 +128,7 @@ const boneSimples: Entrada[] = [
   {
     author: 't*****7',
     date: '2024-11-25',
+    photo: '/avaliacoes/bone-simples-1.png',
     variantLabel: 'Preto',
     details: [
       ['Parecido com anúncio', 'sim'],
@@ -43,6 +140,7 @@ const boneSimples: Entrada[] = [
   {
     author: 'm*****a',
     date: '2025-04-03',
+    photo: '/avaliacoes/bone-simples-2.webp',
     variantLabel: 'Preto',
     details: [
       ['Custo-benefício', 'otimo custo benefício'],
@@ -55,6 +153,7 @@ const boneSimples: Entrada[] = [
   {
     author: 'c*****4',
     date: '2024-12-03',
+    photo: '/avaliacoes/bone-simples-3.webp',
     variantLabel: 'Verde Médio',
     details: [
       ['Parecido com anúncio', 'sim'],
@@ -416,6 +515,7 @@ export const reviews: Review[] = [
   camisaLula({
     author: 't*****e',
     date: '2026-09-08',
+    photo: '/avaliacoes/camisa-lula-1.webp',
     variantLabel: 'Vermelho, M',
     details: [
       ['Conforto', 'Camiseta confortável'],
@@ -428,6 +528,7 @@ export const reviews: Review[] = [
   camisaLula({
     author: '7*****q',
     date: '2026-09-02',
+    photo: '/avaliacoes/camisa-lula-2.webp',
     variantLabel: 'Marrom, G1',
     details: [
       ['Conforto', 'bom confortavel'],
@@ -440,6 +541,7 @@ export const reviews: Review[] = [
   camisaLula({
     author: 'h*****k',
     date: '2026-08-26',
+    photo: '/avaliacoes/camisa-lula-3.webp',
     variantLabel: 'Marrom, GG',
     details: [
       ['Qualidade', 'ótimo leve'],
@@ -452,6 +554,7 @@ export const reviews: Review[] = [
   camisaLula({
     author: 's*****n',
     date: '2026-09-10',
+    photo: '/avaliacoes/camisa-lula-4.webp',
     variantLabel: 'Vermelho, G',
     details: [
       ['Conforto', 'a camisa é ótima'],
@@ -463,6 +566,7 @@ export const reviews: Review[] = [
   camisaLula({
     author: 'k*****0',
     date: '2026-09-10',
+    photo: '/avaliacoes/camisa-lula-5.webp',
     variantLabel: 'Vermelho, M',
     details: [
       ['Conforto', 'pano maravilhoso'],
@@ -644,18 +748,21 @@ export const reviews: Review[] = [
     author: 'c*****r',
     date: '2026-09-25',
     variantLabel: 'Preto, G',
+    photo: '/avaliacoes/camisa-bolsonaro-1.webp',
     text: 'A camisa é linda 😍 tecido ótimo!👏🏻👏🏻✌🏻 Flávio Bolsonaro 22.',
   }),
   camisaBolsonaro({
     author: 'c*****r',
     date: '2026-09-25',
     variantLabel: 'Preto, P',
+    photo: '/avaliacoes/camisa-bolsonaro-2.webp',
     text: 'Camisa linda! O tecido é ótimo! Flávio Bolsonaro 22 ✌🏻',
   }),
   camisaBolsonaro({
     author: 'j*****2',
     date: '2026-09-23',
     variantLabel: 'Branco, GG',
+    photo: '/avaliacoes/camisa-bolsonaro-3.webp',
     text: 'Veio com tamanho muito pequeno\nPedi um GG veio parecendo um M\nNão compre e meu aviso',
   }),
   camisaBolsonaro({
@@ -692,6 +799,7 @@ export const reviews: Review[] = [
   boneBandeira({
     author: '_*****s',
     date: '2026-06-20',
+    photo: '/avaliacoes/bone-brasil-1.webp',
     variantLabel: 'Amarelo',
     text: 'Material excelente e qualidade impecável! Muiito bem bordado! Amei a cor, bem viva!! Comprarei mais cores com certeza!!!!',
     helpful: 7,
@@ -699,6 +807,7 @@ export const reviews: Review[] = [
   boneBandeira({
     author: 'c*****a',
     date: '2026-07-04',
+    photo: '/avaliacoes/bone-brasil-2.png',
     variantLabel: 'Amarelo',
     details: [
       ['Conforto', 'leve , confortável , ajustável perfeito'],
@@ -710,6 +819,7 @@ export const reviews: Review[] = [
   boneBandeira({
     author: 'a*****3',
     date: '2026-07-04',
+    photo: '/avaliacoes/bone-brasil-3.webp',
     variantLabel: 'Azul',
     details: [
       ['Ocasião adequada', 'boné'],
@@ -856,6 +966,7 @@ export const reviews: Review[] = [
   boneFlavio({
     author: 'u*****7',
     date: '2026-09-05',
+    photo: '/avaliacoes/bone-flavio-1.webp',
     variantLabel: 'Preto',
     details: [['Custo-benefício', 'muito muito muito bom vou comprar mais um de cada cor aqui é 22']],
     helpful: 1,
@@ -863,6 +974,7 @@ export const reviews: Review[] = [
   boneFlavio({
     author: 'a*****6',
     date: '2026-09-07',
+    photo: '/avaliacoes/bone-flavio-2.webp',
     variantLabel: 'Preto',
     details: [
       ['Visual sugerido', 'amei o none'],
@@ -983,6 +1095,7 @@ export const reviews: Review[] = [
   boneCamuflado({
     author: 'f*****a',
     date: '2026-01-13',
+    photo: '/avaliacoes/bone-camuflado-1.webp',
     variantLabel: 'Bege',
     details: [['Adequado', 'tamanho ideal,material resistente ótimo custo benefício']],
     helpful: 16,
@@ -990,6 +1103,7 @@ export const reviews: Review[] = [
   boneCamuflado({
     author: 'i*****5',
     date: '2025-12-02',
+    photo: '/avaliacoes/bone-camuflado-2.webp',
     variantLabel: 'Bege',
     text: 'Eu já tinha comprado um preto e vi que o boné era extremamente de qualidade resolvi comprar esse outro ,veio super bem embalado, chegou antes do prazo, vendedor me deu toda atenção,responde rápido no chat, parabéns vendedor e entregador 👏🏻👏🏻, continuarei comprando nessa loja.',
     helpful: 21,
@@ -997,6 +1111,7 @@ export const reviews: Review[] = [
   boneCamuflado({
     author: 'c*****3',
     date: '2026-05-16',
+    photo: '/avaliacoes/bone-camuflado-3.webp',
     variantLabel: 'Azul Marinho, Preto, Verde Camuflado',
     details: [
       ['Tecido', 'achei o material otimo'],
@@ -1009,6 +1124,7 @@ export const reviews: Review[] = [
   boneCamuflado({
     author: 'f*****p',
     date: '2026-05-04',
+    photo: '/avaliacoes/bone-camuflado-4.webp',
     variantLabel: 'Preto',
     details: [['Tecido', 'bom']],
     text: 'Na medida, gostei de verdade.\nChegou antes do prazo.',
@@ -1017,6 +1133,7 @@ export const reviews: Review[] = [
   boneCamuflado({
     author: 'm*****s',
     date: '2026-08-22',
+    photo: '/avaliacoes/bone-camuflado-5.webp',
     variantLabel: 'Preto',
     details: [
       ['Tecido', 'material forte'],
@@ -1026,6 +1143,7 @@ export const reviews: Review[] = [
   boneCamuflado({
     author: 'f*****n',
     date: '2026-06-18',
+    photo: '/avaliacoes/bone-camuflado-6.webp',
     variantLabel: 'Preto',
     details: [
       ['Tecido', 'tecido excelente, muito bom o material.'],
@@ -1219,14 +1337,16 @@ export const reviews: Review[] = [
   boneNumero13({
     author: 'a*****f',
     date: '2026-09-09',
+    photo: '/avaliacoes/bone-numero-13-1.webp',
     variantLabel: 'Vermelho',
     text: 'Super recomendo material muito bom super resistente',
     helpful: 3,
   }),
-  boneNumero13({ author: 'm*****9', date: '2026-09-08', variantLabel: 'Preto', helpful: 4 }),
+  boneNumero13({ author: 'm*****9', date: '2026-09-08', photo: '/avaliacoes/bone-numero-13-2.webp', variantLabel: 'Preto', helpful: 4 }),
   boneNumero13({
     author: 'p*****b',
     date: '2026-09-25',
+    photo: '/avaliacoes/bone-numero-13-3.webp',
     variantLabel: 'Vermelho',
     details: [['Adequado', 'ideal']],
     text: 'Excelente, chegou antes do prazo e material ideal',
@@ -1234,6 +1354,7 @@ export const reviews: Review[] = [
   boneNumero13({
     author: 'e*****i',
     date: '2026-09-24',
+    photo: '/avaliacoes/bone-numero-13-4.webp',
     variantLabel: 'Vermelho',
     details: [['Ocasião adequada', 'chegou super rápido, muito bem feito o boné e será muito 7sado']],
     helpful: 1,
@@ -1241,6 +1362,7 @@ export const reviews: Review[] = [
   boneNumero13({
     author: 'j*****0',
     date: '2026-09-24',
+    photo: '/avaliacoes/bone-numero-13-5.webp',
     variantLabel: 'Vermelho',
     details: [
       ['Ocasião adequada', 'eleição'],
@@ -1291,96 +1413,119 @@ export const reviews: Review[] = [
   boneNumero13({ author: 'c*****u', date: '2026-09-21', variantLabel: 'Preto' }),
   boneNumero13({ author: 'c*****_', date: '2026-09-06', variantLabel: 'Vermelho' }),
 
-  // Boné Trucker liso (enviadas pelo vendedor em 26/09/2026)
-  boneTruckerLiso({
-    author: 'a*****e',
-    date: '2026-09-04',
-    variantLabel: 'Branco',
-    text: 'Eu tinha um vermelho que comprei em outro canto, ai comprei o branco aqui, o material é bom sem cheiro vale cada centavos.',
-  }),
-  boneTruckerLiso({
-    author: 'y*****f',
-    date: '2026-08-27',
-    variantLabel: 'Vermelho',
-    details: [
-      ['Visual sugerido', 'eleicao'],
-      ['Adequado', 'dia da eleicao'],
-      ['Custo-benefício', 'otimo'],
-    ],
-    text: 'Boné maravilhoso é Lula de novo meu povo 🥰🥰',
-    helpful: 22,
-  }),
-  boneTruckerLiso({
-    author: 'g*****a',
-    date: '2026-09-04',
-    variantLabel: 'Branco',
-    details: [
-      ['Ocasião adequada', 'perfeito para as eleições'],
-      ['Visual sugerido', 'pedi branco combina com tudo'],
-      ['Estilo', 'lindo demais'],
-    ],
-    helpful: 2,
-  }),
-  boneTruckerLiso({
-    author: 'a*****8',
-    date: '2026-09-06',
-    variantLabel: 'Vermelho',
-    details: [
-      ['Estilo', 'top'],
-      ['Custo-benefício', 'ótimo'],
-    ],
-    text: 'Gostei muito rumo ao tetra!!!',
-    helpful: 1,
-  }),
-  boneTruckerLiso({
-    author: 'l*****4',
-    date: '2026-09-22',
-    variantLabel: 'Vermelho',
-    details: [['Conforto', 'chegou dentro do prazo e o material de boa qualidade....']],
-  }),
-  boneTruckerLiso({
-    author: 'i*****a',
-    date: '2026-09-21',
-    variantLabel: 'Vermelho',
-    details: [
-      ['Conforto', 'o boné é confortável porém veio com um defeito na letra no segundo L'],
-      ['Qualidade', 'boa'],
-      ['Estilo', 'casual'],
-    ],
-  }),
-  boneTruckerLiso({
-    author: 's*****1',
-    date: '2026-09-17',
-    variantLabel: 'Vermelho',
-    text: 'É bom, mais achei que a qualidade fosse melhor, achei a frente muito pontuda',
-  }),
-  boneTruckerLiso({
-    author: 'v*****0',
-    date: '2026-09-11',
-    variantLabel: 'Vermelho',
-    text: 'Chegou rápido, igual ao anúncio...obrigada ao vendedor',
-    helpful: 1,
-  }),
-  boneTruckerLiso({
-    author: 'p*****3',
-    date: '2026-09-26',
-    variantLabel: 'Vermelho',
-    details: [
-      ['Qualidade', 'Boa'],
-      ['Conforto', 'Ótimo'],
-      ['Visual', 'Moderno…'],
-    ],
-  }),
-  boneTruckerLiso({ author: 'i*****s', date: '2026-09-25', variantLabel: 'Vermelho' }),
-  boneTruckerLiso({ author: 'h*****o', date: '2026-09-16', variantLabel: 'Vermelho', text: 'Ótima qualidade, recomendo!' }),
-  boneTruckerLiso({
-    author: 'g*****2',
-    date: '2026-09-22',
-    variantLabel: 'Vermelho',
-    details: [['Conforto', 'achei de boa qualidade perfeito']],
-  }),
-
   // Boné Simples: as mesmas avaliações nos dois lados (pedido do vendedor)
-  ...boneSimples.map(daShopee('13', 'simples')),
-  ...boneSimples.map(daShopee('22', 'simples')),
+  ...[...boneSimples, ...lulaSeis, ...exTruckerLiso].map(daShopee('13', 'simples')),
+  ...[...boneSimples, ...lulaSeis, ...exTruckerLiso].map(daShopee('22', 'simples')),
+
+  // Boné Lula (estrela) (enviadas pelo vendedor em 26/09/2026)
+  boneLulaEstrela({
+    author: '6*****o',
+    date: '2026-09-09',
+    photo: '/avaliacoes/bone-lula-estrela-1.png',
+    variantLabel: 'Vermelho',
+    details: [
+      ['Estilo', 'Estilo formal.'],
+      ['Adequado', 'Vou usar em Camoanha'],
+      ['Custo-benefício', 'Igual ao anúncio.Confortavel.'],
+    ],
+    text: 'Chegou rápido.Gostei da minha compra',
+    helpful: 5,
+  }),
+  boneLulaEstrela({
+    author: 'n*****0',
+    date: '2026-09-05',
+    photo: '/avaliacoes/bone-lula-estrela-2.webp',
+    variantLabel: 'Vermelho',
+    details: [
+      ['Estilo', 'muito bom, excelente'],
+      ['Ocasião adequada', 'dar pra o dia a dia'],
+      ['Adequado', 'tamanho excelente'],
+    ],
+    helpful: 7,
+  }),
+  boneLulaEstrela({
+    author: 's*****o',
+    date: '2026-08-30',
+    photo: '/avaliacoes/bone-lula-estrela-3.webp',
+    variantLabel: 'Vermelho',
+    details: [
+      ['Estilo', 'o modelo é maravilhoso'],
+      ['Visual sugerido', 'cor muito boa também'],
+    ],
+    text: 'Pode comprar sem medo o material é muito bom chega antes do prazo',
+    helpful: 6,
+  }),
+  boneLulaEstrela({ author: 's*****k', date: '2026-09-06', photo: '/avaliacoes/bone-lula-estrela-4.webp', variantLabel: 'Preto', text: 'Muito bom material, chego mais rápido que previsto, amei' }),
+  boneLulaEstrela({
+    author: 'e*****o',
+    date: '2026-09-07',
+    photo: '/avaliacoes/bone-lula-estrela-5.webp',
+    variantLabel: 'Vermelho',
+    details: [['Custo-benefício', 'ótimo boné gostei vou usar no dia da eleição.']],
+  }),
+  boneLulaEstrela({ author: 'v*****y', date: '2026-09-05', variantLabel: 'Vermelho', details: [['Adequado', 'ameii']] }),
+  boneLulaEstrela({ author: 'l*****o', date: '2026-09-26', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'w*****v', date: '2026-09-26', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'g*****8', date: '2026-09-26', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'p*****c', date: '2026-09-06', variantLabel: 'Vermelho', helpful: 4 }),
+  boneLulaEstrela({ author: 'w*****y', date: '2026-09-18', variantLabel: 'Vermelho', text: 'Lula presidente!!' }),
+  boneLulaEstrela({ author: 'm*****a', date: '2026-09-24', variantLabel: 'Vermelho', text: 'Chegou em perfeito estado, a arte muito bem feita' }),
+  boneLulaEstrela({
+    author: 'a*****2',
+    date: '2026-09-15',
+    variantLabel: 'Vermelho',
+    details: [
+      ['Conforto', 'ótimo'],
+      ['Formato', 'sim'],
+      ['Estilo', 'ótimo'],
+    ],
+  }),
+  boneLulaEstrela({ author: 'l*****3', date: '2026-09-18', variantLabel: 'Vermelho', details: [['Conforto', 'bom bonito']], helpful: 1 }),
+  boneLulaEstrela({ author: 'v*****a', date: '2026-09-12', variantLabel: 'Vermelho', helpful: 1 }),
+  boneLulaEstrela({ author: 'e*****3', date: '2026-09-17', variantLabel: 'Vermelho', helpful: 2 }),
+  boneLulaEstrela({
+    author: 'n*****2',
+    date: '2026-09-19',
+    variantLabel: 'Vermelho',
+    details: [
+      ['Conforto', 'bom'],
+      ['Formato', 'só amassado um pouco'],
+    ],
+  }),
+  boneLulaEstrela({ author: 'f*****r', date: '2026-09-14', variantLabel: 'Vermelho', text: 'Gostei!' }),
+  boneLulaEstrela({ author: 'd*****l', date: '2026-09-15', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'r*****9', date: '2026-09-19', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'n*****2', date: '2026-09-22', variantLabel: 'Vermelho', details: [['Estilo', 'é lindo eu ameii']] }),
+  boneLulaEstrela({ author: 'm*****a', date: '2026-09-12', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'm*****o', date: '2026-09-22', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: '5*****y', date: '2026-09-12', variantLabel: 'Branco com preto' }),
+  boneLulaEstrela({ author: '5*****y', date: '2026-09-12', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'm*****3', date: '2026-08-31', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 't*****s', date: '2026-09-19', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'j*****9', date: '2026-09-12', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'r*****0', date: '2026-09-23', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'f*****r', date: '2026-09-24', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'e*****3', date: '2026-09-26', variantLabel: 'Preto' }),
+  boneLulaEstrela({ author: 'v*****8', date: '2026-08-29', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'f*****1', date: '2026-09-14', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: '0*****t', date: '2026-09-10', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'j*****s', date: '2026-09-11', variantLabel: 'Vermelho' }),
+  boneLulaEstrela({ author: 'n*****p', date: '2026-09-22', variantLabel: 'Vermelho' }),
+
+  // Boné Lula (letras grandes) (enviadas pelo vendedor em 26/09/2026)
+  // Fotos só nesta página (a lista lulaSeis também aparece no Trucker liso, que é liso).
+  // O vendedor enviou a mesma foto como 1ª e 5ª.
+  ...lulaSeis.map((r, i) => {
+    const foto = ['1', '2', '3', '4', '1'][i]
+    return boneLulaLetras(foto ? { ...r, photo: `/avaliacoes/bone-lula-letras-${foto}.webp` } : r)
+  }),
+  boneLulaLetras({ author: 'e*****p', date: '2026-09-22', variantLabel: 'Vermelho' }),
+  boneLulaLetras({ author: 'j*****x', date: '2026-09-18', variantLabel: 'Preto' }),
+  boneLulaLetras({ author: 'r*****a', date: '2026-09-21', variantLabel: 'Vermelho' }),
+  boneLulaLetras({ author: 'j*****9', date: '2026-09-01', variantLabel: 'Vermelho' }),
+  boneLulaLetras({ author: 'c*****o', date: '2026-09-05', variantLabel: 'Vermelho' }),
+  boneLulaLetras({ author: 'a*****s', date: '2026-09-06', variantLabel: 'Vermelho' }),
+  boneLulaLetras({ author: 'm*****5', date: '2026-09-07', variantLabel: 'Vermelho' }),
+  boneLulaLetras({ author: 'j*****l', date: '2026-09-08', variantLabel: 'Vermelho' }),
+  boneLulaLetras({ author: 'r*****2', date: '2026-09-08', variantLabel: 'Branco' }),
 ]

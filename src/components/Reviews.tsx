@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ReviewVotes, reviewId } from './ReviewVotes'
 import type { ProductId, Review } from '../config/types'
 import { useShop } from '../lib/shop'
 
@@ -47,12 +48,12 @@ const FIRST = 6
 
 const formatDate = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString('pt-BR')
 
-/** Avaliações do produto aberto: as mais úteis primeiro, depois as mais recentes. */
+/** Avaliações do produto aberto: com foto primeiro, depois as mais úteis e as mais recentes. */
 export function Reviews() {
   const { selection } = useShop()
   const reviews = useModelReviews(selection?.product.id, selection?.model?.id)
     .slice()
-    .sort((a, b) => (b.helpful ?? 0) - (a.helpful ?? 0) || b.date.localeCompare(a.date))
+    .sort((a, b) => Number(!!b.photo) - Number(!!a.photo) || (b.helpful ?? 0) - (a.helpful ?? 0) || b.date.localeCompare(a.date))
   const summary = useReviewSummary(selection?.product.id, selection?.model?.id)
   const [showAll, setShowAll] = useState(false)
   if (!summary || reviews.length === 0) return null
@@ -101,7 +102,7 @@ export function Reviews() {
 
         <ul className="reviews" id="lista-avaliacoes">
           {shown.map((r) => (
-            <li key={`${r.author}-${r.date}-${r.variantLabel ?? ''}`} className="review">
+            <li key={reviewId(r)} className="review">
               <p className="review__head">
                 <strong>{r.author}</strong>
                 {r.rating !== undefined && <ReviewStars value={r.rating} />}
@@ -130,12 +131,18 @@ export function Reviews() {
                   <p>{r.sellerReply}</p>
                 </div>
               )}
-              {r.photo && <img className="review__photo" src={r.photo} alt={`Foto enviada por ${r.author}`} loading="lazy" />}
-              {r.helpful ? (
-                <p className="review__helpful">
-                  {r.helpful} {r.helpful === 1 ? 'pessoa achou' : 'pessoas acharam'} útil
-                </p>
-              ) : null}
+              {r.photo && (
+                <a
+                  className="review__photo-link"
+                  href={r.photo}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={`Ver foto enviada por ${r.author} em tamanho grande`}
+                >
+                  <img className="review__photo" src={r.photo} alt={`Foto enviada por ${r.author}`} loading="lazy" />
+                </a>
+              )}
+              <ReviewVotes id={reviewId(r)} helpful={r.helpful ?? 0} />
             </li>
           ))}
         </ul>
