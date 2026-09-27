@@ -92,7 +92,7 @@ export function Footer({ showFaq }: { showFaq: boolean }) {
               {contact.whatsapp && (
                 <li>
                   <a href={whatsappUrl(contact.whatsapp)} target="_blank" rel="noopener">
-                    Fale conosco{contact.phone && <span className="site-footer__phone">{` · WhatsApp ${contact.phone}`}</span>}
+                    Fale conosco
                   </a>
                 </li>
               )}
