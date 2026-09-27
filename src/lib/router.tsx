@@ -43,9 +43,15 @@ function settle(hash: string) {
 
 export function navigate(to: string) {
   const url = new URL(to, window.location.href)
-  // Mesma página: só a âncora (o navegador rola, com scroll-behavior suave).
+  // Mesma página: vai para a âncora (o navegador rola, com scroll-behavior suave) ou,
+  // sem âncora (ex.: clique na logo já no início), volta ao topo e limpa o "#" do endereço.
   if (url.pathname === window.location.pathname) {
-    if (url.hash) window.location.hash = url.hash
+    if (url.hash) {
+      window.location.hash = url.hash
+    } else {
+      if (window.location.hash) history.replaceState(null, '', url.pathname + url.search)
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
+    }
     return
   }
   const go = () => {

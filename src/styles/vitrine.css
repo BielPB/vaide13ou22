@@ -963,21 +963,38 @@ html {
     transform: translateX(-50%);
   }
 }
-/* Quem pede menos movimento: faixa parada, rolagem manual e sem a cópia visual. */
+/*
+ * O carrossel gira sempre, a pedido do vendedor, mesmo com "reduzir movimento" ligado
+ * no sistema (a regra geral de index.css zeraria a animação).
+ */
 @media (prefers-reduced-motion: reduce) {
-  .cphotos__viewport {
-    overflow-x: auto;
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
   .cphotos__track {
-    animation: none;
-    padding-inline: var(--gutter);
-  }
-  .cphotos__group[aria-hidden] {
-    display: none;
+    animation-duration: var(--cphotos-dur, 50s) !important;
+    animation-iteration-count: infinite !important;
   }
 }
+
+/* Barra de rolagem da loja: fina e discreta */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #c4c4cc transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: #c4c4cc padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa padding-box;
+}
+
 .cphoto {
   display: grid;
   gap: 8px;
