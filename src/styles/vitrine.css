@@ -405,9 +405,6 @@
 .site-footer .policy summary:hover {
   text-decoration: underline;
 }
-.site-footer__phone {
-  color: var(--ink-2);
-}
 .site-footer .policy__body {
   color: var(--ink-2);
 }
