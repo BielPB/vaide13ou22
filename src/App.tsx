@@ -94,8 +94,9 @@ function ProductRoute({ product, model }: { product: Product; model: ProductMode
       <ProductPage />
       <Guarantee />
       <ProductInfo />
-      <Showcase side={product.id} exclude={model.id} title={`Mais modelos de ${product.name}`} />
+      {/* Avaliações sempre logo abaixo de "Sobre o produto". */}
       <Reviews />
+      <Showcase side={product.id} exclude={model.id} title={`Mais modelos de ${product.name}`} />
       <ProductJsonLd product={product} model={model} />
     </>
   )
