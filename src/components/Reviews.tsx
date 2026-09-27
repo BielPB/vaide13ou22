@@ -109,7 +109,6 @@ export function Reviews() {
               <p className="review__meta">
                 <time dateTime={r.date}>{formatDate(r.date)}</time>
                 {r.variantLabel && ` · ${r.variantLabel}`}
-                {r.origin && <span className="review__origin">Compra na {r.origin}</span>}
               </p>
               {r.details && r.details.length > 0 && (
                 <dl className="review__details">

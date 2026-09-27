@@ -819,13 +819,6 @@ html {
   gap: 4px 8px;
   margin-top: 0;
 }
-.review__origin {
-  padding: 1px 8px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 0.75rem;
-  color: var(--ink-2);
-}
 .review__details {
   display: grid;
   gap: 2px;
