@@ -8,16 +8,16 @@ import { ServiceBar } from './Home'
 import { CartButton } from './Cart'
 import { SideMark } from './Icon'
 
-/** Logo redonda da loja (versões leves em /public; original em marca/logo22x13.png). */
+/** Logo da loja, a asa-delta (versões leves em /public; original em marca/logo-asa-delta.png). */
 export function BrandLogo({ className = 'brand__logo' }: { className?: string }) {
   return (
     <img
       className={className}
-      src="/logo-96.webp"
-      srcSet="/logo-96.webp 96w, /logo-192.webp 192w"
-      sizes="(min-width: 900px) 56px, 48px"
-      width={56}
-      height={56}
+      src="/logo-100.webp"
+      srcSet="/logo-100.webp 100w, /logo-200.webp 200w, /logo-300.webp 300w"
+      sizes="(min-width: 900px) 100px, 86px"
+      width={100}
+      height={35}
       alt=""
     />
   )
