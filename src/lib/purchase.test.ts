@@ -183,6 +183,7 @@ describe('configuração publicada (store.ts)', () => {
       '13/trucker-liso': [4990, 20],
       '13/camisa': [7990, 37],
       '22/nome-bandeira': [5990, 20],
+      '22/simples': [4990, 28],
       '22/camuflado': [7990, 25],
       '22/flavio': [4990, 24],
       '22/camisa': [7990, 37],

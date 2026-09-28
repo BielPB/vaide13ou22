@@ -221,6 +221,8 @@ const models22: ProductModel[] = [
     name: 'Simples',
     description: 'Liso, sem aplicação na frente.',
     priceCents: 3590,
+    compareAtCents: 4990,
+    compareAtSource: 'Preço praticado anteriormente (informado pelo vendedor em 27/09/2026)',
     tiers: [],
     images: [
       photo('22-simples/azul.webp', 'Azul', 'Boné Simples azul, liso'),
