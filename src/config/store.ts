@@ -252,6 +252,40 @@ const models22: ProductModel[] = [
     },
   },
   {
+    id: 'numero-22',
+    name: '22',
+    description: 'Estilo trucker, com tela atrás e o 22 com a bandeira do Brasil na frente. Aba curva e regulagem atrás.',
+    priceCents: 4990,
+    compareAtCents: 6990,
+    compareAtSource: 'Preço "de" informado pelo vendedor em 28/09/2026 (igual ao checkout)',
+    tiers: [],
+    images: [
+      photo('22-bone-22/preto.webp', 'Preto', 'Boné 22 preto, estilo trucker, com o 22 preenchido com a bandeira do Brasil'),
+      photo('22-bone-22/branco.webp', 'Branco', 'Boné 22 branco, estilo trucker, com o 22 preenchido com a bandeira do Brasil'),
+      photo('22-bone-22/azul.webp', 'Azul', 'Boné 22 azul, estilo trucker, com o 22 preenchido com a bandeira do Brasil'),
+    ],
+    variants: [
+      colorOption('preto', 'Preto', '22-bone-22/preto.webp', 'T6BWMRM4YH'),
+      colorOption('branco', 'Branco', '22-bone-22/branco.webp', 'FUI583K1KP'),
+      // Azul esgotado (pedido do vendedor em 28/09/2026); fora de venda também na Yampi.
+      // Para voltar a vender: tirar o `available: false` (o link já está aqui).
+      { ...colorOption('azul', 'Azul', '22-bone-22/azul.webp', '7XKN6WBZDK'), available: false },
+    ],
+    // Dados do anúncio do fornecedor (enviados pelo vendedor em 28/09/2026) e o visível nas fotos.
+    specs: {
+      material: null,
+      closure: 'Fechamento traseiro ajustável',
+      measurements: [['Tamanho', 'Adulto, regulável']],
+      care: null,
+      highlights: [
+        'Número 22 grande na frente, preenchido com a bandeira do Brasil.',
+        'Estampa em DTF, nas cores verde, amarelo e azul.',
+        'Estilo trucker, com tela atrás que deixa o ar circular. Unissex.',
+        'Aba curva, que protege o rosto do sol.',
+      ],
+    },
+  },
+  {
     id: 'simples',
     name: 'Simples',
     description: 'Liso, sem aplicação na frente.',
