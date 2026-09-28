@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { effectiveConfig } from '../config'
 import { storeConfig } from '../config/store'
 import type { ProductModel, StoreConfig } from '../config/types'
-import { allPending, hasEssential, productPending } from './pending'
+import { allPending, hasEssential, modelPending, productPending } from './pending'
 import {
   buildCheckoutUrl,
   CheckoutError,
@@ -324,6 +324,17 @@ describe('estado de compra', () => {
   it('bloqueia cor sem Link de compra', () => {
     const v = { ...m13.variants[0]!, checkoutUrl: null }
     expect(purchaseState(cfg, p13, { ...m13, variants: [v] }, v).block).toBe('checkout-missing')
+  })
+
+  it('cor esgotada não precisa de Link de compra; cor à venda sem link continua pendente', () => {
+    const c = structuredClone(cfg)
+    const p = c.products['13']
+    const m = p.models[0]!
+    m.variants.push({ ...structuredClone(m.variants[0]!), id: 'esgotada', label: 'Esgotada', available: false, checkoutUrl: null })
+    expect(modelPending(p, m, c).some((i) => i.key === 'CHECKOUT_POR_PRODUTO_OU_VARIANTE_13')).toBe(false)
+    expect(purchaseState(c, p, m, m.variants.at(-1)!).block).toBe('out-of-stock')
+    Object.assign(m.variants.at(-1)!, { available: true, stock: null })
+    expect(modelPending(p, m, c).some((i) => i.key === 'CHECKOUT_POR_PRODUTO_OU_VARIANTE_13')).toBe(true)
   })
 
   it('pendência de um modelo não bloqueia os outros', () => {

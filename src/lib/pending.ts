@@ -1,5 +1,5 @@
 import type { Product, ProductId, ProductModel, StoreConfig } from '../config/types'
-import { checkoutConfigured } from './purchase'
+import { checkoutConfigured, isVariantInStock } from './purchase'
 
 export interface PendingItem {
   /** Chave do briefing (ex.: PRECO_BONE_13). */
@@ -28,7 +28,8 @@ export function modelPending(p: Product, m: ProductModel, config: StoreConfig): 
     add('MEDIDAS', 'Conferir a tabela de referência medindo uma peça de cada tamanho', 'recommended')
   }
   if (m.specs.closure === null && m.category !== 'camisa') add('FECHAMENTO', 'Fechamento/ajuste', 'recommended')
-  if (!checkoutConfigured(config) || m.variants.some((v) => v.checkoutUrl === null)) {
+  // Cor esgotada não precisa de Link de compra (não é vendida).
+  if (!checkoutConfigured(config) || m.variants.some((v) => isVariantInStock(v) && v.checkoutUrl === null)) {
     add('CHECKOUT_POR_PRODUTO_OU_VARIANTE', 'Link de compra (Yampi) de cada cor')
   }
   return items
