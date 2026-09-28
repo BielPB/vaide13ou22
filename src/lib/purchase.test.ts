@@ -132,7 +132,7 @@ describe('configuração publicada (store.ts)', () => {
       m.variants.map((v) => v.checkoutUrl),
     )
     expect(urls).toHaveLength(63)
-    expect(urls.every((u) => /^https:\/\/vai-de-13-ou-22\.pay\.yampi\.com\.br\/r\/[A-Z0-9]{10}$/.test(u ?? ''))).toBe(true)
+    expect(urls.every((u) => /^https:\/\/seguro\.asadeltastore\.com\/r\/[A-Z0-9]{10}$/.test(u ?? ''))).toBe(true)
     expect(new Set(urls).size).toBe(urls.length)
   })
 
@@ -154,10 +154,10 @@ describe('configuração publicada (store.ts)', () => {
 
   it('o botão gera o Link de compra real da Yampi, com a quantidade', () => {
     expect(buildCheckoutUrl(storeConfig, [line('13', 'numero-13', 'vermelho', 1)])).toBe(
-      'https://vai-de-13-ou-22.pay.yampi.com.br/r/KXCGAPO8S5:1',
+      'https://seguro.asadeltastore.com/r/KXCGAPO8S5:1',
     )
     expect(buildCheckoutUrl(storeConfig, [line('22', 'camisa', 'preta-m', 2)])).toBe(
-      'https://vai-de-13-ou-22.pay.yampi.com.br/r/6P7W0GJ3OB:2',
+      'https://seguro.asadeltastore.com/r/6P7W0GJ3OB:2',
     )
   })
 
@@ -217,19 +217,19 @@ describe('catálogo real com a loja publicada (simulação)', () => {
 
   it('2 Número 13 → link sem cupom, com :2', () => {
     expect(buildCheckoutUrl(publicada(), [line('13', 'numero-13', 'vermelho', 2)])).toBe(
-      'https://vai-de-13-ou-22.pay.yampi.com.br/r/KXCGAPO8S5:2',
+      'https://seguro.asadeltastore.com/r/KXCGAPO8S5:2',
     )
   })
 
   it('1 Número 13 vermelho → link da Yampi com :1', () => {
     expect(buildCheckoutUrl(publicada(), [line('13', 'numero-13', 'vermelho', 1)])).toBe(
-      'https://vai-de-13-ou-22.pay.yampi.com.br/r/KXCGAPO8S5:1',
+      'https://seguro.asadeltastore.com/r/KXCGAPO8S5:1',
     )
   })
 
   it('3 Flávio azul → :3', () => {
     expect(buildCheckoutUrl(publicada(), [line('22', 'flavio', 'azul', 3)])).toBe(
-      'https://vai-de-13-ou-22.pay.yampi.com.br/r/T3L4M32HER:3',
+      'https://seguro.asadeltastore.com/r/T3L4M32HER:3',
     )
   })
 

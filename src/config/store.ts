@@ -30,7 +30,7 @@ const photo = (src: string, label: string, alt: string, width = 450, height = 45
 })
 
 /** Domínio do checkout da Yampi (tirado dos Links de compra). */
-const YAMPI_HOST = 'vai-de-13-ou-22.pay.yampi.com.br'
+const YAMPI_HOST = 'seguro.asadeltastore.com'
 
 /**
  * Opção (cor). `token` é o final do Link de compra da Yampi desta cor

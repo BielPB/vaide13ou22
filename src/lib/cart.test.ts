@@ -34,7 +34,7 @@ describe('carrinho', () => {
 
   it('gera um único link da Yampi com todos os itens (conferido no checkout em 27/09/2026)', () => {
     const items = addLine(storeConfig, addLine(storeConfig, [], bone), camisa)
-    expect(buildCheckoutUrl(storeConfig, items)).toBe('https://vai-de-13-ou-22.pay.yampi.com.br/r/KTS6AXK3UX:1,KCY1XHMG4A:2')
+    expect(buildCheckoutUrl(storeConfig, items)).toBe('https://seguro.asadeltastore.com/r/KTS6AXK3UX:1,KCY1XHMG4A:2')
   })
 
   it('descarta itens salvos que não existem mais ou vieram malformados', () => {

@@ -14,7 +14,7 @@ Os itens abaixo são recomendações para melhorar a página.
 - **Camisas:** tamanhos P, M, G, GG (iguais aos da Yampi), algodão, cuidados de lavagem e tabela de medidas de **referência** (aviso de variação de até 2 cm).
 - **Fotos:** confirmadas pelo vendedor como fiéis ao produto.
 - **Fichas:** Brasil e bandeira e Flávio Bolsonaro com regulagem fitão/strapback e tamanho único. Camuflado em poliéster, com fivela e ilhós.
-- **Checkout Yampi ligado:** 63 Links de compra, um por variação, conferidos abrindo cada link (27 cores de bonés + 36 cor×tamanho de camisas); domínio `vai-de-13-ou-22.pay.yampi.com.br`.
+- **Checkout Yampi ligado:** 63 Links de compra, um por variação, conferidos abrindo cada link (27 cores de bonés + 36 cor×tamanho de camisas); domínio próprio `seguro.asadeltastore.com` (CNAME na Vercel apontando para a Yampi; o endereço antigo `vai-de-13-ou-22.pay.yampi.com.br` também funciona).
 - **Layout:** mesma estrutura da loja na Yampi (banner em `public/banner.webp` e `public/banner-celular.webp`, vitrines 13 e 22, rodapé com Informações).
 
 ## Resolvido para publicar
@@ -55,7 +55,6 @@ Isso fica registrado como aviso e não bloqueia a página. Para cumprir o decret
 | O que | Por quê |
 |---|---|
 | **Renomear os bonés "Nome"** | Deixar igual ao site: os dois "Boné Nome Lula" viram "Boné Lula (estrela)" e "Boné Lula (letras grandes)"; o "Nome e bandeira" vira "Boné Brasil e bandeira". Hoje, no checkout, os dois modelos do Lula aparecem com o mesmo nome. |
-| **Nome da loja no checkout** | Trocar "Vai de 13 ou 22?" por "Asa Delta Store". Se o domínio `vai-de-13-ou-22.pay.yampi.com.br` mudar, trocar `YAMPI_HOST` em `store.ts` e os testes junto (os 63 links usam esse domínio). |
 | **Trocar a marca "LULA13" por Asa Delta Store** | A marca aparece só em um dos lados e quebra o equilíbrio da loja. |
 | **Barra do topo** | Trocar "Frete Grátis para todo Brasil!" por "Frete grátis para todo o Brasil acima de R$ 149,90" (sem o valor mínimo, a oferta é enganosa pelo CDC). |
 | **Frase do rodapé** | Trocar "Encontre o boné perfeito para apoiar seu candidato." por "Bonés e camisas 13 e 22. Escolha o seu modelo." |
