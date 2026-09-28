@@ -319,7 +319,7 @@
   font-size: 0.75rem;
   font-weight: 600;
 }
-/* Selo laranja do card (ex.: "Campeão em vendas"), embaixo à esquerda para não encostar no desconto. */
+/* Selo dourado do card (ex.: "Campeão em vendas"), embaixo à esquerda para não encostar no desconto. */
 .pcard__highlight {
   position: absolute;
   bottom: 8px;
@@ -327,8 +327,11 @@
   max-width: calc(100% - 16px);
   padding: 3px 9px;
   border-radius: 999px;
-  background: #c2410c;
-  color: #fff;
+  /* Texto escuro sobre o dourado: contraste de pelo menos 5,7:1 em todo o degradê. */
+  background: linear-gradient(135deg, #f7d774 0%, #e8b93c 55%, #d4a017 100%);
+  color: #3d2b00;
+  border: 1px solid #b8860b;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.18);
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.3;

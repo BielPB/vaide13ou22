@@ -140,7 +140,7 @@ export interface ProductModel {
   /** Onde/quando o preço anterior foi praticado — guarde comprovantes. */
   compareAtSource?: string
   /**
-   * Selo laranja no card da vitrine (ex.: "Campeão em vendas"). Como é uma
+   * Selo dourado no card da vitrine (ex.: "Campeão em vendas"). Como é uma
    * afirmação ao cliente (CDC art. 37), registre em `source` quem informou e quando.
    */
   highlight?: { label: string; source: string }

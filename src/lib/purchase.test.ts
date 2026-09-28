@@ -198,7 +198,7 @@ describe('configuração publicada (store.ts)', () => {
   it('selo do card só nos modelos informados, sempre com a origem registrada', () => {
     const all = (['13', '22'] as const).flatMap((side) => storeConfig.products[side].models.map((m) => ({ key: `${side}/${m.id}`, m })))
     const withBadge = all.filter(({ m }) => m.highlight)
-    expect(Object.fromEntries(withBadge.map(({ key, m }) => [key, m.highlight!.label]))).toEqual({ '22/brasil-22': 'Campeão em vendas' })
+    expect(Object.fromEntries(withBadge.map(({ key, m }) => [key, m.highlight!.label]))).toEqual({ '22/camuflado': 'Campeão em vendas' })
     expect(withBadge.every(({ m }) => m.highlight!.source.trim().length > 0)).toBe(true)
   })
 

@@ -223,7 +223,6 @@ const models22: ProductModel[] = [
     priceCents: 4990,
     compareAtCents: 6990,
     compareAtSource: 'Preço "de" informado pelo vendedor em 28/09/2026 (igual ao checkout da Yampi)',
-    highlight: { label: 'Campeão em vendas', source: 'Informado pelo vendedor em 28/09/2026' },
     tiers: [],
     images: [
       photo('22-brasil-22/preto-branco.webp', 'Preto e branco', 'Boné do Brasil com 22 preto, com bandeira do Brasil em contorno branco e o 22 na lateral'),
@@ -307,6 +306,7 @@ const models22: ProductModel[] = [
     priceCents: 5990,
     compareAtCents: 7990,
     compareAtSource: 'Preço praticado anteriormente (informado pelo vendedor em 26/09/2026)',
+    highlight: { label: 'Campeão em vendas', source: 'Informado pelo vendedor em 28/09/2026' },
     tiers: [],
     images: [
       // Cores das fotos 3 (cinza) e 4 (verde-oliva) confirmadas pelo vendedor em 26/09/2026.
