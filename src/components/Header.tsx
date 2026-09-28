@@ -56,14 +56,19 @@ function PromoBar() {
 
 type Page = 'home' | 'product' | 'other'
 
-/** Categorias: as vitrines ficam na página inicial; "Detalhes" só existe na página de produto. */
-const linksFor = (page: Page): Array<{ id: string; href: string; label: string; side?: '13' | '22' }> => [
-  { id: 'vitrine-13', href: '/#vitrine-13', label: 'Lula 13', side: '13' },
-  { id: 'vitrine-22', href: '/#vitrine-22', label: 'Bolsonaro 22', side: '22' },
-  ...(page === 'product' ? [{ id: 'detalhes', href: '#detalhes', label: 'Detalhes' }] : []),
-  // As perguntas frequentes (e o atalho para elas) só existem na página inicial.
-  ...(page === 'home' ? [{ id: 'duvidas', href: '#duvidas', label: 'Dúvidas' }] : []),
-]
+/**
+ * Categorias: as vitrines ficam na página inicial. Na página de produto a barra
+ * não aparece (o caminho de volta e "Mais modelos" já levam às vitrines).
+ */
+const linksFor = (page: Page): Array<{ id: string; href: string; label: string; side?: '13' | '22' }> =>
+  page === 'product'
+    ? []
+    : [
+        { id: 'vitrine-13', href: '/#vitrine-13', label: 'Lula 13', side: '13' },
+        { id: 'vitrine-22', href: '/#vitrine-22', label: 'Bolsonaro 22', side: '22' },
+        // As perguntas frequentes (e o atalho para elas) só existem na página inicial.
+        ...(page === 'home' ? [{ id: 'duvidas', href: '#duvidas', label: 'Dúvidas' }] : []),
+      ]
 
 /** Seção da barra de categorias que está na tela agora (para o sublinhado). */
 function useActiveSection(ids: string[]) {
@@ -98,7 +103,7 @@ export function Header({ page }: { page: Page }) {
       <PreviewBanner />
       <PromoBar />
       <ServiceBar />
-      <header className="site-header">
+      <header className={links.length ? 'site-header' : 'site-header site-header--sem-categorias'}>
         <div className="container site-header__inner">
           <Link className="brand" href="/">
             <BrandLogo />
@@ -108,23 +113,25 @@ export function Header({ page }: { page: Page }) {
 
           <CartButton />
 
-          <nav className="catbar" aria-label="Categorias">
-            <ul className="catbar__list">
-              {links.map((l) => (
-                <li key={l.id}>
-                  <Link
-                    className="catbar__link"
-                    href={l.href}
-                    data-side={l.side}
-                    aria-current={active === l.id ? 'location' : undefined}
-                  >
-                    {l.side && <SideMark side={l.side} />}
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          {links.length > 0 && (
+            <nav className="catbar" aria-label="Categorias">
+              <ul className="catbar__list">
+                {links.map((l) => (
+                  <li key={l.id}>
+                    <Link
+                      className="catbar__link"
+                      href={l.href}
+                      data-side={l.side}
+                      aria-current={active === l.id ? 'location' : undefined}
+                    >
+                      {l.side && <SideMark side={l.side} />}
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
         </div>
       </header>
     </>

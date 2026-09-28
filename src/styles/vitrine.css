@@ -77,6 +77,10 @@
   row-gap: 8px;
   padding-top: 10px;
 }
+/* Página de produto: sem a barra de categorias, o cabeçalho fecha com o mesmo respiro do topo. */
+.site-header--sem-categorias .site-header__inner {
+  padding-bottom: 10px;
+}
 .site-header .brand {
   grid-column: 1;
   grid-row: 1;
@@ -486,6 +490,10 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 128px; /* cabeçalho fixo (duas linhas) */
   interpolate-size: allow-keywords;
+}
+/* Página de produto: cabeçalho de uma linha só (sem a barra de categorias). */
+html:has(.site-header--sem-categorias) {
+  scroll-padding-top: 88px;
 }
 
 /* Toque: afunda levemente ao pressionar */
