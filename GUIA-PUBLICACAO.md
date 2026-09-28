@@ -17,7 +17,7 @@ Por isso a loja vende tudo pelo **preço de 1 unidade**, que é exatamente o que
 ## Passo 2 — Ajustes nos produtos (Yampi)
 
 - [ ] Renomear na Yampi: os dois "Boné Nome Lula" para **Boné Lula (estrela)** e **Boné Lula (letras grandes)**, e o "Nome e bandeira" para **Boné Brasil e bandeira**.
-- [ ] Trocar a **Marca** de "LULA13" para **vaide13ou22** em todos os produtos.
+- [ ] Trocar a **Marca** de "LULA13" para **Asa Delta Store** em todos os produtos.
 - [ ] Preencher **peso** (kg) e **medidas da embalagem** (cm) em todos: sem isso, o frete não é calculado.
 - [ ] Me mandar uma **foto do Camuflado Cinza**.
 
@@ -84,7 +84,7 @@ Eu redijo **Trocas e devoluções**, **Privacidade** e **Termos de venda** com b
 
 ## Passo 8 — Domínio e hospedagem
 
-1. **Domínio:** registre no [Registro.br](https://registro.br) (ex.: `vaide13ou22.com.br`, cerca de R$ 40/ano). **Me mande** o domínio escolhido.
+1. **Domínio:** `asadeltastore.com`, registrado na Hostinger, com os nameservers apontando para a Vercel (`ns1.vercel-dns.com` e `ns2.vercel-dns.com`). No projeto da Vercel, em Settings → Domains, adicione `asadeltastore.com` e `www.asadeltastore.com`.
 2. **Hospedagem grátis:** crie uma conta na [Vercel](https://vercel.com) (pode entrar com Google ou GitHub).
 3. Eu preparo o projeto para publicar e te guio na hora de conectar o domínio.
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { Review } from '../config/types'
+import { readMigrated } from '../lib/storage'
 
 /**
  * Botões "Útil" / "Não útil" de cada avaliação.
@@ -8,13 +9,15 @@ import type { Review } from '../config/types'
  * deste visitante; nada é inventado nem somado de outros visitantes.
  */
 type Vote = 'up' | 'down'
-const KEY = 'vaide13ou22:votos-avaliacoes'
+const KEY = 'asadelta:votos-avaliacoes'
+/** Nome da chave antes da troca do nome da loja (os votos salvos são migrados). */
+const OLD_KEY = 'vaide13ou22:votos-avaliacoes'
 
 export const reviewId = (r: Review) => [r.productId, r.modelId, r.author, r.date, r.variantLabel ?? ''].join('|')
 
 function readVotes(): Record<string, Vote> {
   try {
-    return JSON.parse(localStorage.getItem(KEY) ?? '{}') as Record<string, Vote>
+    return JSON.parse(readMigrated(KEY, OLD_KEY) ?? '{}') as Record<string, Vote>
   } catch {
     return {}
   }

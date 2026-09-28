@@ -393,7 +393,7 @@ export const storeConfig: StoreConfig = {
   status: 'live',
 
   store: {
-    name: 'vaide13ou22',
+    name: 'Asa Delta Store',
     // O vendedor optou por não exibir nome completo nem CPF/CNPJ (veja PENDENCIAS.md).
     legalName: null,
     documentId: null,
@@ -402,7 +402,7 @@ export const storeConfig: StoreConfig = {
         'Loja independente. Não temos vínculo com partidos, campanhas, candidatos ou com as pessoas citadas, e as vendas não são doações. Os nomes e números identificam os modelos dos produtos.',
       confirmed: true, // confirmado pelo vendedor em 26/09/2026
     },
-    siteUrl: null,
+    siteUrl: 'https://asadeltastore.com',
   },
 
   contact: {

@@ -1,6 +1,6 @@
-# Loja 13 × 22
+# Asa Delta Store
 
-Uma página de venda para dois produtos: **Boné Lula 13** e **Boné Bolsonaro 22**.
+Loja de bonés e camisas **Lula 13** e **Bolsonaro 22**, em [asadeltastore.com](https://asadeltastore.com).
 Feita com React, TypeScript e Vite, com CSS puro. Não há backend nem rastreamento.
 
 > **Status: PRÉVIA.** A compra fica bloqueada até que os dados de `PENDENCIAS.md` sejam preenchidos

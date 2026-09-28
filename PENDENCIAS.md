@@ -5,7 +5,7 @@ Os itens abaixo são recomendações para melhorar a página.
 
 ## Já recebido
 
-- **Loja:** vaide13ou22 · **WhatsApp:** (21) 96952-6716
+- **Loja:** Asa Delta Store (asadeltastore.com) · **WhatsApp:** (21) 96952-6716
 - **Oferta:** frete grátis para todo o Brasil em compras acima de R$ 149,90 (faixa no topo, compra, Entrega e FAQ).
 - **Sem desconto por quantidade:** cada peça sai pelo preço de 1 unidade (o plano da Yampi não libera cupons nem faixas).
 - **Lado 13:** Lula (estrela), Número 13 e Lula (letras grandes) a R$ 45,90 (antes R$ 54,90) · Simples vermelho e Trucker liso a R$ 39,90 (antes R$ 49,90) · Camisa Lula 13 a R$ 49,90 (7 cores).
@@ -26,9 +26,9 @@ trocas, termos e cookies), declaração de loja independente, links de compra (6
 
 | O que | Como |
 |---|---|
-| **Hospedagem** | Criar conta na Vercel e importar o repositório `BielPB/vaide13ou22` |
-| **Domínio** | Registrar no Registro.br e apontar para a Vercel |
-| **Endereço final** | Preencher `store.siteUrl` (liga canonical, `og:url` e dados estruturados) |
+| **Hospedagem** | Vercel, importando o repositório do GitHub (feito) |
+| **Domínio** | `asadeltastore.com`, registrado na Hostinger com os nameservers da Vercel. Falta adicionar `asadeltastore.com` e `www.asadeltastore.com` ao projeto na Vercel (Settings → Domains) |
+| **Endereço final** | `store.siteUrl` = `https://asadeltastore.com` (liga canonical, `og:url`, imagem de compartilhamento e dados estruturados) |
 
 ## Recomendado (não bloqueia a venda)
 
@@ -55,7 +55,8 @@ Isso fica registrado como aviso e não bloqueia a página. Para cumprir o decret
 | O que | Por quê |
 |---|---|
 | **Renomear os bonés "Nome"** | Deixar igual ao site: os dois "Boné Nome Lula" viram "Boné Lula (estrela)" e "Boné Lula (letras grandes)"; o "Nome e bandeira" vira "Boné Brasil e bandeira". Hoje, no checkout, os dois modelos do Lula aparecem com o mesmo nome. |
-| **Trocar a marca "LULA13" por vaide13ou22** | A marca aparece só em um dos lados e quebra o equilíbrio da loja. |
+| **Nome da loja no checkout** | Trocar "Vai de 13 ou 22?" por "Asa Delta Store". Se o domínio `vai-de-13-ou-22.pay.yampi.com.br` mudar, trocar `YAMPI_HOST` em `store.ts` e os testes junto (os 63 links usam esse domínio). |
+| **Trocar a marca "LULA13" por Asa Delta Store** | A marca aparece só em um dos lados e quebra o equilíbrio da loja. |
 | **Barra do topo** | Trocar "Frete Grátis para todo Brasil!" por "Frete grátis para todo o Brasil acima de R$ 149,90" (sem o valor mínimo, a oferta é enganosa pelo CDC). |
 | **Frase do rodapé** | Trocar "Encontre o boné perfeito para apoiar seu candidato." por "Bonés e camisas 13 e 22. Escolha o seu modelo." |
 | **Seções de exemplo** | Ligar "Nome da coleção" às coleções Lula 13 / Bolsonaro 22 e desativar "Escolha por marcas". |

@@ -53,7 +53,7 @@ function usePageMeta(config: StoreConfig, route: Route, pathname: string) {
     const meta = document.querySelector('meta[name="description"]')
     defaultDescription ??= meta?.getAttribute('content') ?? null
     const brand = config.store.name ?? '13 ou 22'
-    let title = `Vai de 13 ou 22? Bonés e camisas | ${brand}`
+    let title = `${brand} | Bonés e camisas 13 e 22`
     let description: string | null = null
     if (route.kind === 'product') {
       const { model } = route

@@ -4,7 +4,7 @@
  * Parágrafos separados por linha em branco; o rodapé mostra cada um como <p>.
  */
 
-const LOJA = 'vaide13ou22'
+const LOJA = 'Asa Delta Store'
 const WHATSAPP = '(21) 96952-6716'
 
 export const politicaTrocas = `Seu direito de desistir (arrependimento). Em compras pela internet, você pode desistir em até 7 dias corridos a partir do recebimento, sem precisar explicar o motivo (Código de Defesa do Consumidor, art. 49). Devolvemos o valor pago, inclusive o frete, e o frete de devolução é por nossa conta.

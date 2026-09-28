@@ -14,7 +14,7 @@ const escape = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').r
 
 /** Preenche título, descrição e metadados de compartilhamento a partir de src/config/store.ts. */
 function storeMeta(): Plugin {
-  const title = `Vai de 13 ou 22? Bonés e camisas | ${brand}`
+  const title = `${brand} | Bonés e camisas 13 e 22`
   return {
     name: 'store-meta',
     transformIndexHtml(html) {

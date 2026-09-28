@@ -2,12 +2,15 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import type { StoreConfig } from '../config/types'
 import { addLine, cartCount, cartSubtotalCents, lineKey, removeLine, sanitizeCart, setLineQuantity, type CartLine } from './cart'
 import { buildCheckoutUrl, CheckoutError } from './purchase'
+import { readMigrated } from './storage'
 
 /**
  * Estado do carrinho. Fica acima da página (não zera ao navegar) e é salvo só
  * no navegador do visitante (localStorage), sem cookies e sem envio a ninguém.
  */
-const KEY = 'vaide13ou22:carrinho'
+const KEY = 'asadelta:carrinho'
+/** Nome da chave antes da troca do nome da loja (o carrinho salvo é migrado). */
+const OLD_KEY = 'vaide13ou22:carrinho'
 
 interface CartValue {
   items: CartLine[]
@@ -28,7 +31,7 @@ const CartContext = createContext<CartValue | null>(null)
 
 function load(config: StoreConfig): CartLine[] {
   try {
-    return sanitizeCart(config, JSON.parse(localStorage.getItem(KEY) ?? '[]'))
+    return sanitizeCart(config, JSON.parse(readMigrated(KEY, OLD_KEY) ?? '[]'))
   } catch {
     return []
   }
