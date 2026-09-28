@@ -109,10 +109,11 @@ describe('configuração publicada (store.ts)', () => {
     expect(purchaseState(storeConfig, p13, semPreco, semPreco.variants[0]!).block).toBe('price-missing')
   })
 
-  it('tem os 4 bonés e a camisa do 22 com os preços informados pelo vendedor, sem 2+', () => {
+  it('tem os 5 bonés e a camisa do 22 com os preços informados pelo vendedor, sem 2+', () => {
     const models = storeConfig.products['22'].models
     expect(Object.fromEntries(models.map((m) => [m.id, m.priceCents]))).toEqual({
       'nome-bandeira': 4790,
+      'brasil-22': 4990,
       simples: 3590,
       camuflado: 5990,
       flavio: 3790,
@@ -131,7 +132,7 @@ describe('configuração publicada (store.ts)', () => {
     const urls = [...storeConfig.products['13'].models, ...storeConfig.products['22'].models].flatMap((m) =>
       m.variants.map((v) => v.checkoutUrl),
     )
-    expect(urls).toHaveLength(63)
+    expect(urls).toHaveLength(67)
     expect(urls.every((u) => /^https:\/\/seguro\.asadeltastore\.com\/r\/[A-Z0-9]{10}$/.test(u ?? ''))).toBe(true)
     expect(new Set(urls).size).toBe(urls.length)
   })
@@ -183,6 +184,7 @@ describe('configuração publicada (store.ts)', () => {
       '13/trucker-liso': [4990, 20],
       '13/camisa': [7990, 37],
       '22/nome-bandeira': [5990, 20],
+      '22/brasil-22': [6990, 28],
       '22/simples': [4990, 28],
       '22/camuflado': [7990, 25],
       '22/flavio': [4990, 24],

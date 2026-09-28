@@ -9,12 +9,12 @@ Os itens abaixo são recomendações para melhorar a página.
 - **Oferta:** frete grátis para todo o Brasil em compras acima de R$ 149,90 (faixa no topo, compra, Entrega e FAQ).
 - **Sem desconto por quantidade:** cada peça sai pelo preço de 1 unidade (o plano da Yampi não libera cupons nem faixas).
 - **Lado 13:** Lula (estrela) e Lula (letras grandes) a R$ 45,90 (antes R$ 54,90) · Número 13 a R$ 39,90 (antes R$ 45,90) · Simples vermelho e Trucker liso a R$ 39,90 (antes R$ 49,90) · Camisa Lula 13 a R$ 49,90 (7 cores).
-- **Lado 22:** Brasil e bandeira R$ 47,90 (antes R$ 59,90) · Simples R$ 35,90 (antes R$ 49,90) · Camuflado R$ 59,90 (antes R$ 79,90) · Flávio Bolsonaro R$ 37,90 (antes R$ 49,90) · Camisa Bolsonaro 22 a R$ 49,90 (branca e preta).
+- **Lado 22:** Brasil e bandeira R$ 47,90 (antes R$ 59,90) · Simples R$ 35,90 (antes R$ 49,90) · Camuflado R$ 59,90 (antes R$ 79,90) · Flávio Bolsonaro R$ 37,90 (antes R$ 49,90) · Camisa Bolsonaro 22 a R$ 49,90 (branca e preta) · do Brasil com 22 R$ 49,90 (antes R$ 69,90; 4 cores).
 - **Preços anteriores (riscados):** praticados antes pelo vendedor, com a origem registrada em `compareAtSource`.
 - **Camisas:** tamanhos P, M, G, GG (iguais aos da Yampi), algodão, cuidados de lavagem e tabela de medidas de **referência** (aviso de variação de até 2 cm).
 - **Fotos:** confirmadas pelo vendedor como fiéis ao produto.
 - **Fichas:** Brasil e bandeira e Flávio Bolsonaro com regulagem fitão/strapback e tamanho único. Camuflado em poliéster, com fivela e ilhós.
-- **Checkout Yampi ligado:** 63 Links de compra, um por variação, conferidos abrindo cada link (27 cores de bonés + 36 cor×tamanho de camisas); domínio próprio `seguro.asadeltastore.com` (CNAME na Vercel apontando para a Yampi; o endereço antigo `vai-de-13-ou-22.pay.yampi.com.br` também funciona).
+- **Checkout Yampi ligado:** 67 Links de compra, um por variação, conferidos abrindo cada link (31 cores de bonés + 36 cor×tamanho de camisas); domínio próprio `seguro.asadeltastore.com` (CNAME na Vercel apontando para a Yampi; o endereço antigo `vai-de-13-ou-22.pay.yampi.com.br` também funciona).
 - **Layout:** mesma estrutura da loja na Yampi (banner em `public/banner.webp` e `public/banner-celular.webp`, vitrines 13 e 22, rodapé com Informações).
 
 ## Resolvido para publicar

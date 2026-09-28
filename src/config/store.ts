@@ -217,6 +217,40 @@ const models22: ProductModel[] = [
     specs: strapbackSpecs(),
   },
   {
+    id: 'brasil-22',
+    name: 'do Brasil com 22',
+    description: 'Bandeira do Brasil em contorno na frente e o 22 na lateral. Aba curva e regulagem atrás.',
+    priceCents: 4990,
+    compareAtCents: 6990,
+    compareAtSource: 'Preço "de" informado pelo vendedor em 28/09/2026 (igual ao checkout da Yampi)',
+    tiers: [],
+    images: [
+      photo('22-brasil-22/preto-branco.webp', 'Preto e branco', 'Boné do Brasil com 22 preto, com bandeira do Brasil em contorno branco e o 22 na lateral'),
+      photo('22-brasil-22/marrom-branco.webp', 'Marrom e branco', 'Boné do Brasil com 22 marrom, com bandeira do Brasil em contorno branco e o 22 na lateral'),
+      photo('22-brasil-22/bege-branco.webp', 'Bege e branco', 'Boné do Brasil com 22 bege, com bandeira do Brasil em contorno branco e o 22 na lateral'),
+      photo('22-brasil-22/branco-preto.webp', 'Branco e preto', 'Boné do Brasil com 22 branco, com bandeira do Brasil em contorno preto e o 22 na lateral'),
+    ],
+    variants: [
+      colorOption('preto-branco', 'Preto e branco', '22-brasil-22/preto-branco.webp', 'PSEENQQXYX'),
+      colorOption('marrom-branco', 'Marrom e branco', '22-brasil-22/marrom-branco.webp', 'GLKY7X51FV'),
+      colorOption('bege-branco', 'Bege e branco', '22-brasil-22/bege-branco.webp', '41STWJN0Y5'),
+      colorOption('branco-preto', 'Branco e preto', '22-brasil-22/branco-preto.webp', 'JJKLZNY4FV'),
+    ],
+    // Informado pelo vendedor (dados do anúncio do fornecedor, 28/09/2026) e visível nas fotos.
+    specs: {
+      material: 'Algodão',
+      closure: 'Regulagem traseira',
+      measurements: [['Tamanho', 'Único, regulável (cerca de 58 cm de circunferência)']],
+      care: null,
+      highlights: [
+        'Bandeira do Brasil em contorno na frente e o 22 na lateral.',
+        'Regulagem traseira: ajusta a diferentes tamanhos de cabeça. Unissex.',
+        'Aba curva, que protege o rosto do sol.',
+        'Ilhoses de ventilação no topo.',
+      ],
+    },
+  },
+  {
     id: 'simples',
     name: 'Simples',
     description: 'Liso, sem aplicação na frente.',
