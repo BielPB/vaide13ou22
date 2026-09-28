@@ -456,5 +456,52 @@
         "Unissex"
       ]
     ]
+  },
+  "22/numero-22": {
+    "slug": "bone-22",
+    "abertura": [
+      "O 22 em destaque, com as cores do Brasil.",
+      "O Boné 22 traz o **número 22 grande na frente**, preenchido com a **bandeira do Brasil** em verde, amarelo e azul. Um trucker leve, com tela atrás, em preto ou branco."
+    ],
+    "destaques": [
+      "**22 com a bandeira do Brasil**, visível de longe",
+      "**Estampa em DTF**, com as cores da bandeira",
+      "**Tela atrás**, que deixa o ar circular",
+      "**Fechamento traseiro ajustável**, tamanho adulto",
+      "**Aba curva**, que protege o rosto do sol",
+      "**Leve**, confortável para o dia a dia"
+    ],
+    "quandoUsar": "Para o dia a dia, passeios, eventos e encontros, e para quem gosta de um visual brasileiro e diferente.",
+    "cores": "preto e branco",
+    "ficha": [
+      [
+        "Modelo",
+        "Trucker, com tela atrás"
+      ],
+      [
+        "Frente",
+        "Número 22 com a bandeira do Brasil"
+      ],
+      [
+        "Estampa",
+        "DTF"
+      ],
+      [
+        "Aba",
+        "Curva"
+      ],
+      [
+        "Fechamento",
+        "Ajustável atrás"
+      ],
+      [
+        "Tamanho",
+        "Adulto, regulável"
+      ],
+      [
+        "Modelagem",
+        "Unissex"
+      ]
+    ]
   }
 }
