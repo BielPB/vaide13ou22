@@ -15,6 +15,7 @@ import { modelFullName, productPath, resolveRoute, type Route } from './lib/rout
 import { ShopProvider, useShop } from './lib/shop'
 import { CartProvider } from './lib/cartContext'
 import { CartDrawer } from './components/Cart'
+import { startMetaPixel } from './lib/metaPixel'
 
 /**
  * Dados estruturados do produto da página — só com loja publicada, URL
@@ -127,6 +128,8 @@ export function App({ config }: { config: StoreConfig }) {
   const pathname = usePathname()
   const route = resolveRoute(config, pathname)
   usePageMeta(config, route, pathname)
+  // Meta Pixel (só com VITE_META_PIXEL_ID configurado): as trocas de página seguintes o próprio pixel registra.
+  useEffect(() => startMetaPixel(), [])
   const page = route.kind === 'home' ? 'home' : route.kind === 'product' ? 'product' : 'other'
 
   return (

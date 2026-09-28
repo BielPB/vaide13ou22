@@ -21,21 +21,21 @@ Reembolso. Assim que recebermos o produto, fazemos o reembolso imediatamente, pe
 
 export const politicaPrivacidade = `Quem somos. Esta loja é a ${LOJA}. Contato: WhatsApp ${WHATSAPP}.
 
-Este site. A página da loja não usa cookies de rastreamento, pixels de publicidade nem ferramentas de análise. A escolha de modelo feita na página não é salva nem enviada a ninguém. Os itens do carrinho e os votos de útil ou não útil nas avaliações ficam salvos só no seu navegador e não são enviados a ninguém; os dados do pedido só vão para a Yampi quando você finaliza a compra.
+Este site. Usamos o Meta Pixel, da Meta (Facebook e Instagram), para medir as visitas e o resultado dos nossos anúncios. Ele registra que você abriu uma página do site, com o endereço dessa página (que pode incluir o nome do produto) e dados técnicos do navegador, e pode usar cookies da Meta. Não enviamos à Meta o que você coloca no carrinho nem o que compra. Não usamos outras ferramentas de análise. A escolha de modelo feita na página não é salva nem enviada a ninguém. Os itens do carrinho e os votos de útil ou não útil nas avaliações ficam salvos só no seu navegador e não são enviados a ninguém; os dados do pedido só são informados no checkout, quando você finaliza a compra.
 
-No pagamento. O checkout é da Yampi. Lá você informa nome, e-mail, CPF, telefone e endereço de entrega. Esses dados são usados para processar o pagamento, emitir o pedido, entregar, prestar atendimento e avisar sobre o andamento do pedido. A Yampi também pode avisar você caso uma compra fique sem finalizar e manter o seu histórico de compras nesta loja. Dados de cartão são tratados pela Yampi e pelos meios de pagamento; nós não temos acesso a eles.
+No pagamento. No checkout, você informa nome, e-mail, CPF, telefone e endereço de entrega. Esses dados são usados para processar o pagamento, emitir o pedido, entregar, prestar atendimento e avisar sobre o andamento do pedido. Também podemos avisar você caso uma compra fique sem finalizar e manter o seu histórico de compras nesta loja. Dados de cartão são tratados pela plataforma de pagamento e pelos meios de pagamento; nós não temos acesso a eles.
 
-Com quem compartilhamos. Apenas com quem é necessário para concluir a compra: a Yampi (plataforma de pagamento), a transportadora ou os Correios (entrega) e as instituições de pagamento. Não vendemos seus dados.
+Com quem compartilhamos. Com quem é necessário para concluir a compra: a plataforma de pagamento, a transportadora ou os Correios (entrega) e as instituições de pagamento. E com a Meta, apenas os dados de visita do Meta Pixel descritos acima. Não vendemos seus dados.
 
 Produto comprado. Alguns produtos fazem referência a figuras políticas. A informação sobre o que você comprou é usada só para entregar o pedido e dar atendimento. Não a usamos para criar perfis, públicos de anúncio ou comunicações de cunho político, e não a compartilhamos para esses fins.
 
 Por quanto tempo. Guardamos os dados do pedido pelo tempo exigido pela legislação fiscal e de defesa do consumidor. Depois disso, eles são apagados.
 
-Seus direitos (LGPD, art. 18). Você pode pedir a confirmação de que tratamos seus dados, o acesso, a correção, a exclusão dos dados que não precisamos guardar por lei e informações sobre com quem os compartilhamos. Peça pelo WhatsApp ${WHATSAPP}.`
+Seus direitos (LGPD, art. 18). Você pode pedir a confirmação de que tratamos seus dados, o acesso, a correção, a exclusão dos dados que não precisamos guardar por lei e informações sobre com quem os compartilhamos. Peça pelo WhatsApp ${WHATSAPP}. Para não ser medido pelo Meta Pixel, bloqueie cookies de terceiros ou rastreadores no navegador; os anúncios que você vê podem ser ajustados nas configurações de anúncios da sua conta da Meta.`
 
 export const termosVenda = `Produtos e preços. Os preços valem para compras pela internet e são confirmados no checkout. Quando aparece um preço riscado, ele é o preço praticado anteriormente. As cores podem variar um pouco conforme a tela; as medidas de camisas são de referência e podem variar até 2 cm.
 
-Pagamento. Aceitamos Pix e cartão de crédito em até 12 vezes, pelo checkout da Yampi. O pedido é confirmado após a aprovação do pagamento.
+Pagamento. Aceitamos Pix e cartão de crédito em até 12 vezes, no checkout seguro. O pedido é confirmado após a aprovação do pagamento.
 
 Envio. Postamos o pedido em até 2 dias úteis após a confirmação do pagamento. O prazo de entrega depende do CEP e é mostrado no checkout antes de pagar. Compras acima de R$ 149,90 têm frete grátis para todo o Brasil; abaixo disso, o frete é calculado pelo CEP no checkout.
 
@@ -55,11 +55,11 @@ Fale com a gente. WhatsApp ${WHATSAPP}.`
 
 export const politicaCookies = `O que são cookies. São pequenos arquivos que um site guarda no seu navegador para lembrar informações enquanto você navega.
 
-Este site. A página da loja não usa cookies, pixels de publicidade nem ferramentas de análise. A escolha de modelo feita na página fica só na memória da aba e não é salva nem enviada. Os itens do carrinho e os votos de útil e não útil nas avaliações ficam guardados só no seu navegador (armazenamento local), sem cookies, e não são enviados.
+Este site. A página da loja usa o Meta Pixel, que pode gravar cookies da Meta no seu navegador (como o _fbp) para medir as visitas e o resultado dos anúncios. Ele não recebe o que você coloca no carrinho nem o que compra. Não usamos outras ferramentas de análise. A escolha de modelo feita na página fica só na memória da aba e não é salva nem enviada. Os itens do carrinho e os votos de útil e não útil nas avaliações ficam guardados só no seu navegador (armazenamento local), sem cookies, e não são enviados.
 
-No checkout. Ao clicar em Comprar, você vai para o checkout da Yampi, que usa cookies necessários para funcionar: manter o carrinho, lembrar a sessão, concluir o pagamento com segurança e evitar fraudes.
+No checkout. Ao finalizar a compra, você vai para o checkout seguro, que usa cookies necessários para funcionar: manter o carrinho, lembrar a sessão, concluir o pagamento com segurança e evitar fraudes.
 
-Como controlar. Você pode apagar ou bloquear cookies nas configurações do navegador. Se bloquear os cookies necessários, o checkout pode não funcionar.
+Como controlar. Você pode apagar ou bloquear cookies nas configurações do navegador. Bloquear cookies de terceiros ou rastreadores desliga o Meta Pixel sem afetar a compra. Se bloquear os cookies necessários do checkout, ele pode não funcionar.
 
 Dúvidas. Chame no WhatsApp ${WHATSAPP}. Veja também a Política de privacidade.`
 

@@ -1,7 +1,7 @@
 # Asa Delta Store
 
 Loja de bonés e camisas **Lula 13** e **Bolsonaro 22**, em [asadeltastore.com](https://asadeltastore.com).
-Feita com React, TypeScript e Vite, com CSS puro. Não há backend nem rastreamento.
+Feita com React, TypeScript e Vite, com CSS puro. Não há backend. A única medição é o Meta Pixel (só PageView), ligado pela variável `VITE_META_PIXEL_ID` na Vercel.
 
 > **Status: PRÉVIA.** A compra fica bloqueada até que os dados de `PENDENCIAS.md` sejam preenchidos
 > e `status` passe para `'live'` em `src/config/store.ts`. A prévia sai com `noindex`.
@@ -130,8 +130,10 @@ Preencha `store`, `contact`, `commerce` e `policies`. Na declaração de indepen
 ## Privacidade e medição
 
 A escolha do modelo fica só na memória da aba: não é salva, enviada ou medida.
-Não há cookies, pixels ou analytics. Uma medição futura deve ser configurada à parte, com minimização de dados,
-sem enviar nomes, números ou categorias políticas a plataformas de anúncio e sem criar públicos de afinidade política.
+**Meta Pixel** (`src/lib/metaPixel.ts`): só carrega se a variável `VITE_META_PIXEL_ID` estiver configurada na Vercel
+(o ID nunca vai para o código, porque o repositório é público). Envia apenas `PageView`, uma vez por página, com a coleta
+automática da Meta desligada. Não envie eventos com produto, lado (13/22), carrinho ou compra, e não crie públicos de
+afinidade política. As políticas de privacidade e de cookies descrevem esse uso; mude as duas se a medição mudar.
 
 ## Estrutura
 

@@ -92,7 +92,7 @@ export function FAQ() {
     {
       q: 'Quais são as formas de pagamento?',
       field: 'PAGAMENTOS',
-      a: commerce.payments ? <p>Pix ou cartão de crédito em até 12x, no checkout seguro da Yampi.</p> : null,
+      a: commerce.payments ? <p>Pix ou cartão de crédito em até 12x, no checkout seguro.</p> : null,
     },
     {
       q: 'Tem desconto comprando mais de uma peça?',

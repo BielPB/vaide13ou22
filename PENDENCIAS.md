@@ -59,7 +59,7 @@ Isso fica registrado como aviso e não bloqueia a página. Para cumprir o decret
 | **Barra do topo** | Trocar "Frete Grátis para todo Brasil!" por "Frete grátis para todo o Brasil acima de R$ 149,90" (sem o valor mínimo, a oferta é enganosa pelo CDC). |
 | **Frase do rodapé** | Trocar "Encontre o boné perfeito para apoiar seu candidato." por "Bonés e camisas 13 e 22. Escolha o seu modelo." |
 | **Seções de exemplo** | Ligar "Nome da coleção" às coleções Lula 13 / Bolsonaro 22 e desativar "Escolha por marcas". |
-| **Pixels e análise** | A Política de cookies diz que a loja não usa cookies de publicidade. Conferir em Integrações/Marketing que não há Meta Pixel, Google Analytics etc. ligados. |
+| **Pixels e análise** | O site usa o Meta Pixel (só PageView, ID na variável `VITE_META_PIXEL_ID` da Vercel). Na Yampi, conferir o que está ligado em Integrações/Marketing e não enviar eventos de produto ou compra com dado político. |
 | **Preço promocional** | Só nos modelos com preço riscado no site (5 do lado 13; Brasil e bandeira, Camuflado e Flávio no 22). |
 | **Frete grátis acima de R$ 149,90** | Conferir com um CEP real no checkout. A página só anuncia; quem aplica é a Yampi. |
 | **Desconto de 2+ (desligado)** | Para reativar: plano com cupons → criar os cupons → testar no checkout → `quantityDiscountActive: true`. |
