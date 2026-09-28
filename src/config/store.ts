@@ -291,6 +291,7 @@ const models22: ProductModel[] = [
     priceCents: 3590,
     compareAtCents: 4990,
     compareAtSource: 'Preço praticado anteriormente (informado pelo vendedor em 27/09/2026)',
+    highlight: { label: 'Campeão em vendas', source: 'Informado pelo vendedor em 28/09/2026' },
     tiers: [],
     images: [
       photo('22-simples/azul.webp', 'Azul', 'Boné Simples azul, liso'),
@@ -373,6 +374,7 @@ const models13: ProductModel[] = [
     priceCents: 4590,
     compareAtCents: 5490,
     compareAtSource: 'Preço praticado na loja física do vendedor (informado em 26/09/2026)',
+    highlight: { label: 'Campeão em vendas', source: 'Informado pelo vendedor em 28/09/2026' },
     tiers: [],
     images: [
       photo('13-nome-lula/4.webp', 'Vermelho', 'Boné Lula vermelho, estilo trucker, com LULA e estrela na frente'),
@@ -440,6 +442,7 @@ const models13: ProductModel[] = [
     priceCents: 3990,
     compareAtCents: 4990,
     compareAtSource: 'Preço praticado na loja física do vendedor (informado em 26/09/2026)',
+    highlight: { label: 'Campeão em vendas', source: 'Informado pelo vendedor em 28/09/2026' },
     tiers: [],
     images: [photo('13-simples/vermelho.webp', 'Vermelho', 'Boné Simples vermelho, liso')],
     variants: [colorOption('vermelho', 'Vermelho', '13-simples/vermelho.webp', 'PXET236H1D')],
