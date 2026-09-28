@@ -139,6 +139,11 @@ export interface ProductModel {
   compareAtCents?: number
   /** Onde/quando o preço anterior foi praticado — guarde comprovantes. */
   compareAtSource?: string
+  /**
+   * Selo laranja no card da vitrine (ex.: "Campeão em vendas"). Como é uma
+   * afirmação ao cliente (CDC art. 37), registre em `source` quem informou e quando.
+   */
+  highlight?: { label: string; source: string }
   /** Preços por quantidade da MESMA cor (mesma variação/SKU). Precisam estar configurados igual no checkout. */
   tiers: PriceTier[]
   images: ProductImage[]

@@ -225,6 +225,7 @@ export function Showcase({ side, exclude, title }: { side: ProductId; exclude?: 
                   <span className="pcard__img">
                     {img && <ProductImageView image={img} frame="1 / 1" showBadge={false} sizes="(min-width: 1100px) 280px, (min-width: 700px) 30vw, 45vw" />}
                     {off && <span className="pcard__off">-{off.percent}%</span>}
+                    {m.highlight && <span className="pcard__highlight">{m.highlight.label}</span>}
                   </span>
                   <h3 className="pcard__name">{modelFullName(m)}</h3>
                   {reviewCount(config.reviews, product.id, m.id) > 0 && (

@@ -193,6 +193,13 @@ describe('configuração publicada (store.ts)', () => {
     expect(all.filter(({ m }) => m.compareAtCents).every(({ m }) => !!m.compareAtSource)).toBe(true)
   })
 
+  it('selo do card só nos modelos informados, sempre com a origem registrada', () => {
+    const all = (['13', '22'] as const).flatMap((side) => storeConfig.products[side].models.map((m) => ({ key: `${side}/${m.id}`, m })))
+    const withBadge = all.filter(({ m }) => m.highlight)
+    expect(Object.fromEntries(withBadge.map(({ key, m }) => [key, m.highlight!.label]))).toEqual({ '22/brasil-22': 'Campeão em vendas' })
+    expect(withBadge.every(({ m }) => m.highlight!.source.trim().length > 0)).toBe(true)
+  })
+
   it('sem faixas: subtotal = preço × quantidade (o que a Yampi cobra: 2 Número 13 = R$ 79,80)', () => {
     const n13 = storeConfig.products['13'].models.find((x) => x.id === 'numero-13')!
     expect(unitPriceCents(n13, 2)).toBe(3990)
