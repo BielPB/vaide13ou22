@@ -409,5 +409,52 @@
         "Lavar com água fria ou morna, sem alvejante com cloro. Secar à sombra. Passar em temperatura média. Evitar secadora em alta temperatura."
       ]
     ]
+  },
+  "22/brasil-22": {
+    "slug": "bone-brasil-22",
+    "abertura": [
+      "Discreto no visual, direto no recado.",
+      "O Boné do Brasil com 22 traz a **bandeira do Brasil em contorno** na frente e o **22** na lateral. Um boné de aba curva, fácil de combinar, em quatro cores: preto, marrom, bege e branco."
+    ],
+    "destaques": [
+      "**Bandeira do Brasil** em contorno na frente",
+      "**22 na lateral**, à mostra de perfil",
+      "**Tecido de algodão**",
+      "**Regulagem traseira**: ajusta a diferentes tamanhos de cabeça",
+      "**Ilhoses de ventilação** no topo",
+      "**Aba curva**, que protege o rosto do sol"
+    ],
+    "quandoUsar": "Para o dia a dia, passeios e viagens, e para quem prefere um visual discreto sem deixar o 22 de fora.",
+    "cores": "preto com branco, marrom com branco, bege com branco e branco com preto",
+    "ficha": [
+      [
+        "Frente",
+        "Bandeira do Brasil em contorno"
+      ],
+      [
+        "Lateral",
+        "Número 22"
+      ],
+      [
+        "Material",
+        "Algodão"
+      ],
+      [
+        "Aba",
+        "Curva"
+      ],
+      [
+        "Fechamento",
+        "Regulagem traseira"
+      ],
+      [
+        "Tamanho",
+        "Único, regulável (cerca de 58 cm de circunferência)"
+      ],
+      [
+        "Modelagem",
+        "Unissex"
+      ]
+    ]
   }
 }
