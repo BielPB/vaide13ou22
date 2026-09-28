@@ -24,6 +24,7 @@ const boneCamuflado = daShopee('22', 'camuflado')
 const boneNumero13 = daShopee('13', 'numero-13')
 const boneLulaEstrela = daShopee('13', 'nome-lula-estrela')
 const boneLulaLetras = daShopee('13', 'nome-lula-letras')
+const boneBrasil22 = daShopee('22', 'brasil-22')
 
 /** Seis avaliações enviadas para o Boné Lula (letras grandes); também aparecem no Boné Simples. */
 const lulaSeis: Entrada[] = [
@@ -1412,6 +1413,105 @@ export const reviews: Review[] = [
   boneNumero13({ author: 's*****s', date: '2026-09-09', variantLabel: 'Preto' }),
   boneNumero13({ author: 'c*****u', date: '2026-09-21', variantLabel: 'Preto' }),
   boneNumero13({ author: 'c*****_', date: '2026-09-06', variantLabel: 'Vermelho' }),
+
+  // Boné do Brasil com 22 (enviadas pelo vendedor em 28/09/2026). Fotos e vídeos dos
+  // clientes não vieram junto; "útil" = número mostrado na Shopee.
+  boneBrasil22({ author: 'c*****a', date: '2026-09-22', variantLabel: 'Preto', text: 'Muito bom. Recomendo. Bora de 22', helpful: 7 }),
+  boneBrasil22({ author: 'a*****8', date: '2026-09-26', variantLabel: 'Preto', text: 'Produto bom,confortável e chegou dentro do prazo' }),
+  boneBrasil22({ author: 'c*****m', date: '2026-09-26', variantLabel: 'Bege', details: [['Adequado', 'bom']] }),
+  boneBrasil22({ author: 'k*****3', date: '2026-09-22', variantLabel: 'Branco', helpful: 3 }),
+  boneBrasil22({ author: 'f*****x', date: '2026-09-23', variantLabel: 'Marrom' }),
+  boneBrasil22({
+    author: 'm*****s',
+    date: '2026-09-01',
+    details: [
+      ['Adequado', 'tamanho perfeito'],
+      ['Custo-benefício', 'achei o valor meio salgado pra simplicidade do boné'],
+    ],
+    helpful: 5,
+  }),
+  boneBrasil22({
+    author: 'f*****0',
+    date: '2026-09-01',
+    details: [
+      ['Ocasião adequada', 'casual'],
+      ['Estilo', 'esportivo'],
+      ['Custo-benefício', 'bom'],
+    ],
+    text: 'Boné de boa qualidade, bordado, o material do ajuste poderia ser melhor.',
+    helpful: 9,
+  }),
+  boneBrasil22({
+    author: '9*****2',
+    date: '2026-09-06',
+    details: [
+      ['Qualidade', 'TOP'],
+      ['Estilo', 'Informal'],
+      ['Ajuste', 'Perfeito'],
+    ],
+    text: 'Qualidade perfeita, bordado perfeito, entrega muito rápida e produto de qualidade recomendo demais o vendedor e o produto.',
+    helpful: 7,
+  }),
+  boneBrasil22({
+    author: 'a*****e',
+    date: '2026-09-05',
+    details: [
+      ['Qualidade', 'material excelente, bordado bem definido'],
+      ['Conforto', 'o boné é ajustável, assim facilita o conforto'],
+    ],
+    text: 'Produto excelente, qualidade impecável, cor forte, bordado lindo, aparece bem, mesmo distante, confortável, preço ótimo, só comprem. Eu amei o meu',
+    helpful: 1,
+  }),
+  boneBrasil22({
+    author: 'm*****t',
+    date: '2026-08-23',
+    details: [
+      ['Ocasião adequada', 'utilizar em.qualquer momento'],
+      ['Adequado', 'veste muito bem'],
+      ['Custo-benefício', 'custo benefício excelente.'],
+    ],
+    text: 'Ideal se tivesse o numeral nos dois lados',
+  }),
+  boneBrasil22({
+    author: 'b*****6',
+    date: '2026-09-02',
+    details: [
+      ['Estilo', 'ele é perfeito demais'],
+      ['Visual sugerido', 'com uma camisa do brasil'],
+      ['Custo-benefício', 'gostei demais, vou usar em outubro bolsonaro neles'],
+    ],
+    text: 'Supeeeeeeer recomendo',
+    helpful: 2,
+  }),
+  boneBrasil22({
+    author: 'e*****o',
+    date: '2026-09-06',
+    details: [
+      ['Qualidade', 'top'],
+      ['Estilo', 'bom'],
+      ['Ajuste', 'bem bom'],
+    ],
+    text: 'Material muito bom',
+    helpful: 1,
+  }),
+  boneBrasil22({
+    author: 'w*****1',
+    date: '2026-09-01',
+    details: [
+      ['Estilo', 'qualquer estilo'],
+      ['Custo-benefício', 'bom'],
+      ['Visual sugerido', 'qualquer roupa'],
+    ],
+  }),
+  boneBrasil22({
+    author: 'g*****3',
+    date: '2026-09-07',
+    details: [
+      ['Qualidade', 'bom e resistente'],
+      ['Estilo', 'bonito estiloso'],
+    ],
+  }),
+  boneBrasil22({ author: 'a*****a', date: '2026-09-07', details: [['Qualidade', 'material muito bom']] }),
 
   // Boné Simples: as mesmas avaliações nos dois lados (pedido do vendedor)
   ...[...boneSimples, ...lulaSeis, ...exTruckerLiso].map(daShopee('13', 'simples')),
