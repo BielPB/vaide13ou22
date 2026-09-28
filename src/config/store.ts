@@ -326,9 +326,9 @@ const models13: ProductModel[] = [
     id: 'numero-13',
     name: 'Número 13',
     description: 'Estilo trucker, com tela atrás e o número 13 grande na frente.',
-    priceCents: 4590,
-    compareAtCents: 5490,
-    compareAtSource: 'Preço praticado na loja física do vendedor (informado em 26/09/2026)',
+    priceCents: 3990,
+    compareAtCents: 4590,
+    compareAtSource: 'Preço cobrado antes no site e no checkout da Yampi (até 27/09/2026)',
     tiers: [],
     images: [
       photo('13-numero/3.webp', 'Vermelho', 'Boné Número 13 vermelho, com 13 branco na frente', 800, 800),

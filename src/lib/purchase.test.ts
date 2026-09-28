@@ -94,7 +94,7 @@ describe('configuração publicada (store.ts)', () => {
     const models = storeConfig.products['13'].models
     expect(Object.fromEntries(models.map((m) => [m.id, m.priceCents]))).toEqual({
       'nome-lula-estrela': 4590,
-      'numero-13': 4590,
+      'numero-13': 3990,
       'nome-lula-letras': 4590,
       simples: 3990,
       'trucker-liso': 3990,
@@ -177,7 +177,7 @@ describe('configuração publicada (store.ts)', () => {
     )
     expect(withWas).toEqual({
       '13/nome-lula-estrela': [5490, 16],
-      '13/numero-13': [5490, 16],
+      '13/numero-13': [4590, 13],
       '13/nome-lula-letras': [5490, 16],
       '13/simples': [4990, 20],
       '13/trucker-liso': [4990, 20],
@@ -191,10 +191,10 @@ describe('configuração publicada (store.ts)', () => {
     expect(all.filter(({ m }) => m.compareAtCents).every(({ m }) => !!m.compareAtSource)).toBe(true)
   })
 
-  it('sem faixas: subtotal = preço × quantidade (o que a Yampi cobra: 2 Número 13 = R$ 91,80)', () => {
+  it('sem faixas: subtotal = preço × quantidade (o que a Yampi cobra: 2 Número 13 = R$ 79,80)', () => {
     const n13 = storeConfig.products['13'].models.find((x) => x.id === 'numero-13')!
-    expect(unitPriceCents(n13, 2)).toBe(4590)
-    expect(subtotalCents(n13, 2)).toBe(9180)
+    expect(unitPriceCents(n13, 2)).toBe(3990)
+    expect(subtotalCents(n13, 2)).toBe(7980)
   })
 
   it('não contém avaliações sem verificação', () => {
