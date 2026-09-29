@@ -1,7 +1,7 @@
 # Asa Delta Store
 
 Loja de bonés e camisas **Lula 13** e **Bolsonaro 22**, em [asadeltastore.com](https://asadeltastore.com).
-Feita com React, TypeScript e Vite, com CSS puro. Não há backend. A única medição é o Meta Pixel (só PageView), ligado pela variável `VITE_META_PIXEL_ID` na Vercel.
+Feita com React, TypeScript e Vite, com CSS puro. Não há backend. A medição é feita pelo Meta Pixel e pelo pixel da UTMify, ligados pelas variáveis `VITE_META_PIXEL_ID` e `VITE_UTMIFY_PIXEL_ID` na Vercel.
 
 > **Status: PRÉVIA.** A compra fica bloqueada até que os dados de `PENDENCIAS.md` sejam preenchidos
 > e `status` passe para `'live'` em `src/config/store.ts`. A prévia sai com `noindex`.
@@ -132,11 +132,16 @@ Preencha `store`, `contact`, `commerce` e `policies`. Na declaração de indepen
 A escolha do modelo fica só na memória da aba: não é salva, enviada ou medida.
 **Meta Pixel** (`src/lib/metaPixel.ts`): só carrega se a variável `VITE_META_PIXEL_ID` estiver configurada na Vercel
 (o ID nunca vai para o código, porque o repositório é público). Envia apenas `PageView`, uma vez por página, com a coleta
-automática da Meta desligada. Não envie eventos com produto, lado (13/22), carrinho ou compra, e não crie públicos de
-afinidade política. As políticas de privacidade e de cookies descrevem esse uso; mude as duas se a medição mudar.
+automática da Meta desligada.
+
+**Pixel da UTMify** (`src/lib/utmifyPixel.ts`, instalado a pedido do vendedor em 28/09/2026): só carrega com
+`VITE_UTMIFY_PIXEL_ID` na Vercel. O script da UTMify registra visitas (com título e endereço da página), cliques em
+Adicionar/Comprar e o início do checkout, e repassa aos pixels cadastrados na conta da UTMify. Se o Meta Pixel também
+estiver cadastrado lá, os PageViews saem em dobro. As políticas de privacidade e de cookies descrevem esse uso; mude as
+duas se a medição mudar. Não crie públicos de afinidade política.
 
 **UTMs de anúncio** (`src/lib/campaign.ts`): as 5 UTMs padrão da página de entrada ficam no navegador por até 7 dias e são
-acrescentadas ao link do checkout. A Yampi as envia no webhook, e a UTMify atribui a venda ao anúncio (sem pixel da UTMify no site).
+acrescentadas ao link do checkout. A Yampi as envia no webhook, e a UTMify atribui a venda ao anúncio.
 
 ## Estrutura
 

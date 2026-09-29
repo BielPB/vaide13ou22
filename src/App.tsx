@@ -17,6 +17,7 @@ import { CartProvider } from './lib/cartContext'
 import { CartDrawer } from './components/Cart'
 import { startMetaPixel } from './lib/metaPixel'
 import { rememberCampaign } from './lib/campaign'
+import { startUtmifyPixel } from './lib/utmifyPixel'
 
 /**
  * Dados estruturados do produto da página — só com loja publicada, URL
@@ -133,6 +134,8 @@ export function App({ config }: { config: StoreConfig }) {
   useEffect(() => startMetaPixel(), [])
   // Guarda as UTMs do anúncio para repassá-las ao checkout.
   useEffect(() => rememberCampaign(), [])
+  // Pixel da UTMify (só com VITE_UTMIFY_PIXEL_ID configurado).
+  useEffect(() => startUtmifyPixel(), [])
   const page = route.kind === 'home' ? 'home' : route.kind === 'product' ? 'product' : 'other'
 
   return (
