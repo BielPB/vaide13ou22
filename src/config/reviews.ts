@@ -25,6 +25,12 @@ const boneNumero13 = daShopee('13', 'numero-13')
 const boneLulaEstrela = daShopee('13', 'nome-lula-estrela')
 const boneLulaLetras = daShopee('13', 'nome-lula-letras')
 const boneBrasil22 = daShopee('22', 'brasil-22')
+const boneNumero22 = daShopee('22', 'numero-22')
+
+/** Respostas da loja nas avaliações do Boné 22 (três variações do mesmo texto na Shopee). */
+const obrigado22 = 'Olá! Muito obrigado pelas 5 estrelas e pela confiança no nosso trabalho! Ficamos extremamente felizes em saber que o produto atendeu suas expectativas. 🇧🇷'
+const obrigado22SemBandeira = obrigado22.replace(' 🇧🇷', '')
+const obrigado22DuasBandeiras = '🇧🇷' + obrigado22
 
 /** Seis avaliações enviadas para o Boné Lula (letras grandes); também aparecem no Boné Simples. */
 const lulaSeis: Entrada[] = [
@@ -1512,6 +1518,89 @@ export const reviews: Review[] = [
     ],
   }),
   boneBrasil22({ author: 'a*****a', date: '2026-09-07', details: [['Qualidade', 'material muito bom']] }),
+
+  // Boné 22 (22 grande na frente), enviadas pelo vendedor em 28/09/2026. Fotos e vídeos dos
+  // clientes não vieram junto; "útil" = número mostrado na Shopee.
+  boneNumero22({ author: 'j*****8', date: '2026-09-01', text: 'Chegou super rápido tudo certinho ótimo produto recomendo sim' }),
+  boneNumero22({ author: '0*****f', date: '2026-08-28', details: [['Adequado', 'excelente produto recomendo compraria de novo']], helpful: 1 }),
+  boneNumero22({
+    author: 'j*****1',
+    date: '2026-09-09',
+    details: [
+      ['Qualidade', 'excelente'],
+      ['Estilo', 'bom caimento na cabeça'],
+    ],
+    text: 'Ótima compra!',
+  }),
+  boneNumero22({ author: 's*****7', date: '2026-09-11', details: [['Qualidade', 'Achei o material resistente e bem acabado.']] }),
+  boneNumero22({ author: 'm*****0', date: '2026-09-08', text: 'Amei o produto. Chegou rápido e bem embalado.' }),
+  boneNumero22({
+    author: 'j*****r',
+    date: '2026-09-03',
+    details: [
+      ['Qualidade', 'gostei'],
+      ['Conforto', 'ajuste perfeito'],
+    ],
+  }),
+  boneNumero22({
+    author: 'a*****1',
+    date: '2026-09-06',
+    text: 'Chegou dentro prazo bem embalado ótima qualidade meu esposo amou já está usando super indico',
+    sellerReply: obrigado22,
+    helpful: 2,
+  }),
+  boneNumero22({
+    author: 'j*****n',
+    date: '2026-09-06',
+    details: [['Custo-benefício', 'muito bom exelente pode comprar eu gostei muito veio antes do dia prometido parabens a todos os envolvidos para chegar em minhas māos']],
+    sellerReply: obrigado22,
+  }),
+  boneNumero22({ author: 'c*****s', date: '2026-09-07', text: 'Produto de qualidade Recomendo', sellerReply: obrigado22 }),
+  boneNumero22({ author: 'm*****a', date: '2026-09-05', sellerReply: obrigado22, helpful: 3 }),
+  boneNumero22({ author: 'i*****w', date: '2026-09-01', sellerReply: obrigado22SemBandeira, helpful: 6 }),
+  boneNumero22({
+    author: 'e*****o',
+    date: '2026-09-25',
+    details: [
+      ['Adequado', 'Estação adequada'],
+      ['Estilo', 'formal'],
+      ['Ocasião adequada', 'festas, encontro, casual'],
+    ],
+    text: 'parabéns a transportadora chegou antes do prazo previsto muito rápido pedir esse boné pra meu esposo ele gostou muito o material é muito bom o bordado bem feito lindo mesmo parabéns a loja veio bem embalado em caixa muito bom amei',
+    sellerReply: obrigado22DuasBandeiras,
+  }),
+  boneNumero22({
+    author: 'r*****0',
+    date: '2026-09-13',
+    details: [
+      ['Visual sugerido', 'perfeito'],
+      ['Ocasião adequada', 'todas'],
+    ],
+    text: 'Anúncio verdadeiro muito bonito adorei',
+    sellerReply: obrigado22,
+    helpful: 1,
+  }),
+  boneNumero22({
+    author: 'c*****0',
+    date: '2026-09-13',
+    details: [
+      ['Ocasião adequada', 'ótimo'],
+      ['Estilo', 'formal'],
+      ['Adequado', 'muito lindo'],
+    ],
+    sellerReply: obrigado22,
+    helpful: 1,
+  }),
+  boneNumero22({ author: 'c*****0', date: '2026-09-27', sellerReply: obrigado22DuasBandeiras }),
+  boneNumero22({ author: 'f*****s', date: '2026-09-18', sellerReply: obrigado22DuasBandeiras, helpful: 1 }),
+  boneNumero22({ author: 'f*****a', date: '2026-09-17', sellerReply: obrigado22 }),
+  boneNumero22({ author: 'v*****o', date: '2026-09-11', text: 'Chegou certinho recomendo', sellerReply: obrigado22 }),
+  boneNumero22({ author: 's*****i', date: '2026-09-14', sellerReply: obrigado22 }),
+  boneNumero22({ author: 'm*****i', date: '2026-09-06', sellerReply: obrigado22 }),
+  boneNumero22({ author: 'j*****c', date: '2026-09-16', sellerReply: obrigado22, helpful: 1 }),
+  boneNumero22({ author: 'e*****8', date: '2026-09-02', sellerReply: obrigado22SemBandeira }),
+  boneNumero22({ author: 'd*****l', date: '2026-09-25', sellerReply: obrigado22DuasBandeiras }),
+  boneNumero22({ author: 'r*****3', date: '2026-09-26', sellerReply: obrigado22DuasBandeiras }),
 
   // Boné Simples: as mesmas avaliações nos dois lados (pedido do vendedor)
   ...[...boneSimples, ...lulaSeis, ...exTruckerLiso].map(daShopee('13', 'simples')),
