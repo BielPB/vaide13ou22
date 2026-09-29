@@ -39,6 +39,8 @@ export function useReviewSummary(productId?: ProductId, modelId?: string) {
   const rated = list.filter((r): r is Review & { rating: number } => r.rating !== undefined)
   return {
     count: list.length,
+    /** Quantas avaliações têm nota (a média é só delas). */
+    ratedCount: rated.length,
     average: rated.length ? rated.reduce((s, r) => s + r.rating, 0) / rated.length : null,
   }
 }

@@ -276,8 +276,9 @@ export function ProductPage() {
               <a className="buybox__rating" href="#avaliacoes">
                 {summary.average !== null ? (
                   <>
-                    <ReviewStars value={summary.average} /> {summary.average.toFixed(1).replace('.', ',')} ({summary.count}{' '}
-                    {summary.count === 1 ? 'avaliação' : 'avaliações'})
+                    <ReviewStars value={summary.average} /> {summary.average.toFixed(1).replace('.', ',')} (
+                    {summary.ratedCount < summary.count && `${summary.ratedCount} ${summary.ratedCount === 1 ? 'nota' : 'notas'} · `}
+                    {summary.count} {summary.count === 1 ? 'avaliação' : 'avaliações'})
                   </>
                 ) : (
                   <>
