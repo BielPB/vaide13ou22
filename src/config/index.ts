@@ -9,7 +9,8 @@ import type { StoreConfig } from './types'
 export function effectiveConfig(config: StoreConfig): StoreConfig {
   if (config.commerce.quantityDiscountActive) return config
   const strip = (p: StoreConfig['products']['13']) => ({ ...p, models: p.models.map((m) => ({ ...m, tiers: [] })) })
-  return { ...config, products: { '13': strip(config.products['13']), '22': strip(config.products['22']) } }
+  const products = Object.fromEntries(Object.entries(config.products).map(([id, p]) => [id, strip(p)])) as unknown as StoreConfig['products']
+  return { ...config, products }
 }
 
 /** Em produção sempre usa `store.ts`. Em dev, `?exemplo` carrega os dados de exemplo. */

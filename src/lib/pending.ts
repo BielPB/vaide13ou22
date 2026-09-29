@@ -1,5 +1,6 @@
 import type { Product, ProductId, ProductModel, StoreConfig } from '../config/types'
 import { checkoutConfigured, isVariantInStock } from './purchase'
+import { activeProducts } from './catalog'
 
 export interface PendingItem {
   /** Chave do briefing (ex.: PRECO_BONE_13). */
@@ -69,7 +70,7 @@ export function storePending(config: StoreConfig): PendingItem[] {
   for (const policy of config.policies) {
     if (policy.body === null) add('POLITICAS', `Política: ${policy.title}`)
   }
-  const hasTiers = [config.products['13'], config.products['22']].some((p) => p.models.some((m) => m.tiers.length > 0))
+  const hasTiers = activeProducts(config).some((p) => p.models.some((m) => m.tiers.length > 0))
   if (hasTiers && !commerce.quantityDiscountActive) {
     add('DESCONTO_PROGRESSIVO', 'Configurar o desconto de 2+ na Yampi e ativar quantityDiscountActive (até lá, o site não mostra o preço de 2+)', 'recommended')
   }
@@ -80,8 +81,8 @@ export function storePending(config: StoreConfig): PendingItem[] {
 export function allPending(config: StoreConfig): PendingItem[] {
   return [
     ...storePending(config),
-    ...productPending(config.products['13'], config),
-    ...productPending(config.products['22'], config),
+    // Grupos desligados (ex.: Alfaiataria em preparo) não geram pendência.
+    ...activeProducts(config).flatMap((p) => productPending(p, config)),
   ]
 }
 

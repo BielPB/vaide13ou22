@@ -1,4 +1,5 @@
 import descricoes from './descricoes.json'
+import { alfaiataria } from './alfaiataria'
 import { reviews } from './reviews.ts'
 import { politicaCookies, politicaPrivacidade, politicaTrocas, resumoTrocas, sobreLoja, termosVenda } from './policies.ts'
 import type { ModelAbout, ProductImage, ProductModel, StoreConfig } from './types.ts'
@@ -506,6 +507,8 @@ export const storeConfig: StoreConfig = {
       heroImage: photo('22-flavio/2.webp', 'Flávio Bolsonaro · Amarelo', 'Boné Flávio Bolsonaro amarelo, estilo trucker'),
       models: [...models22, camisaBolsonaro],
     },
+    // Seção Alfaiataria: cadastrada, mas desligada (src/config/alfaiataria.ts).
+    alfaiataria,
   },
 
   // Yampi: preencha o domínio do checkout e o Link de compra de cada cor.
@@ -558,9 +561,9 @@ export const storeConfig: StoreConfig = {
   },
 }
 
-// Descrições de venda (mesmo texto da Yampi) ligadas a cada modelo pelo par lado/modelo.
-for (const side of ['13', '22'] as const) {
-  for (const m of storeConfig.products[side].models) {
-    m.about = (descricoes as unknown as Record<string, ModelAbout>)[`${side}/${m.id}`]
+// Descrições de venda (mesmo texto da Yampi) ligadas a cada modelo pelo par grupo/modelo.
+for (const product of Object.values(storeConfig.products)) {
+  for (const m of product.models) {
+    m.about = (descricoes as unknown as Record<string, ModelAbout>)[`${product.id}/${m.id}`]
   }
 }

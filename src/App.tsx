@@ -15,6 +15,7 @@ import { modelFullName, productPath, resolveRoute, type Route } from './lib/rout
 import { ShopProvider, useShop } from './lib/shop'
 import { CartProvider } from './lib/cartContext'
 import { CartDrawer } from './components/Cart'
+import { isProductActive } from './lib/catalog'
 import { startMetaPixel } from './lib/metaPixel'
 import { rememberCampaign } from './lib/campaign'
 import { startUtmifyPixel } from './lib/utmifyPixel'
@@ -89,6 +90,7 @@ function HomePage() {
       <CustomerPhotos />
       <Showcase side="13" />
       <Showcase side="22" />
+      <AlfaiatariaShowcase />
       <FAQ />
     </>
   )
@@ -122,8 +124,15 @@ function NotFound() {
       </section>
       <Showcase side="13" />
       <Showcase side="22" />
+      <AlfaiatariaShowcase />
     </>
   )
+}
+
+/** Vitrine da Alfaiataria: só aparece com a seção ligada (`enabled` em src/config/alfaiataria.ts). */
+function AlfaiatariaShowcase() {
+  const { config } = useShop()
+  return isProductActive(config, 'alfaiataria') ? <Showcase side="alfaiataria" /> : null
 }
 
 export function App({ config }: { config: StoreConfig }) {

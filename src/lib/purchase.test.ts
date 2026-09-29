@@ -68,6 +68,7 @@ function fullConfig(): StoreConfig {
     products: {
       '13': { ...storeConfig.products['13'], models: [m13] },
       '22': { ...storeConfig.products['22'], models: [m22] },
+      alfaiataria: storeConfig.products.alfaiataria,
     },
   }
 }

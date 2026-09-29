@@ -27,6 +27,14 @@ function SpecRow({ label, value, field }: { label: string; value: ReactNode | nu
 }
 
 /** Descrição completa + ficha técnica do modelo selecionado. */
+/** "Largura 50 cm · Comprimento 70 cm" → [["Largura", "50 cm"], ["Comprimento", "70 cm"]]. */
+function measureColumns(v: string): Array<[string, string]> {
+  return v.split(' · ').map((part) => {
+    const match = part.match(/^(\D+?)\s+(\d.*)$/)
+    return match ? [match[1]!, match[2]!] : ['Medida', part]
+  })
+}
+
 export function ProductInfo() {
   const { selection } = useShop()
   const model = selection?.model
@@ -115,21 +123,23 @@ export function ProductInfo() {
                 <thead>
                   <tr>
                     <th scope="col">Tamanho</th>
-                    <th scope="col">Largura</th>
-                    <th scope="col">Comprimento</th>
+                    {/* Colunas tiradas da própria medida ("Largura 50 cm · Comprimento 70 cm", "Cintura 42 cm · …"). */}
+                    {measureColumns(specs.measurements[0]![1]).map(([label]) => (
+                      <th key={label} scope="col">
+                        {label}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody>
-                  {specs.measurements.map(([size, v]) => {
-                    const [w, l] = v.split(' · ').map((x) => x.replace(/^(Largura|Comprimento) /, ''))
-                    return (
-                      <tr key={size}>
-                        <th scope="row">{size}</th>
-                        <td>{w}</td>
-                        <td>{l}</td>
-                      </tr>
-                    )
-                  })}
+                  {specs.measurements.map(([size, v]) => (
+                    <tr key={size}>
+                      <th scope="row">{size}</th>
+                      {measureColumns(v).map(([label, value]) => (
+                        <td key={label}>{value}</td>
+                      ))}
+                    </tr>
+                  ))}
                 </tbody>
               </table>
               {specs.measurementsNote && <p className="size-table__note">{specs.measurementsNote}</p>}

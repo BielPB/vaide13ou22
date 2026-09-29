@@ -503,5 +503,318 @@
         "Unissex"
       ]
     ]
+  },
+  "alfaiataria/calca-capri": {
+    "slug": "calca-alfaiataria-capri",
+    "abertura": [
+      "Elegância e versatilidade numa peça que acompanha você em qualquer ocasião.",
+      "A Calça de Alfaiataria Capri tem **caimento impecável** e **ajuste lateral** na cintura, em azul-marinho. Combina com camisa, polo ou suéter."
+    ],
+    "destaques": [
+      "**Ajuste lateral** na cintura, para acertar o caimento",
+      "**98% algodão e 2% elastano**: macia, resistente e com elasticidade",
+      "**Corte que valoriza a silhueta**, confortável o dia inteiro",
+      "**Design atemporal**, do casual ao arrumado"
+    ],
+    "quandoUsar": "Para o trabalho, jantares, eventos e o dia a dia com um toque mais elegante.",
+    "cores": "azul-marinho",
+    "ficha": [
+      [
+        "Tecido",
+        "98% algodão e 2% elastano"
+      ],
+      [
+        "Ajuste",
+        "Lateral, na cintura"
+      ],
+      [
+        "Tamanhos",
+        "38 a 52"
+      ],
+      [
+        "Modelo das fotos",
+        "Veste 40 · 1,76 m · 79 kg"
+      ]
+    ]
+  },
+  "alfaiataria/calca-santorini": {
+    "slug": "calca-alfaiataria-santorini",
+    "abertura": [
+      "Elegância e versatilidade numa peça que acompanha você em qualquer ocasião.",
+      "A Calça de Alfaiataria Santorini tem **caimento impecável** e **ajuste lateral** na cintura, em preto. A preta que vai do casual ao social."
+    ],
+    "destaques": [
+      "**Ajuste lateral** na cintura, para acertar o caimento",
+      "**98% algodão e 2% elastano**: macia, resistente e com elasticidade",
+      "**Corte que valoriza a silhueta**, confortável o dia inteiro",
+      "**Design atemporal**, do casual ao arrumado"
+    ],
+    "quandoUsar": "Para o trabalho, jantares, eventos e o dia a dia com um toque mais elegante.",
+    "cores": "preto",
+    "ficha": [
+      [
+        "Tecido",
+        "98% algodão e 2% elastano"
+      ],
+      [
+        "Ajuste",
+        "Lateral, na cintura"
+      ],
+      [
+        "Tamanhos",
+        "38 a 52"
+      ],
+      [
+        "Modelo das fotos",
+        "Veste 40 · 1,76 m · 79 kg"
+      ]
+    ]
+  },
+  "alfaiataria/calca-firenze": {
+    "slug": "calca-sarja-firenze",
+    "abertura": [
+      "Elegância e versatilidade numa peça que acompanha você em qualquer ocasião.",
+      "A Calça de Sarja Firenze tem **caimento impecável** e **ajuste lateral** na cintura, em cinza-claro. Um cinza leve para looks claros e elegantes."
+    ],
+    "destaques": [
+      "**Ajuste lateral** na cintura, para acertar o caimento",
+      "**98% algodão e 2% elastano**: macia, resistente e com elasticidade",
+      "**Corte que valoriza a silhueta**, confortável o dia inteiro",
+      "**Design atemporal**, do casual ao arrumado"
+    ],
+    "quandoUsar": "Para o trabalho, jantares, eventos e o dia a dia com um toque mais elegante.",
+    "cores": "cinza-claro",
+    "ficha": [
+      [
+        "Tecido",
+        "98% algodão e 2% elastano"
+      ],
+      [
+        "Ajuste",
+        "Lateral, na cintura"
+      ],
+      [
+        "Tamanhos",
+        "38 a 52"
+      ],
+      [
+        "Modelo das fotos",
+        "Veste 40 · 1,76 m · 79 kg"
+      ]
+    ]
+  },
+  "alfaiataria/calca-florence": {
+    "slug": "calca-alfaiataria-florence",
+    "abertura": [
+      "Elegância e versatilidade numa peça que acompanha você em qualquer ocasião.",
+      "A Calça de Alfaiataria Florence tem **caimento impecável** e um **grafite com textura discreta**, fácil de combinar."
+    ],
+    "destaques": [
+      "**98% algodão e 2% elastano**: macia, resistente e com elasticidade",
+      "**Corte que valoriza a silhueta**, confortável o dia inteiro",
+      "**Design atemporal**, do casual ao arrumado"
+    ],
+    "quandoUsar": "Para o trabalho, jantares, eventos e o dia a dia com um toque mais elegante.",
+    "cores": "grafite",
+    "ficha": [
+      [
+        "Tecido",
+        "98% algodão e 2% elastano"
+      ],
+      [
+        "Tamanhos",
+        "38 a 52"
+      ],
+      [
+        "Modelo das fotos",
+        "Veste 40 · 1,76 m · 79 kg"
+      ]
+    ]
+  },
+  "alfaiataria/calca-soufter": {
+    "slug": "calca-sarja-soufter",
+    "abertura": [
+      "Elegância, conforto e versatilidade numa peça para qualquer ocasião.",
+      "A Calça de Sarja Soufter tem tecido de **sarja resistente e macio**, com **acabamento caprichado** e um **corte moderno** que valoriza a silhueta."
+    ],
+    "destaques": [
+      "**Sarja** resistente e de toque macio",
+      "**Corte moderno e equilibrado**",
+      "**Versátil**: casual, urbana ou mais arrumada"
+    ],
+    "quandoUsar": "Para quem quer presença e conforto com um toque de requinte, sem esforço.",
+    "cores": "azul-marinho",
+    "ficha": [
+      [
+        "Tecido",
+        "Sarja"
+      ],
+      [
+        "Tamanhos",
+        "38 a 52"
+      ]
+    ]
+  },
+  "alfaiataria/sueter-san-victorio": {
+    "slug": "sueter-tricot-san-victorio",
+    "abertura": [
+      "O suéter certo para quando o tempo muda.",
+      "O Suéter San'Victorio é de **tricô de algodão** com **meio zíper** na gola alta. Inspirado no estilo old money, traz uma sofisticação atemporal, perfeita para usar por cima de camisa."
+    ],
+    "destaques": [
+      "**Meio zíper** na gola alta",
+      "**Tricô de algodão**, confortável na meia-estação",
+      "**Estilo clássico** e atemporal",
+      "**Ótimo em camadas**, por cima de camisa ou polo"
+    ],
+    "quandoUsar": "Para a meia-estação, viagens, jantares e o escritório.",
+    "cores": "azul-marinho",
+    "ficha": [
+      [
+        "Material",
+        "Algodão"
+      ],
+      [
+        "Modelo",
+        "Meio zíper"
+      ],
+      [
+        "Tamanhos",
+        "P, M, G e GG"
+      ]
+    ]
+  },
+  "alfaiataria/sueter-dicaprio": {
+    "slug": "sueter-tricot-dicaprio",
+    "abertura": [
+      "Conforto e estilo para as mudanças de tempo.",
+      "O Suéter Dicaprio é de **tricô de algodão** com **meio zíper**, punhos e barra canelados. Estilo old money, em **quatro cores** para variar o visual."
+    ],
+    "destaques": [
+      "**Meio zíper** na gola alta",
+      "**Tricô de algodão** com punhos e barra canelados",
+      "**Quatro cores**: azul-marinho, azul-celeste, preto e cinza",
+      "**Ótimo em camadas**, por cima de camisa ou polo"
+    ],
+    "quandoUsar": "Para a meia-estação, viagens, jantares e o escritório.",
+    "cores": "azul-marinho, azul-celeste, preto e cinza",
+    "ficha": [
+      [
+        "Material",
+        "Algodão"
+      ],
+      [
+        "Modelo",
+        "Meio zíper"
+      ],
+      [
+        "Tamanhos",
+        "P, M, G e GG"
+      ]
+    ]
+  },
+  "alfaiataria/camisa-san-tropez": {
+    "slug": "camisa-san-tropez-texturizada",
+    "abertura": [
+      "Elegância e conforto numa peça que traduz sofisticação para qualquer ocasião.",
+      "A Camisa San'Tropez tem **tecido texturizado**, que dá personalidade ao visual, com **manga curta, gola aberta e botões**."
+    ],
+    "destaques": [
+      "**Textura diferenciada**, com personalidade",
+      "**Toque suave** e acabamento caprichado",
+      "**Caimento** que valoriza a silhueta e deixa os movimentos livres",
+      "**Versátil**: do casual ao arrumado"
+    ],
+    "quandoUsar": "Para o verão, happy hour, viagens e eventos casuais.",
+    "cores": "branco e preto",
+    "ficha": [
+      [
+        "Manga",
+        "Curta"
+      ],
+      [
+        "Tamanhos",
+        "P, M, G e GG"
+      ]
+    ]
+  },
+  "alfaiataria/polo-texturizada": {
+    "slug": "camisa-polo-tricot-texturizada",
+    "abertura": [
+      "Elegância e conforto numa peça que traduz sofisticação para qualquer ocasião.",
+      "A Camisa Polo de Tricô tem **textura com nervuras verticais**, **gola polo** e **manga curta**. Fica ótima com calça de alfaiataria ou jeans."
+    ],
+    "destaques": [
+      "**Tricô texturizado**, com nervuras verticais",
+      "**Gola polo** e manga curta",
+      "**Caimento** que valoriza a silhueta e deixa os movimentos livres",
+      "**Versátil**: do casual ao arrumado"
+    ],
+    "quandoUsar": "Para o dia a dia, o trabalho, jantares e passeios.",
+    "cores": "branco e preto",
+    "ficha": [
+      [
+        "Gola",
+        "Polo"
+      ],
+      [
+        "Manga",
+        "Curta"
+      ],
+      [
+        "Tamanhos",
+        "P, M, G e GG"
+      ]
+    ]
+  },
+  "alfaiataria/sueter-britanico": {
+    "slug": "sueter-britanico-texturizado",
+    "abertura": [
+      "Clássico para os dias frios.",
+      "O Suéter Britânico tem **tricô trançado** com textura marcante e **gola redonda**. Uma peça que traduz sofisticação para qualquer ocasião."
+    ],
+    "destaques": [
+      "**Tricô trançado**, com textura marcante",
+      "**Gola redonda**",
+      "**Caimento** que valoriza a silhueta",
+      "**Versátil**: do casual ao arrumado"
+    ],
+    "quandoUsar": "Para os dias frios, viagens e passeios.",
+    "cores": "branco",
+    "ficha": [
+      [
+        "Gola",
+        "Redonda"
+      ],
+      [
+        "Tamanhos",
+        "P, M, G e GG"
+      ]
+    ]
+  },
+  "alfaiataria/regata-canelada": {
+    "slug": "regata-canelada",
+    "abertura": [
+      "Leve, fresca e fácil de usar.",
+      "A Regata Canelada é de **algodão canelado**, com **ajuste ao corpo** sem perder o conforto. Vai bem na academia, no lazer ou num look casual."
+    ],
+    "destaques": [
+      "**Algodão canelado**, macio e respirável",
+      "**Ajuste ao corpo**, sem apertar",
+      "**Costuras reforçadas**",
+      "**Leve e fresca** para os dias quentes"
+    ],
+    "quandoUsar": "Para academia, lazer, praia e looks casuais.",
+    "cores": "preto e branco",
+    "ficha": [
+      [
+        "Material",
+        "Algodão canelado"
+      ],
+      [
+        "Tamanhos",
+        "P, M, G e GG"
+      ]
+    ]
   }
 }

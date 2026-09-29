@@ -6,7 +6,8 @@
  * pendência; em modo publicado ela oculta o bloco ou bloqueia a compra.
  */
 
-export type ProductId = '13' | '22'
+/** Grupos de produtos: os dois lados dos bonés e a seção Alfaiataria. */
+export type ProductId = '13' | '22' | 'alfaiataria'
 
 /** Status de publicação. Só `live` libera compra — e apenas se não houver pendências essenciais. */
 export type StoreStatus = 'preview' | 'live'
@@ -157,13 +158,18 @@ export interface Product {
   shortName: string
   /** Nome completo da linha. */
   name: string
-  /** Número usado na composição visual. */
-  number: ProductId
+  /** Número usado na composição visual ('' = sem número, como na Alfaiataria). */
+  number: string
   /** Frase curta de apresentação (sem promessa política). `null` = pendente. */
   tagline: string | null
   /** Imagem do hero e do card de seleção. */
   heroImage: ProductImage
   models: ProductModel[]
+  /**
+   * `false` desliga o grupo inteiro: some da vitrine, do menu, das rotas, das
+   * páginas geradas no build e das pendências. Sem o campo, o grupo está ligado.
+   */
+  enabled?: boolean
 }
 
 /**

@@ -7,6 +7,7 @@ import { Link } from '../lib/router'
 import { ServiceBar } from './Home'
 import { CartButton } from './Cart'
 import { SideMark } from './Icon'
+import { isProductActive } from '../lib/catalog'
 
 /** Logo da loja, a asa-delta (versões leves em /public; original em marca/logo-asa-delta.png). */
 export function BrandLogo({ className = 'brand__logo' }: { className?: string }) {
@@ -60,12 +61,14 @@ type Page = 'home' | 'product' | 'other'
  * Categorias: as vitrines ficam na página inicial. Na página de produto a barra
  * não aparece (o caminho de volta e "Mais modelos" já levam às vitrines).
  */
-const linksFor = (page: Page): Array<{ id: string; href: string; label: string; side?: '13' | '22' }> =>
+const linksFor = (page: Page, alfaiataria: boolean): Array<{ id: string; href: string; label: string; side?: '13' | '22' }> =>
   page === 'product'
     ? []
     : [
         { id: 'vitrine-13', href: '/#vitrine-13', label: 'Lula 13', side: '13' },
         { id: 'vitrine-22', href: '/#vitrine-22', label: 'Bolsonaro 22', side: '22' },
+        // Só com a seção Alfaiataria ligada.
+        ...(alfaiataria ? [{ id: 'vitrine-alfaiataria', href: '/#vitrine-alfaiataria', label: 'Alfaiataria' }] : []),
         // As perguntas frequentes (e o atalho para elas) só existem na página inicial.
         ...(page === 'home' ? [{ id: 'duvidas', href: '#duvidas', label: 'Dúvidas' }] : []),
       ]
@@ -94,7 +97,8 @@ function useActiveSection(ids: string[]) {
 export function Header({ page }: { page: Page }) {
   const { config } = useShop()
   const storeName = config.store.name
-  const links = useMemo(() => linksFor(page), [page])
+  const alfaiataria = isProductActive(config, 'alfaiataria')
+  const links = useMemo(() => linksFor(page, alfaiataria), [page, alfaiataria])
   const ids = useMemo(() => links.map((l) => l.id), [links])
   const active = useActiveSection(ids)
 

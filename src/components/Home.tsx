@@ -204,9 +204,11 @@ export function Showcase({ side, exclude, title }: { side: ProductId; exclude?: 
       <div className="container">
         <header className="showcase__head">
           <h2 id={headingId} className="showcase__title">
-            <span className="showcase__num" aria-hidden="true">
-              {product.number}
-            </span>
+            {product.number && (
+              <span className="showcase__num" aria-hidden="true">
+                {product.number}
+              </span>
+            )}
             {title ?? product.name}
           </h2>
           {!exclude && (

@@ -60,6 +60,7 @@ export function ShopProvider({
   const [modelIds, setModelIds] = useState<Record<ProductId, string | null>>(() => ({
     '13': initial?.productId === '13' ? initial.modelId : only(config.products['13'].models),
     '22': initial?.productId === '22' ? initial.modelId : only(config.products['22'].models),
+    alfaiataria: initial?.productId === 'alfaiataria' ? initial.modelId : only(config.products.alfaiataria.models),
   }))
   const [variantIds, setVariantIds] = useState<Record<string, string | null>>(() =>
     initial?.variantId ? { [variantKey(initial.productId, initial.modelId)]: initial.variantId } : {},
