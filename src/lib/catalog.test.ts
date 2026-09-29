@@ -30,17 +30,18 @@ describe('seção Alfaiataria', () => {
     expect(pages).toHaveLength(11)
     const route = resolveRoute(c, pages[0]!.path)
     expect(route.kind === 'product' && route.product.id === 'alfaiataria').toBe(true)
-    // Sem preço em reais e sem Links de compra, ela apareceria como pendente (por isso segue desligada).
+    // Sem os Links de compra, ela apareceria como pendente (por isso segue desligada).
     expect(allPending(c).some((i) => i.productId === 'alfaiataria' && i.level === 'essential')).toBe(true)
   })
 
-  it('11 peças em português, sem o tênis, com descrição, fotos no site e sem preço riscado', () => {
+  it('11 peças em português, sem o tênis, com descrição, fotos no site e preço com origem', () => {
     expect(alf.models).toHaveLength(11)
     expect(alf.models.some((m) => /zapatilla|mailson|t[eê]nis/i.test(`${m.id} ${m.name}`))).toBe(false)
     for (const m of alf.models) {
       expect(m.about?.slug, m.id).toBeTruthy()
-      expect(m.compareAtCents, m.id).toBeUndefined()
-      expect(m.priceCents, m.id).toBeNull()
+      expect(m.priceCents, m.id).toBeGreaterThan(0)
+      expect(m.compareAtCents! > m.priceCents!, m.id).toBe(true)
+      expect(m.compareAtSource, m.id).toBeTruthy()
       expect(/pantal|zapat|punto|sastre|acanalad/i.test(m.name), m.name).toBe(false)
       for (const src of [...m.images.map((i) => i.src), ...m.variants.map((v) => v.image)]) {
         expect(fotosNoSite.has(src ?? ''), src ?? '').toBe(true)

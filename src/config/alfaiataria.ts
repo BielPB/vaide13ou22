@@ -5,10 +5,9 @@ import type { Product, ProductImage, ProductModel } from './types'
  * cadastrada a pedido dele em 28/09/2026). DESLIGADA (`enabled: false`): não aparece
  * na vitrine, no menu, nas rotas nem nas páginas geradas no build.
  *
- * Antes de ligar, falta: preço em reais de cada peça (`priceCents`), os Links de
- * compra da Yampi de cada tamanho/cor (`checkoutUrl`) e revisar os textos.
- * Os preços riscados da loja de fora não foram usados (não eram preços praticados
- * aqui). O tênis da planilha ficou de fora (fotos de réplica de marca).
+ * Antes de ligar, falta: os Links de compra da Yampi de cada tamanho/cor
+ * (`checkoutUrl`). Os preços em reais estão em `precoDe`, abaixo. O tênis da
+ * planilha ficou de fora (fotos de réplica de marca).
  *
  * Roupas usam `category: 'camisa'`: o site trata como peça com tamanho (seletor de
  * tamanho, tabela de medidas e nome sem o prefixo "Boné").
@@ -265,6 +264,19 @@ const models: ProductModel[] = [
   },
 ]
 
+/**
+ * Preços em reais informados pelo vendedor em 28/09/2026: [de, por], em centavos.
+ * Os mesmos da planilha da Yampi (preco_venda = de, preco_promocional = por).
+ */
+const precoDe = (m: ProductModel): [number, number] =>
+  m.id.startsWith('calca') ? [42700, 18790] : m.id.startsWith('sueter') ? [39700, 29790] : m.id === 'regata-canelada' ? [19990, 12790] : [23590, 18990]
+for (const m of models) {
+  const [de, por] = precoDe(m)
+  m.priceCents = por
+  m.compareAtCents = de
+  m.compareAtSource = 'Preço "de" informado pelo vendedor em 28/09/2026 (igual ao da planilha da Yampi)'
+}
+
 export const alfaiataria: Product = {
   id: 'alfaiataria',
   number: '',
@@ -273,6 +285,6 @@ export const alfaiataria: Product = {
   tagline: 'Calças de alfaiataria e sarja, suéteres de tricô, camisas e regata.',
   heroImage: photo('calca-de-alfaiataria-capri-ajuste-lateral/1.webp', 'Capri · Azul-marinho', 'Calça de alfaiataria Capri azul-marinho', 675, 900),
   models,
-  // Desligada até ter preços em reais e Links de compra da Yampi.
+  // Desligada até ter os Links de compra da Yampi.
   enabled: false,
 }
