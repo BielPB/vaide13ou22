@@ -16,6 +16,7 @@ import { ShopProvider, useShop } from './lib/shop'
 import { CartProvider } from './lib/cartContext'
 import { CartDrawer } from './components/Cart'
 import { startMetaPixel } from './lib/metaPixel'
+import { rememberCampaign } from './lib/campaign'
 
 /**
  * Dados estruturados do produto da página — só com loja publicada, URL
@@ -130,6 +131,8 @@ export function App({ config }: { config: StoreConfig }) {
   usePageMeta(config, route, pathname)
   // Meta Pixel (só com VITE_META_PIXEL_ID configurado): as trocas de página seguintes o próprio pixel registra.
   useEffect(() => startMetaPixel(), [])
+  // Guarda as UTMs do anúncio para repassá-las ao checkout.
+  useEffect(() => rememberCampaign(), [])
   const page = route.kind === 'home' ? 'home' : route.kind === 'product' ? 'product' : 'other'
 
   return (

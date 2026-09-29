@@ -3,6 +3,7 @@ import type { StoreConfig } from '../config/types'
 import { addLine, cartCount, cartSubtotalCents, lineKey, removeLine, sanitizeCart, setLineQuantity, type CartLine } from './cart'
 import { buildCheckoutUrl, CheckoutError } from './purchase'
 import { readMigrated } from './storage'
+import { withCampaign } from './campaign'
 
 /**
  * Estado do carrinho. Fica acima da página (não zera ao navegar) e é salvo só
@@ -74,7 +75,8 @@ export function CartProvider({ config, children }: { config: StoreConfig; childr
   const checkout = useCallback(() => {
     if (items.length === 0) return
     try {
-      const url = buildCheckoutUrl(config, items)
+      // UTMs do anúncio seguem para o checkout (atribuição da venda na UTMify).
+      const url = withCampaign(buildCheckoutUrl(config, items))
       setRedirecting(true)
       // Preço, estoque, frete e total final são validados pelo checkout.
       window.location.assign(url)

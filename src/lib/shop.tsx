@@ -11,6 +11,7 @@ import {
   type PurchaseState,
   type QuantityRule,
 } from './purchase'
+import { withCampaign } from './campaign'
 
 type CheckoutStatus = { kind: 'idle' } | { kind: 'redirecting' } | { kind: 'error'; message: string }
 
@@ -126,14 +127,14 @@ export function ShopProvider({
   const startCheckout = useCallback(() => {
     if (!selection?.model || !selection.variant) return
     try {
-      const url = buildCheckoutUrl(config, [
+      const url = withCampaign(buildCheckoutUrl(config, [
         {
           productId: selection.product.id,
           modelId: selection.model.id,
           variantId: selection.variant.id,
           quantity: selection.quantity,
         },
-      ])
+      ]))
       setCheckout({ kind: 'redirecting' })
       // Preço, estoque, frete e total final são validados pelo checkout.
       window.location.assign(url)

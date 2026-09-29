@@ -135,6 +135,9 @@ A escolha do modelo fica só na memória da aba: não é salva, enviada ou medid
 automática da Meta desligada. Não envie eventos com produto, lado (13/22), carrinho ou compra, e não crie públicos de
 afinidade política. As políticas de privacidade e de cookies descrevem esse uso; mude as duas se a medição mudar.
 
+**UTMs de anúncio** (`src/lib/campaign.ts`): as 5 UTMs padrão da página de entrada ficam no navegador por até 7 dias e são
+acrescentadas ao link do checkout. A Yampi as envia no webhook, e a UTMify atribui a venda ao anúncio (sem pixel da UTMify no site).
+
 ## Estrutura
 
 ```
@@ -148,3 +151,4 @@ src/
 public/produtos/ fotos dos modelos (22-bandeira, 22-simples, 22-camuflado, 22-flavio) e ilustração do 13
 marca/           logos do checkout e prévia de cores
 ```
+
